@@ -18,6 +18,13 @@ export default class Gallery extends PureComponent {
         <div className="gallery">
           <img src={bunny.url} alt={bunny.title}/>
           <h4>{bunny.title}</h4>
+          <button value="Previous" onClick={({ target }) => {this.props.nextImage(target.value)}}>
+          Previous
+          </button>
+          <button value="Next" onClick={({ target }) => {this.props.nextImage(target.value)}}>
+          Next
+          </button>
+          {/* Might want to add remove button here */}
         </div>
       );
     }
