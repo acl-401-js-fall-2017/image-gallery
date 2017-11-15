@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PhotoDisplaySelector from './PhotoDisplaySelector';
+import ImageManager from './ImageManager';
 import List from './List';
 import Thumbnails from './Thumbnails';
 import Gallery from './Gallery';
@@ -29,9 +30,12 @@ export default class Photos extends PureComponent {
       <section className="Photos">
         <header className="PhotosHeader">
           <h2>Photos</h2>
-          <PhotoDisplaySelector
-            onDisplayChange={handleDisplayChange}
-          />
+          <div className="PhotoUtils">
+            <PhotoDisplaySelector
+              onDisplayChange={handleDisplayChange}
+            />
+            <ImageManager/>
+          </div>
         </header>
         {display === 'list'       &&  <List images={images}/>}
         {display === 'thumbnails' &&  <Thumbnails images={images}/>}

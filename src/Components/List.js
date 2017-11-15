@@ -4,23 +4,19 @@ import './styles/List.css';
 
 export default class List extends PureComponent {
   render() {
-    const { 
-      images
-    } = this.props;
-
-    const imgTable = images.map((image, i) => {
-      return (
-        <tr key={i}>
-          <th>{image.title}</th>
-          <td>{image.url}</td>
-          <td>{image.description}</td>
-        </tr>
-      );
-    });
-
+    const { images } = this.props;
+    
     return (
       <table className="List">
-        {imgTable}
+        {images.map((image, i) => {
+          return (
+            <tr key={i}>
+              <th>{image.title}</th>
+              <td>{image.url}</td>
+              <td>{image.description}</td>
+            </tr>
+          );
+        })}
       </table>
     );
   }
