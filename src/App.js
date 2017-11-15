@@ -2,27 +2,34 @@ import React, { Component } from 'react';
 import Photos from './Components/Photos';
 
 import imageData from './data/images.js';
+import {
+  changeDisplay
+} from './actions';
 import './App.css';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      images: [],
-      display: 'list'   // 'list'|'thumbnail'|'gallery'
+      display: 'list'   // 'list'|'thumbnails'|'gallery'
     };
   }
+
+  handleDisplayChange = newDisplay => {
+    const newState = changeDisplay(this.state, newDisplay);
+    this.setState(newState);
+  }
+
   render() {
     const { 
-      images,
       display
     } = this.state;
     
     return (
       <div className="App">
         <Photos
-          images={images}
           display={display}
+          handleDisplayChange={value => this.handleDisplayChange(value)}
         />
       </div>
     );

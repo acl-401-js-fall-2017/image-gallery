@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import './styles/Thumbnails.css';
 
 export default class Thumbnails extends PureComponent {
   render() {

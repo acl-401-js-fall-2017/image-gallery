@@ -1,0 +1,21 @@
+.Photos {
+    width: 50%;
+    margin: auto;
+}
+
+.PhotosHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 2em;
+    background-color: black;
+    color: white;
+}
+
+.PhotosHeader h2 {
+    margin: 0;
+}
+
+.PhotosHeader select {
+    padding: 0.4em;
+    border-radius: 0.3em;
+}

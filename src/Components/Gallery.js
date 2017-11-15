@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import './styles/Gallery.css';
 
 export default class Gallery extends PureComponent {
   render() {
