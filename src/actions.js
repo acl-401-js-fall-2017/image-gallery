@@ -34,15 +34,15 @@ export function addBunny(state, title) {
   };
 }
 
-export function removeBunny(state, _id) {
-  const i = state.bunnies.findIndex(title => title._id === _id);
-  if(i === -1) return state;
+// export function removeBunny(state, _id) {
+//   const i = state.bunnies.findIndex(title => title._id === _id);
+//   if(i === -1) return state;
 
-  const bunnies = state.bunnies.slice(); 
+//   const bunnies = state.bunnies.slice(); 
 
-  bunnies.splice(i, 1); // 1st parameter says what position to affect, 2nd parameter determines add(0)/remove(1)
-  return {
-    ...state,
-    bunnies
-  };
-}
+//   bunnies.splice(i, 1); // 1st parameter says what position to affect, 2nd parameter determines add(0)/remove(1)
+//   return {
+//     ...state,
+//     bunnies
+//   };
+// }
