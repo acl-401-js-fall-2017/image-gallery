@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Bunnies from './images/bunnies';
 import List from './components/List';
+import Thumbnail from './components/Thumbnail';
 
 class App extends Component {
 
@@ -18,6 +19,9 @@ class App extends Component {
       <div className="App">
         <div className="">
           <List bunnies={this.state.bunnies} />
+        </div>
+        <div className="">
+          <Thumbnail bunnies={this.state.bunnies} />
         </div>
       </div>
     );
