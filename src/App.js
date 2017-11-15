@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import bunny from './image/bunny.jpg';
 import './App.css';
+import BunnyList from './BunnyList';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <img src={bunny} className="App-logo" alt="" />
+          <h1 className="App-title">Welcome to A World of Bunnies</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <BunnyList/>
       </div>
     );
   }
