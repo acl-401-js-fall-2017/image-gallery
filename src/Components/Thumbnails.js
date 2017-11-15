@@ -1,14 +1,26 @@
 import React, { PureComponent } from 'react';
+
 import './styles/Thumbnails.css';
 
 export default class Thumbnails extends PureComponent {
   render() {
     const { 
-      imageData
+      images
     } = this.props;
+
+    const imgThumbnails = images.map((image, i) => (
+      <div id={image.title} className="thumbnail" key={i}>
+        <img src={image.url} alt={image.title}/>
+        <div className='thumbnailPopUp'>
+          <h3>{image.title}</h3>
+          <p>{image.description}</p>
+        </div>
+      </div>
+    ));
+
     return (
       <section className="Thumbnails">
-        Thumbnails!
+        {imgThumbnails}
       </section>
     );
   }
