@@ -10,7 +10,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      display: 'gallery'   // 'list'|'thumbnails'|'gallery'
+      display: 'list'   // 'list'|'thumbnails'|'gallery'
     };
   }
 

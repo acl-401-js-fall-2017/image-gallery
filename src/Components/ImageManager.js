@@ -7,9 +7,9 @@ export default class ImageManager extends PureComponent {
     super();
     this.state = {
       open: {
-        main: true,
+        main: false,
         add: false,
-        remove: true
+        remove: false
       }
     };
   }

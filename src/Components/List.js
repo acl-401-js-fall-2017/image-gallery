@@ -12,7 +12,7 @@ export default class List extends PureComponent {
           return (
             <tr key={i}>
               <th>{image.title}</th>
-              <td>{image.url}</td>
+              <td><a href={image.url}>{image.url}</a></td>
               <td>{image.description}</td>
             </tr>
           );
