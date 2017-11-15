@@ -7,7 +7,8 @@ import Gallery from './Gallery';
 
 import {
   loadImages,
-  addNewImg
+  addNewImg,
+  removeImages
 } from '../actions';
 import './styles/Photos.css';
 
@@ -28,6 +29,11 @@ export default class Photos extends PureComponent {
     const newState = addNewImg(this.state, newImg);
     this.setState(newState);
   }
+
+  handleRemove = imgs => {
+    const newState = removeImages(this.state, imgs);
+    this.setState(newState);
+  }
   
   render() {
     const { display, handleDisplayChange } = this.props;
@@ -41,7 +47,9 @@ export default class Photos extends PureComponent {
               onDisplayChange={handleDisplayChange}
             />
             <ImageManager
+              images={images}
               onUpload={this.handleUpload}
+              onRemove={this.handleRemove}
             />
           </div>
         </header>

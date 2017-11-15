@@ -8,8 +8,8 @@ export default class ImageManager extends PureComponent {
     this.state = {
       open: {
         main: true,
-        add: true,
-        remove: false
+        add: false,
+        remove: true
       }
     };
   }
@@ -30,8 +30,17 @@ export default class ImageManager extends PureComponent {
     e.target.reset();
   }
 
+  handleRemoval = e => {
+    e.preventDefault();
+    // const toRemove = e.target.map(ele => ele.value);
+    const options = Array.from(e.target.removeSelector);
+    this.props.onRemove(options.filter(o => o.selected).map(o => o.value));
+  }
+
   render() {
     const { open } = this.state;
+    const { images } = this.props;
+
     return (
       <div className="ImageManager">
         <h2
@@ -63,7 +72,26 @@ export default class ImageManager extends PureComponent {
               >Remove Image</h4>
               {open.remove &&
                 <section>
-  here too
+                  <form
+                    onSubmit={this.handleRemoval}
+                    ref={form => this.form = form}
+                  >
+                    <select 
+                      name="removeSelector"
+                      defaultValue={[-1, -2]} 
+                      multiple="multiple"
+                      style={{
+                        height: `${images.length * 1.5 + 3}em`
+                      }}
+                    >
+                      <option disabled value='-1'>Select to Remove</option>
+                      <option disabled value='-2'>&nbsp;&nbsp;&nbsp;(shift-click for multiple)</option>
+                      {images.map((img, i) => {
+                        return <option key={i} value={i}>{img.title}}</option>
+                      })}
+                    </select>
+                    <input className='submit' type="submit" name="submit"/>
+                  </form>
                 </section>
               }
             </div>

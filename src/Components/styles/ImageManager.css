@@ -39,11 +39,19 @@
     text-align: left;
 }
 
+.imageManagerDisplay select {
+    width: 92.5%;
+    max-height: 25em;
+    margin: 0.5em 5%;
+    border-radius: 0.3em;
+    padding: 0.2em;
+    text-align: left;
+}
+
 .imageManagerDisplay .submit {
     line-height: 1.5em;
     text-align: center;
     font-weight: bold;
     width: 92.5%;
 }
-
 

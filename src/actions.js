@@ -24,6 +24,13 @@ export function addNewImg(state, newImg) {
   };
 }
 
+export function removeImages(state, voidImgs) {
+  return {
+    ...state,
+    images: state.images.filter((img, i) => !voidImgs.map(i => parseInt(i)).includes(i))
+  }
+}
+
 // in Gallery.js
 export function setInitialImg(state, range) {
   return {
