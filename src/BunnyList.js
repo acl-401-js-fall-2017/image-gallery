@@ -1,7 +1,5 @@
 import React, { PureComponent } from 'react';
-import { loadbunnies } from 
-
-
+import { loadBunnies, addBunny, removeBunny } from './actions';
 
 
 export default class BunnyList extends PureComponent {
@@ -16,24 +14,24 @@ export default class BunnyList extends PureComponent {
     const newState = loadBunnies(this.state);
     this.setState(newState);
   }	
-}
 
-handleAdd = title => {
-	const newState = addBunnies(this.state, title);
-	this.setState(newState);
-}
+	handleAdd = title => {
+	  const newState = addBunny(this.state, title);
+	  this.setState(newState);
+	}
 
-handleRemove = id => {
-	const newState = removeBunnies(this.state, id);
-	this.setState(newState);
-}
+	handleRemove = id => {
+	  const newState = removeBunny(this.state, id);
+	  this.setState(newState);
+	}
 
-render() {
-	const { bunnies } = this.state;
+	render() {
+	  const { bunnies } = this.state;
 
-	return (
-	<div>
-		<h2>Hop, Hop, Hop</h2>
-	</div>
-	);
+	  return (
+	    <div>
+
+	    </div>
+	  );
+	}
 }
