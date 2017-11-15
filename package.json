@@ -6,7 +6,8 @@
     "jest": "^21.2.1",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "shortid": "^2.2.8"
   },
   "scripts": {
     "start": "react-scripts start",
