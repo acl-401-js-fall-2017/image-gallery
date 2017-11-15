@@ -11,7 +11,7 @@ export default class PhotoDisplaySelector extends PureComponent {
           onDisplayChange(e.target.value);
         }}
       >
-        <option disabled selected value=''>View Mode</option>
+        <option disabled defaultValue value=''>View Mode</option>
         <option value="list">list</option>
         <option value="thumbnails">thumbnails</option>
         <option value="gallery">gallery</option>

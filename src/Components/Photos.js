@@ -3,6 +3,10 @@ import PhotoDisplaySelector from './PhotoDisplaySelector';
 import List from './List';
 import Thumbnails from './Thumbnails';
 import Gallery from './Gallery';
+
+import {
+  loadImages
+} from '../actions';
 import './styles/Photos.css';
 
 export default class Photos extends PureComponent {
@@ -13,7 +17,11 @@ export default class Photos extends PureComponent {
     };
   }
 
-  /* onDisplayChange={({ target: { value } }) => handleDisplayChange(value)} */
+  componentDidMount() {
+    const newState = loadImages(this.state);
+    this.setState(newState);
+  }
+  
   render() {
     const { display, handleDisplayChange } = this.props;
     const { images } = this.state;

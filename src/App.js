@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Photos from './Components/Photos';
 
-import imageData from './data/images.js';
 import {
   changeDisplay
 } from './actions';
@@ -11,7 +10,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      display: 'list'   // 'list'|'thumbnails'|'gallery'
+      display: 'thumbnails'   // 'list'|'thumbnails'|'gallery'
     };
   }
 
