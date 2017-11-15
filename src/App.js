@@ -5,8 +5,8 @@ import shortid from 'shortid';
 import WonderList from './views/list';
 import WonderThumbnail from './views/thumbnail';
 import WonderGallery from './views/gallery';
-// import AddImage from './AddImage';
-// import { createWonder} from './actions';
+import AddImage from './AddImage';
+import { createWonder} from './actions';
 
 const views = {
   list: WonderList,
@@ -65,7 +65,8 @@ class App extends Component {
       ]
     }
     this.handleViewChange = this.handleViewChange.bind(this);
-    // this.handleOnSubmitCreateWonder = this.handleOnSubmitCreateWonder.bind(this);
+    this.handleOnSubmitCreateWonder = this.handleOnSubmitCreateWonder.bind(this);
+    console.log(this.state.wonders)
   }
 
   handleViewChange(event) {
@@ -73,10 +74,10 @@ class App extends Component {
   }
 
 
-  // handleOnSubmitCreateWonder = (title, description, url) => {
-  //   const wonders = createWonder(this.state, title, description, url);
-  //   this.setState({ wonders });
-  // }
+  handleOnSubmitCreateWonder = (title, description, url) => {
+    const newState = createWonder(this.state, title, description, url);
+    this.setState(newState);
+  }
   
 
   render() {
@@ -97,7 +98,7 @@ class App extends Component {
          <button value='gallery' onClick={this.handleViewChange}>gallery</button>
         </div>
         <CurrentView wonders={wonders}/>  
-        {/* <AddImage handleOnSubmit={this.handleAdd}/> */}
+        <AddImage handleOnSubmit={this.handleOnSubmitCreateWonder}/>
       </div>
     );
   }

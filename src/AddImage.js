@@ -1,8 +1,9 @@
-import React, { PureComponent } from 'react';
-
-export default function AddImage ({ handleOnSubmit }) {
-  
-    return (
+    import React, { PureComponent } from 'react';
+    
+    export default class AddImage extends PureComponent {
+      render() {
+        const { handleOnSubmit } = this.props;
+        return (
         <div>
           <h2>Add a new wonder!</h2>
           <form onSubmit={event => {
@@ -20,7 +21,5 @@ export default function AddImage ({ handleOnSubmit }) {
           </form>
         </div>
       );
-    
+      }
     }
-  
-  
