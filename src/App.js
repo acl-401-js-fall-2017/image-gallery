@@ -2,12 +2,19 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import shortid from 'shortid';
-import WonderList from './views/list'
+import WonderList from './views/list';
+import WonderThumbnail from './views/thumbnail';
+
+const views = {
+  list: WonderList,
+  thumbnail: WonderThumbnail
+};
 
 class App extends Component {
   constructor(){
     super();
     this.state = {
+      view: 'list',
       wonders: [
         {
           _id: shortid.generate(),
@@ -53,11 +60,16 @@ class App extends Component {
         }
       ]
     }
+    this.handleViewChange = this.handleViewChange.bind(this);
   }
 
+  handleViewChange(event) {
+    this.setState({ view:event.target.value })
+  }
 
   render() {
-    const { wonders } = this.state;
+    const { wonders, view} = this.state;
+    let CurrentView = views[view]
     return (
       <div className="App">
         <header className="App-header">
@@ -67,9 +79,11 @@ class App extends Component {
         <p className="App-intro">
           Wicked Bunny!!!
         </p>
-        <div>{wonders.map((wonder) => {
-         return <WonderList key={wonder._id} wonders={wonders}/>
-          })}</div>
+        <div>
+         <button value='list' onClick={this.handleViewChange}>list</button>
+         <button value='thumbnail' onClick={this.handleViewChange}>thumbnail</button>
+        </div>
+        <CurrentView wonders={wonders}/>  
       </div>
     );
   }

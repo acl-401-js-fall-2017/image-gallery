@@ -7,8 +7,8 @@ export default class WonderList extends Component {
   
       return (
         <div className="list-view">
-          {wonders.map((wonder, index) => (
-            <div key={index} >
+          {wonders.map((wonder) => (
+            <div key={wonder._id} >
               <h2>{wonder.title}</h2>
               <img src={wonder.url} alt={wonder.title}/>
               <p>{wonder.description}</p>
