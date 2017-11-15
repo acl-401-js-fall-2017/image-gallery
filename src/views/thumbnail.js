@@ -9,7 +9,7 @@ export default class WonderThumbnail extends Component {
       <div className="thumbnail-view">
         {wonders.map((wonder) => (
           <div key={wonder._id} >
-            <img src={wonder.url} alt={wonder.title}/>
+            <img style={{ height:'200px'}} src={wonder.url} alt={wonder.title}/>
             <p>{wonder.title}</p>
           </div>
         ))}

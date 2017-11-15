@@ -4,10 +4,12 @@ import './App.css';
 import shortid from 'shortid';
 import WonderList from './views/list';
 import WonderThumbnail from './views/thumbnail';
+import WonderGallery from './views/gallery';
 
 const views = {
   list: WonderList,
-  thumbnail: WonderThumbnail
+  thumbnail: WonderThumbnail,
+  gallery: WonderGallery
 };
 
 class App extends Component {
@@ -77,11 +79,12 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          Wicked Bunny!!!
+          Wonders of The World!!!
         </p>
         <div>
          <button value='list' onClick={this.handleViewChange}>list</button>
          <button value='thumbnail' onClick={this.handleViewChange}>thumbnail</button>
+         <button value='gallery' onClick={this.handleViewChange}>gallery</button>
         </div>
         <CurrentView wonders={wonders}/>  
       </div>
