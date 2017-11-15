@@ -17,7 +17,7 @@ export default class Thumbnail extends PureComponent {
           {this.props.bunnies.map((bunny, index) => {
             return (
               <div key={index}>
-                <img src={bunny.url} alt={bunny.title}/>
+                <img src={bunny.url} alt={bunny.title} height="100px"/>
                 <h4>{bunny.title}</h4>
               </div>
             );
