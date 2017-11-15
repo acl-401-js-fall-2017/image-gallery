@@ -13,16 +13,19 @@ export default class List extends PureComponent {
 
     render() {
       return (
-        <ul className='list'>
-          {this.props.bunnies.map((bunny, index) => {
-            return (
-              <li key={index}>
-                <a href={bunny.url}>{bunny.title}</a>
-                <p>{bunny.description}</p>
-              </li>
-            );
-          })}
-        </ul>
+        
+        <table className='list'>
+          <tbody>
+            {this.props.bunnies.map((bunny, index) => {
+              return (
+                <tr key={index}>
+                  <td><a href={bunny.url}>{bunny.title}</a></td>
+                  <td>{bunny.description}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       );
     }
 }
