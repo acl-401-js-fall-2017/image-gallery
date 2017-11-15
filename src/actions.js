@@ -17,6 +17,13 @@ export function loadImages(state) {
   };
 }
 
+export function addNewImg(state, newImg) { 
+  return {
+    ...state,
+    images: state.images.concat([newImg])
+  };
+}
+
 // in Gallery.js
 export function setInitialImg(state, range) {
   return {

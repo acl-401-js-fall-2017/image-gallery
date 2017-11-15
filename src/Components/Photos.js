@@ -6,7 +6,8 @@ import Thumbnails from './Thumbnails';
 import Gallery from './Gallery';
 
 import {
-  loadImages
+  loadImages,
+  addNewImg
 } from '../actions';
 import './styles/Photos.css';
 
@@ -22,6 +23,11 @@ export default class Photos extends PureComponent {
     const newState = loadImages(this.state);
     this.setState(newState);
   }
+
+  handleUpload = newImg => {
+    const newState = addNewImg(this.state, newImg);
+    this.setState(newState);
+  }
   
   render() {
     const { display, handleDisplayChange } = this.props;
@@ -34,7 +40,9 @@ export default class Photos extends PureComponent {
             <PhotoDisplaySelector
               onDisplayChange={handleDisplayChange}
             />
-            <ImageManager/>
+            <ImageManager
+              onUpload={this.handleUpload}
+            />
           </div>
         </header>
         {display === 'list'       &&  <List images={images}/>}

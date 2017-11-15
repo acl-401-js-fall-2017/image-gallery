@@ -7,8 +7,8 @@ export default class ImageManager extends PureComponent {
     super();
     this.state = {
       open: {
-        main: false,
-        input: false,
+        main: true,
+        add: true,
         remove: false
       }
     };
@@ -17,6 +17,17 @@ export default class ImageManager extends PureComponent {
   handleToggle = section => () => {
     const newState = toggle(this.state, section);
     this.setState(newState);
+  }
+
+  handleAddition = e => {
+    e.preventDefault();
+    const { target: { 
+      url: { value: url },
+      title: { value: title },
+      description: { value: description }
+    } } = e;
+    this.props.onUpload({ url, title, description });
+    e.target.reset();
   }
 
   render() {
@@ -30,16 +41,31 @@ export default class ImageManager extends PureComponent {
           open.main &&
           <div className="imageManagerDisplay">
             <div>
-              <h4>Add New Image</h4>
-              <section>
-
-              </section>
+              <h4
+                onClick={this.handleToggle('add')}
+              >Add New Image</h4>
+              {open.add &&
+                <section>
+                  <form
+                    onSubmit={this.handleAddition}
+                  >
+                    <input name="url" type="text" placeholder="url"/>
+                    <input name="title" type="text" placeholder="title"/>
+                    <textarea name="description" placeholder="description"/>
+                    <input className='submit' type="submit" name="submit"/>
+                  </form>
+                </section>
+              }
             </div>
             <div>
-              <h4>Remove Image</h4>
-              <section>
-
-              </section>
+              <h4
+                onClick={this.handleToggle('remove')}
+              >Remove Image</h4>
+              {open.remove &&
+                <section>
+  here too
+                </section>
+              }
             </div>
           </div>
         }
