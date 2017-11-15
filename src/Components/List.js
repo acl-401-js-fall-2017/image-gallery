@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import './styles/List.css';
 
 export default class List extends PureComponent {
@@ -24,3 +25,7 @@ export default class List extends PureComponent {
     );
   }
 }
+
+List.propTypes = {
+  images: PropTypes.array
+};

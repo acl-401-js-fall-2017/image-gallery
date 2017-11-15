@@ -6,12 +6,13 @@ export default class PhotoDisplaySelector extends PureComponent {
     const { onDisplayChange } = this.props;
     return(
       <select
+        defaultValue=''
         onChange={e => {
           e.preventDefault();
           onDisplayChange(e.target.value);
         }}
       >
-        <option disabled defaultValue value=''>View Mode</option>
+        <option disabled value=''>View Mode</option>
         <option value="list">list</option>
         <option value="thumbnails">thumbnails</option>
         <option value="gallery">gallery</option>
