@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import List from './components/ListView';
+import Thumb from './components/ThumbView';
+import Galley from './components/GalleryView';
 
 class App extends Component {
 
@@ -13,7 +16,7 @@ class App extends Component {
 
   changeView = ({ target }) => {
     this.setState( 
-    { view: target.id }
+      { view: target.id }
     );
   }
 
@@ -38,29 +41,16 @@ class App extends Component {
         <p className="App-intro">
           Here are some pandas for you to look at:
           {this.state.view === 'list' && (
-            <li> list
-            </li>
+            <List />
           )}
           {this.state.view === 'thumb' && (
-            <li> thumbnail
-            </li>
+            <Thumb />
           )}
           {this.state.view === 'gallery' && (
-            <li> gallery
-            </li>
+            <Galley />
           )}
-
-         <ul>
-            < li > Panda 1 < a href = "http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg" >
-             http: //f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg  </a></li>
-            < li > Panda 2 < a href = "http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg" >
-             http: //static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg  </a></li>
-            < li > Panda 3 < a href = "http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg" >
-             http: //static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg  </a></li>
-        </ul>   
-
         </p>
-        
+
       </div>
     );
   }
