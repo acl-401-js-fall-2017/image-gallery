@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Galley extends Component {
+export default class Gallery extends Component {
 
   render() {
     return(
@@ -10,3 +10,7 @@ export default class Galley extends Component {
     );
   }
 }
+
+// Gallery.propTypes = {
+//   imageUrls: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+// };

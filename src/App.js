@@ -3,7 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import List from './components/ListView';
 import Thumb from './components/ThumbView';
-import Galley from './components/GalleryView';
+import Gallery from './components/GalleryView';
+
+import PicView from './PicView';
 
 class App extends Component {
 
@@ -47,7 +49,7 @@ class App extends Component {
             <Thumb />
           )}
           {this.state.view === 'gallery' && (
-            <Galley />
+            <Gallery />
           )}
         </p>
 
