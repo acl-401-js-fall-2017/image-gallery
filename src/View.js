@@ -20,11 +20,24 @@ class View extends PureComponent {
     };
   }
 	
+  handleViewChange(event) {
+    const value = 
+		this.setState({ viewStyle: value })
+  }
+	
   render() {
-    const { bunnies } = this.state;
+    const { bunnies, viewStyle } = this.state;
+    let currentView;
+    (viewStyle === 'list') && (currentView = <ListView bunnies={bunnies}/>);
+    // (viewStyle === 'gallery') && (currentView = <Gallery bunnies={bunnies}/>);
+    // (viewStyle === 'thumbnail') && (currentView = <Thumbnail bunnies={bunnies}/>);
 
     return (
-      <ListView bunnies = {bunnies}/>
+      <div>
+        <ListView bunnies = {bunnies}/>
+        <input type="button" value="Bunny List"/>
+      </div>
+
     );
   }
 }
