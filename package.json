@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "jest": "^21.2.1",
+    "enzyme-adapter-react-16": "^1.1.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-scripts": "1.0.17",
@@ -18,6 +18,9 @@
     "lint": "eslint src"
   },
   "devDependencies": {
+    "jest-enzyme": "^4.0.1",
+    "enzyme": "^3.2.0",
+    "enzyme-to-json": "^3.2.2",
     "react-test-renderer": "^16.1.1"
   }
 }
