@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import bunny from './image/bunny.jpg';
 import './App.css';
-import BunnyList from './BunnyList';
+import View from './View';
 
 class App extends Component {
   render() {
@@ -11,7 +11,7 @@ class App extends Component {
           <img src={bunny} className="App-logo" alt="" />
           <h1 className="App-title">Welcome to a World of Bunnies</h1>
         </header>
-        <BunnyList/>
+        <View/>
       </div>
     );
   }
