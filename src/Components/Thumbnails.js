@@ -6,7 +6,7 @@ export default class Thumbnails extends PureComponent {
       imageData
     } = this.props;
     return (
-      <section>
+      <section className="Thumbnails">
         Thumbnails!
       </section>
     );

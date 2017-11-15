@@ -6,7 +6,7 @@ export default class Gallery extends PureComponent {
       imageData
     } = this.props;
     return (
-      <section>
+      <section className="Gallery">
         Gallery!
       </section>
     );

@@ -6,7 +6,7 @@ export default class List extends PureComponent {
       imageData
     } = this.props;
     return (
-      <section>
+      <section className="List">
         List!
       </section>
     );

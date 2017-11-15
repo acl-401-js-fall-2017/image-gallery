@@ -10,11 +10,11 @@ export default class Photos extends PureComponent {
       display
     } = this.props;
     return (
-      <section>
+      <section className="Photos">
         Photos!
-        <List/>
-        <Thumbnails/>
-        <Gallery/>
+        {display === 'list' && <List images={images}/>}
+        {display === 'thumbnail' && <Thumbnails images={images}/>}
+        {display === 'gallery' && <Gallery images={images}/>}
       </section>
     );
   }
