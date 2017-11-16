@@ -31,6 +31,7 @@ export function addImg(state, img) {
   }
 }
 
+
 export function deleteImg(state, id) {
   const index = state.gallery.findIndex(img => img._id === id)
   const gallery = state.gallery.slice()
