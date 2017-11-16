@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Photos from './Components/Photos';
 
 import {
@@ -25,12 +26,20 @@ class App extends Component {
     } = this.state;
     
     return (
-      <div className="App">
-        <Photos
-          display={display}
-          handleDisplayChange={value => this.handleDisplayChange(value)}
-        />
-      </div>
+      <Router>
+        <div className="App">
+          <Route exact path="/" render={() => (
+            <h1>HOME</h1>
+          )}/>
+          <Route path="/photos" render={() => (
+            <Photos
+              display={display}
+              handleDisplayChange={value => this.handleDisplayChange(value)}
+            />  
+          )}/>
+          {/* <Route path="/minigame" ren */}
+        </div>
+      </Router>
     );
   }
 }
