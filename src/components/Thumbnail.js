@@ -7,9 +7,6 @@ export default class Thumbnail extends PureComponent {
       bunnies: PropTypes.arrayOf(PropTypes.object).isRequired
     }
 
-    constructor() {
-      super();
-    }
 
     render() {
       return (
