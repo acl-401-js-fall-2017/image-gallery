@@ -10,32 +10,8 @@ import View from './components/View';
 
 class App extends Component {
 
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     view: 'List',
-  //     bunnies: Bunnies,
-  //     current: 0
-  //   };
-  // }
-
   render() {
     return (
-      // <div className="App">
-      //   <div className="">
-      //     <List bunnies={this.state.bunnies} />
-      //   </div>
-      //   <div className="">
-      //     <Thumbnail bunnies={this.state.bunnies} />
-      //   </div>
-      //   <div className="">
-      //     <Gallery 
-      //       bunnies={this.state.bunnies} 
-      //       current={this.state.current} 
-      //       nextImage={this.nextImage}
-      //     />
-      //   </div>
-      // </div>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
