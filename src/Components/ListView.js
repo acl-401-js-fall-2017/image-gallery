@@ -12,7 +12,7 @@ export default class ListView extends PureComponent {
     });
 		
     return (
-      <table>
+      <table className="table-center">
         <tbody>
           {images} 
         </tbody>

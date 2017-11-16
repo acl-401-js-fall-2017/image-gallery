@@ -28,12 +28,12 @@ export default class App extends Component {
   }
 }
 
-const Home = () => {
-  <div>
+const Home = () => (
+  <div className="Link">
     <h1 className="App-title">Welcome to a World of Bunnies</h1>
-    <Link to="/bunnies">View More Bunnies</Link>
-  </div>;
-};
+    <Link to="/bunnies">Link Placeholder</Link>
+  </div>
+);
 
 
 
