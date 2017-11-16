@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-// import Bunnies from './images/bunnies';
-// import List from './components/List';
-// import Thumbnail from './components/Thumbnail';
-// import Gallery from './components/Gallery';
+
 import View from './components/View';
 
 
