@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import images from './images';
-import Selector from './Selector';
+import Selector from './Selector/Selector';
 import './App.css';
 
 class App extends Component {
