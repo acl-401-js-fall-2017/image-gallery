@@ -16,6 +16,7 @@ export default class Thumbnail extends PureComponent {
               <div key={index}>
                 <img src={bunny.url} alt={bunny.title} height="100px"/>
                 <h4>{bunny.title}</h4>
+                <h6>{bunny.description}</h6>
               </div>
             );
           })}
