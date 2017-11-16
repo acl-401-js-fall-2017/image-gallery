@@ -32,7 +32,7 @@ export function loadImages(state) {
   };
 }
 
-export function addImage(state, title, description, url ) {
+export function addImage(state, title, description, url) {
   return {
     ...state,
     images: [

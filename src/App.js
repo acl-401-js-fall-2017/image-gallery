@@ -7,8 +7,6 @@ import Gallery from './components/GalleryView';
 import { loadImages } from './data/viewActions';
 
 
-import PicView from './PicView';
-
 class App extends Component {
 
   constructor() {
