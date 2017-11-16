@@ -63,13 +63,13 @@ class App extends Component {
           url:'https://upload.wikimedia.org/wikipedia/commons/c/c8/Taj_Mahal_in_March_2004.jpg'
         }
       ]
-    }
+    };
     this.handleViewChange = this.handleViewChange.bind(this);
     this.handleOnSubmitCreateWonder = this.handleOnSubmitCreateWonder.bind(this);
   }
 
   handleViewChange(event) {
-    this.setState({ view:event.target.value })
+    this.setState({ view:event.target.value });
   }
 
 
@@ -80,8 +80,8 @@ class App extends Component {
   
 
   render() {
-    const { wonders, view} = this.state;
-    let CurrentView = views[view]
+    const { wonders, view } = this.state;
+    let CurrentView = views[view];
     return (
       <div className="App">
         <header className="App-header">

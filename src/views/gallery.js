@@ -6,12 +6,9 @@ export default class WonderGallery extends Component {
     this.state = ({
       slideIndex: 0,
       wonders: this.props.wonders
-    })
+    });
   }
   
-  slideImg() {
-
-  }
  
   slideImg(n) {
     const { wonders, slideIndex } = this.state;
@@ -29,7 +26,7 @@ export default class WonderGallery extends Component {
     const { wonders } = this.props;
     const imageArray =  wonders.map((wonder) => (
       <div key={wonder._id} >
-        <img style={{ height:'600px'}} src={wonder.url} alt={wonder.title} />
+        <img style={{ height:'600px' }} src={wonder.url} alt={wonder.title} />
       </div>
     ));
       

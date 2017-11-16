@@ -10,7 +10,7 @@ export default class WonderList extends Component {
         {wonders.map((wonder) => (
           <div key={wonder._id} >
             <h2>{wonder.title}</h2>
-            <img style={{ height:'200px'}} src={wonder.url} alt={wonder.title}/>
+            <img style={{ height:'200px' }} src={wonder.url} alt={wonder.title}/>
             <p>{wonder.description}</p>
           </div>
         ))}
