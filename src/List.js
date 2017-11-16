@@ -9,18 +9,7 @@ class ImageAdd extends Component {
             description: false
         }
     }
-    addImage = event => {
-        event.preventDefault();
-        const { title, url, description } = this.state;
-        const newImage = {
-            title,
-            url,
-            description,
-        }
-        console.log('I am th eform data ', newImage);
-    }
-
-    //makeImageobj = event => this.props.handleAdd(event, this.state);
+    addImage = event => this.props.handleAdd(event, this.state);
 
     makeImageobj2 = event => {
         const title = event.target.name;
@@ -30,8 +19,9 @@ class ImageAdd extends Component {
     }
     
     render(){
+        const theNewImage = this.state;
         return(
-            <form method="post" onSubmit={this.addImage}>
+            <form method="post" onSubmit={event => this.addImage(event, theNewImage)}>
                 <input name="title" type="text" onChange={event => this.makeImageobj2(event)}/>
                 <input name="url" type="text" onChange={event => this.makeImageobj2(event)}/>
                 <input name="description" type="text" onChange={event => this.makeImageobj2(event)}/>

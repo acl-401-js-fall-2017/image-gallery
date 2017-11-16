@@ -46,48 +46,28 @@ class View extends PureComponent {
         }
         this.setState(newState);
     }
-    // handleAdd(value){
-    //     const images = this.state.images.push(value);
-    //     const newState = {
-    //         ...this.state,
-    //         images
-    //     }
-    //     this.setState(newState);
 
-    // }
-    addImage = (event, imgState) => {
+    addImage = (event, newImg) => {
         event.preventDefault();
-        const { title, url, description } = imgState;
-        const newImage = {
-            title,
-            url,
-            description,
+        const imgArry = this.state.images;
+        imgArry.push(newImg);
+        const images = imgArry;
+        const newState = {
+            ...this.state,
+            images
         }
-        console.log('I am th eform data ', newImage);
-    }
 
-    // handleAdd(event, imageState){
-    //     const title = event.target.name;
-    //     const currentState = imageState;
-    //     currentState[title] = event.target.value;
-    //     const newImage = currentState;
-    //     this.state.images.push(newImage);
-    //     const images = this.state.images;
-    //     console.log('currenttttttt img array', images);
-    //     const newState = { 
-    //         ...this.state, 
-    //         images
-    //     }
-    //     console.log('currenttttttt stat', newState);
-    //     //this.setState(newState);
-    // }
+        console.log('I am th eformzzzzzzz data ', newState);
+        console.log('I am th oldstatedata ', this.state);
+        this.setState(newState);
+    }
 
     render(){
         const { images, viewSelection } = this.state;
         let displayMode;
         (viewSelection === 'list') && (displayMode = <List images={ images } 
         handleDelete={ imageId => this.handleDelete(imageId)}
-        handleAdd={ (imgObj, imageState) => this.handleAdd(imgObj, imageState)}/>);
+        handleAdd={ (event, img) => this.addImage(event, img)}/>);
         (viewSelection === 'thumbnail') && (displayMode = <Thumbnail images={ images }/>);
         (viewSelection === 'gallery') && (displayMode = <Gallery images={ images }/>);
         return(
