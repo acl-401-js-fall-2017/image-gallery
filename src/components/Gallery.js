@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import Bunnies from '../images/bunnies';
 
+
+
 export default class Gallery extends PureComponent {
 
     static propTypes = {
