@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
+import AddImage from './AddImage';
+
 export default class List extends PureComponent {
    
     static propTypes = {
@@ -9,7 +11,7 @@ export default class List extends PureComponent {
 
 
     render() {
-      const { addImage, removeImage, bunnies } = this.props;
+      const { addImage, removeImage } = this.props;
       return (
         
         <table className='list'>
@@ -23,6 +25,11 @@ export default class List extends PureComponent {
                 </tr>
               );
             })}
+            <tr>
+              <td></td>
+              <td><AddImage addImage={newImage => addImage(newImage)}/></td>
+              <td></td>
+            </tr>
           </tbody>
         </table>
       );
