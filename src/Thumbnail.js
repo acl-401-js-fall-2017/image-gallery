@@ -7,7 +7,7 @@ export default class Thumbnail extends PureComponent {
     return( 
       <StyledDiv shouldDisplay={shouldDisplay}>
         <ul>
-          {this.props.gallery.map(img => (
+          {this.props.gallery.map((img, i) => (
             <img className ='galleryImg' key={img._id} src={img.img} alt='image'/>
           ))}
         </ul>

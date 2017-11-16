@@ -4,10 +4,10 @@ const yellowstone = require('./imgs/yellowstone.jpg');
 const arches = require('./imgs/arches.jpeg');
 
 const createImg = (title, description, img) => ({
-  title,
-  description,
   _id: shortid.generate(),
-  img
+  title,
+  img,
+  description
 });
 
 export function loadGallery(state){
@@ -19,4 +19,24 @@ export function loadGallery(state){
       createImg('Arches', 'Arches National Park', arches),
     ]
   }; 
+}
+
+export function addImg(state, img) {
+  return {
+    ...state,
+    gallery:[
+      ...state.gallery,
+      createImg(img.title, img.description, img.url)
+    ]
+  }
+}
+
+export function deleteImg(state, id) {
+  const index = state.gallery.findIndex(img => img._id === id)
+  const gallery = state.gallery.slice()
+  gallery.splice(index, 1);
+  return {
+    ...state,
+    gallery
+  };
 }

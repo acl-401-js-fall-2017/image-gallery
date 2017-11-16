@@ -7,8 +7,8 @@ export default class List extends PureComponent {
     return( 
       <StyledDiv shouldDisplay={shouldDisplay}>
         <ul>
-          {this.props.gallery.map(img => (
-            <li key={img._id}>{img.title}: {img.description}</li>
+          {gallery.map(img => (
+            <li style={ { margin: '8px'}} type= "none" key={img._id}>{img.title}: {img.description}</li>
           ))}
         </ul>
       </StyledDiv>
@@ -18,4 +18,6 @@ export default class List extends PureComponent {
 
 const StyledDiv = styled.div`
 display:${props => props.shouldDisplay ? 'flex' : 'none'};
+width: 90%;
+justify-content:space-between;
 `

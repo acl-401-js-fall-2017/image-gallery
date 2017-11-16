@@ -28,9 +28,11 @@ export default class Thumbnail extends PureComponent {
         <div>
           {this.props.gallery.map((img, i) => (
             <ImgDiv shouldDisplay ={this.state.index === i}>
+              <span> {img.title} </span>
+              <img style={{ width:'100%' }} key={img._id} src={img.img} alt='image'/>
+              <span> {img.description} </span>
               { i !== gallery.length -1 && <span onClick ={()=> this.handleClick(1)}> next </span>}
               {i !== 0 && <span onClick ={()=> this.handleClick(-1)}> previous</span>}
-              <img style={{ width:'80%' }} key={img._id} src={img.img} alt='image'/>
             </ImgDiv>
           ))}
         </div>
@@ -46,5 +48,6 @@ display:${props => props.shouldDisplay ? 'flex' : 'none'};
 const ImgDiv = styled.div`
 display:${props => props.shouldDisplay ? 'flex' : 'none'};
 flex-direction: column;
+margin: 0 10%;
 `;
 
