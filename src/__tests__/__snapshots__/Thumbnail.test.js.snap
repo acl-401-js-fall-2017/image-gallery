@@ -15,6 +15,9 @@ exports[`List lists of bunnies in thumbnail format 1`] = `
     <h4>
       Best Bunny
     </h4>
+    <h6>
+      Just the cutest color on a bunny ever
+    </h6>
   </div>
   <div
     key="1"
@@ -27,6 +30,9 @@ exports[`List lists of bunnies in thumbnail format 1`] = `
     <h4>
       Kind of cute Bunny
     </h4>
+    <h6>
+      Too many carbs :(
+    </h6>
   </div>
   <div
     key="2"
@@ -39,6 +45,9 @@ exports[`List lists of bunnies in thumbnail format 1`] = `
     <h4>
       Tiny Bunny
     </h4>
+    <h6>
+      Cant see me
+    </h6>
   </div>
 </div>
 `;
