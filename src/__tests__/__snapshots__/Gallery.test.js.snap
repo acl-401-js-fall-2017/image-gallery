@@ -13,14 +13,6 @@ exports[`List shows bunnies gallery format 1`] = `
     Best Bunny
   </h4>
   <button
-    id="prevButton"
-    onClick={[Function]}
-    type="button"
-    value="Previous"
-  >
-    Previous
-  </button>
-  <button
     id="nextButton"
     onClick={[Function]}
     type="button"
