@@ -9,19 +9,36 @@ export default class Gallery extends PureComponent {
 
     constructor(){
       super();
+      this.state = {
+        picIndex: 0
+      };
+    }
+
+
+    nextImage = ({ target }) => {
+      this.setState(prevState => {
+        let picIndex;
+        if (target.id === 'prevButton') {
+          picIndex = prevState.picIndex - 1;
+        }
+        if (target.id === 'nextButton') {
+          picIndex = prevState.picIndex + 1;
+        }
+        return { picIndex };
+      });
     }
 
     render() {
-      const bunny = this.props.bunnies[this.props.current];
+      const bunny = this.props.bunnies[this.state.picIndex];
 
       return (
         <div className="gallery">
           <img src={bunny.url} alt={bunny.title} height="100px"/>
           <h4>{bunny.title}</h4>
-          <button value="Previous" onClick={({ target }) => {this.props.nextImage(target.value)}}>
+          <button type="button" value="Previous" id="prevButton" onClick={this.nextImage}>
           Previous
           </button>
-          <button value="Next" onClick={({ target }) => {this.props.nextImage(target.value)}}>
+          <button type="button" value="Next" id="nextButton" onClick={this.nextImage}>
           Next
           </button>
           {/* Might want to add remove button here */}
