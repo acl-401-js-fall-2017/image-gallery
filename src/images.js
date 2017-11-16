@@ -16,4 +16,6 @@ const image3 = {
   url: 'http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg'
 };
 
-export const images = [image1, image2, image3];
+const images = [image1, image2, image3];
+
+export default images;
