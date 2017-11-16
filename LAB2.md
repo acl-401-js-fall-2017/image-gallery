@@ -2,26 +2,25 @@ Cute Bunny Routing
 ===
 
 ## Key enhancements:
-* Introduce "albums" into the data model. These contain sets of images lists (what you have already built).
-* Add React Router to navigate between home and specific images list
-
-## Adding albums
-* Can be added and removed
-* Contain images
-* Need albums component that shows list of albums
-* State needs to maintain "imagesByAlbumId"
-* ~~Add some local storage to maintain your sanity~~ Sanity TBD
+* React Router to 
+   * navigate between pages (add two new pages)
+   * switch between Image view
 
 ## Add routing
-* The `/` (home) route should either show the albums list or have a link to take user to the albums list.
-* Add an `about` "page" component that says something about your image gallery. This is an excuse to have another page
-* From the albums list, clicking on a specific album goes to that image list (changes the route to `/albums/<id-of-album>`
-  * Instead of state being in the view selector, change it to use `<Link>` and `<Route>` components to change the view, 
-  for example `/albums/<id-of-album>/gallery`.
-  * You will need to use a `<Redirect>` in this subrouter `<Switch>` to give a default view
-* Add navigation links for switching between the main routes (`/` (home), `/ablums` (if not on home), `/about`)
-* (For now, the view selection will *not* be part of the router)
+* Create a new home page (component) that lives the `/` route
+    * It has a link to takes the user to the images.
+* Add an About "page" component that lives at the `/about` route. It should say something about your image gallery. This is an excuse to have another page, content up to you.
+* Add a Header component that is at the top of your app. 
+    * It has links for `Home`, `About`, and `Images`.
+    * If on an `/images` route, show three links in another area for switching between `Thumbnail`, `List`, and `Gallery` view
+* Change the View Selector component to use `<Route>` components to conditional show the view.
+  * Use a `<Switch>` and include a `<Redirect>` to give a default view if missing or not a valid view.
 
 ## Rubric *10pts*
-- Add albums concept into data *5pts*
-- Basic Routing (home, about, images) *5pt*
+- Three pages
+    - Header links *2pts*
+    - Show Correct Page *2pts*
+- View toggle
+    - Conditional header links *2pts*
+    - Correctly changes view *2pts*
+    - Default view *2pts*
