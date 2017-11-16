@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
 import '../App.css';
 import shortid from 'shortid';
 import WonderList from '../views/list';
@@ -7,13 +6,13 @@ import WonderThumbnail from '../views/thumbnail';
 import WonderGallery from '../views/gallery';
 import AddImage from '../AddImage';
 import { createWonder } from '../actions';
+import {
+  Route,
+  Link,
+  Switch,
+  Redirect
+} from 'react-router-dom';
 
-
-const views = {
-  list: WonderList,
-  thumbnail: WonderThumbnail,
-  gallery: WonderGallery
-};
 
 class Images extends Component {
   constructor(){
@@ -65,15 +64,10 @@ class Images extends Component {
         }
       ]
     };
-    this.handleViewChange = this.handleViewChange.bind(this);
     this.handleOnSubmitCreateWonder = this.handleOnSubmitCreateWonder.bind(this);
   }
 
-  handleViewChange(event) {
-    this.setState({ view:event.target.value });
-  }
-
-
+ 
   handleOnSubmitCreateWonder = (title, description, url) => {
     const newState = createWonder(this.state, title, description, url);
     this.setState(newState);
@@ -81,23 +75,25 @@ class Images extends Component {
   
 
   render() {
-    const { wonders, view } = this.state;
-    let CurrentView = views[view];
+    const { wonders } = this.state;
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Wonders of The World!!!</h1>
         </header>
-        <p className="App-intro">
-          Wonders of The World!!!
-        </p>
         <div>
-          <button value='list' onClick={this.handleViewChange}>list</button>
-          <button value='thumbnail' onClick={this.handleViewChange}>thumbnail</button>
-          <button value='gallery' onClick={this.handleViewChange}>gallery</button>
+          <ul>
+            <li><Link to ={`${this.props.match.url}/list`}>list</Link></li>
+            <li><Link to ="/images/thumbnail">thumbnail</Link></li>
+            <li><Link to ="/images/gallery">gallery</Link></li>
+          </ul>
+          <Switch>
+            <Route exact path={`${this.props.match.url}/list`} render={() => <WonderList wonders={wonders}/>}/>
+            <Route exact path="/images/thumbnail" render={() => <WonderThumbnail wonders={wonders}/>}/>
+            <Route exact path="/images/gallery" render={() => <WonderGallery wonders={wonders}/>}/>
+            <Redirect to="/images"/>
+          </Switch>
         </div>
-        <CurrentView wonders={wonders}/>  
         <AddImage handleOnSubmit={this.handleOnSubmitCreateWonder}/>
       </div>
     );

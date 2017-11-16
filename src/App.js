@@ -13,6 +13,7 @@ import Images from './components/images';
 
 
 
+
 class App extends Component {
   render() {
     return (
@@ -28,7 +29,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route exact path="/about" component={About}/>
-            <Route exact path="/images" component={Images}/>
+            <Route path="/images" component={Images}/>
             <Redirect to="/"/>
           </Switch>
         </div>
