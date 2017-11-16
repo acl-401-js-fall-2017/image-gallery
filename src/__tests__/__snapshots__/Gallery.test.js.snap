@@ -12,6 +12,9 @@ exports[`List shows bunnies gallery format 1`] = `
   <h4>
     Best Bunny
   </h4>
+  <h6>
+    Just the cutest color on a bunny ever
+  </h6>
   <button
     id="nextButton"
     onClick={[Function]}
