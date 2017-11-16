@@ -11,7 +11,7 @@ it('adds a new image', () => {
   const newImage = addImage({ bunnies: [] }, testImage);
 
   expect(newImage).toEqual({
-    bunnies: [ { _id: '12345', title: 'bunny', description: 'cute bunny', url: 'cutebunny.com' } ]
+    bunnies: [ { _id: expect.any(String), title: 'bunny', description: 'cute bunny', url: 'cutebunny.com' } ]
   });
 });
 
