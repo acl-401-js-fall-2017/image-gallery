@@ -27,7 +27,7 @@ export function addNewImg(state, newImg) {
 export function removeImages(state, voidImgs) {
   return {
     ...state,
-    images: state.images.filter((img, i) => !voidImgs.map(i => parseInt(i)).includes(i))
+    images: state.images.filter((img, i) => !voidImgs.map(i => parseInt(i, 10)).includes(i))
   }
 }
 
