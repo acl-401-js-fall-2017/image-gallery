@@ -1,18 +1,24 @@
 import React, { PureComponent } from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export default class PhotoDisplaySelector extends PureComponent {
+class PhotoDisplaySelector extends PureComponent {
   render() {
-    const { onDisplayChange } = this.props;
+    const { match, onDisplayChange } = this.props;
     return(
       <select
         defaultValue=''
         onChange={e => {
           e.preventDefault();
-          onDisplayChange(e.target.value);
+          const { value } = e.target;
+          onDisplayChange(value);
+          this.props.history.push(`${match.url}/${value}`)
         }}
       >
         <option disabled value=''>View Mode</option>
+        {/* <Link to={`${match.url}/list`}>
+          <option value="list">list</option>
+        </Link>  */}
         <option value="list">list</option>
         <option value="thumbnails">thumbnails</option>
         <option value="gallery">gallery</option>
@@ -24,3 +30,5 @@ export default class PhotoDisplaySelector extends PureComponent {
 PhotoDisplaySelector.propTypes = {
   onDisplayChange: PropTypes.func
 };
+
+export default withRouter(PhotoDisplaySelector);

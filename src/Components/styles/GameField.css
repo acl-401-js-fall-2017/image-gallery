@@ -1,0 +1,36 @@
+.Minigame {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    text-align: center;
+    padding-top: 3em;
+}
+
+.GameField {
+    margin: 0 auto;
+    height: 400px;
+    width: 600px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.playButton {
+    border: 2px solid green;
+    background-color: lightgreen;
+    border-radius: 0.2em;
+    width: fit-content;
+    margin: auto;
+    padding: 0.25em;
+}
+
+.GameField p {
+    position: relative;
+    width: fit-content;
+    border-radius: 50%;
+    margin: 0;
+    display: inline-block;
+}
+
