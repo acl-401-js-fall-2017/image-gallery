@@ -7,9 +7,6 @@ export default class List extends PureComponent {
       bunnies: PropTypes.arrayOf(PropTypes.object).isRequired
     }
 
-    constructor(props) {
-      super(props);
-    }
 
     render() {
       return (
