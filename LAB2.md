@@ -10,7 +10,7 @@ Cute Bunny Routing
 * Contain images
 * Need albums component that shows list of albums
 * State needs to maintain "imagesByAlbumId"
-* Add some local storage to maintain your sanity
+* ~~Add some local storage to maintain your sanity~~ Sanity TBD
 
 ## Add routing
 * The `/` (home) route should either show the albums list or have a link to take user to the albums list.
