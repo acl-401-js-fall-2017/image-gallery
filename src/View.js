@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
 import ListView from './Components/ListView';
+import GalleryView from './Components/GalleryView';
+import ThumbView from './Components/ThumbView';
 
 class View extends PureComponent {
   constructor() {
@@ -20,22 +22,23 @@ class View extends PureComponent {
     };
   }
 	
-  handleViewChange(event) {
-    const value = 
-		this.setState({ viewStyle: value })
+  handleViewChange(viewStyle) {
+    this.setState({ viewStyle });
   }
 	
   render() {
     const { bunnies, viewStyle } = this.state;
     let currentView;
     (viewStyle === 'list') && (currentView = <ListView bunnies={bunnies}/>);
-    // (viewStyle === 'gallery') && (currentView = <Gallery bunnies={bunnies}/>);
-    // (viewStyle === 'thumbnail') && (currentView = <Thumbnail bunnies={bunnies}/>);
+    (viewStyle === 'gallery') && (currentView = <GalleryView bunnies={bunnies}/>);
+    (viewStyle === 'thumbnail') && (currentView = <ThumbView bunnies={bunnies}/>);
 
     return (
       <div>
-        <ListView bunnies = {bunnies}/>
-        <input type="button" value="Bunny List"/>
+        { currentView }
+        <input type="button" value="Bunny List" onClick={(event) => this.handleViewChange('list')}/>
+        <input type="button" value="Bunny Gallery" onClick={(event) => this.handleViewChange('gallery')}/>
+        <input type="button" value="Bunny Thumbnail" onClick={(event) => this.handleViewChange('thumbnail')}/>
       </div>
 
     );
