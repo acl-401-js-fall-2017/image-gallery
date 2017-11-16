@@ -4,6 +4,8 @@ import './App.css';
 import List from './components/ListView';
 import Thumb from './components/ThumbView';
 import Gallery from './components/GalleryView';
+import { loadImages } from './data/viewActions';
+
 
 import PicView from './PicView';
 
@@ -12,8 +14,14 @@ class App extends Component {
   constructor() {
     super();
     this.state ={
-      view: 'list'
+      view: 'list',
+      images: []
     };
+  }
+
+  componentWillMount() {
+    const newState = loadImages(this.state);
+    this.setState(newState);
   }
 
   changeView = ({ target }) => {
@@ -23,6 +31,7 @@ class App extends Component {
   }
 
   render() {
+    const { images } = this.state;
     return (
       <div className="App">
 
@@ -40,18 +49,18 @@ class App extends Component {
           )}
         </header>
 
-        <p className="App-intro">
+        <div className="App-intro">
           Here are some pandas for you to look at:
           {this.state.view === 'list' && (
-            <List />
+            <List images={images}/>
           )}
           {this.state.view === 'thumb' && (
-            <Thumb />
+            <Thumb images={images}/>
           )}
           {this.state.view === 'gallery' && (
-            <Gallery />
+            <Gallery images={images}/>
           )}
-        </p>
+        </div>
 
       </div>
     );
