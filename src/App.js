@@ -6,7 +6,7 @@ import {
 import bunny from './image/bunny.jpg';
 import './App.css';
 import View from './View';
-// import ListView from './Components/ListView';
+// import about from './about';
 
 export default class App extends Component {
   render() {
@@ -17,7 +17,8 @@ export default class App extends Component {
             <img src={bunny} className="App-logo" alt="" />
             <Switch>
               <Route exact path="/" component={Home}/>
-              {/* <Route exact path="/Components/ListView" component={ListView}/> */}
+              {/* <Route path="/about" component={about}/> */}
+              {/* <Route path="/View" component={View}/> */}
               <Redirect to="/"/>
             </Switch>
           </header>
