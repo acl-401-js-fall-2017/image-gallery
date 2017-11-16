@@ -8,9 +8,7 @@ import AddImage from '../AddImage';
 import { createWonder } from '../actions';
 import {
   Route,
-  Link,
-  Switch,
-  Redirect
+  Switch
 } from 'react-router-dom';
 
 
@@ -82,16 +80,10 @@ class Images extends Component {
           <h1 className="App-title">Wonders of The World!!!</h1>
         </header>
         <div>
-          <ul>
-            <li><Link to ={`${this.props.match.url}/list`}>list</Link></li>
-            <li><Link to ="/images/thumbnail">thumbnail</Link></li>
-            <li><Link to ="/images/gallery">gallery</Link></li>
-          </ul>
           <Switch>
             <Route exact path={`${this.props.match.url}/list`} render={() => <WonderList wonders={wonders}/>}/>
-            <Route exact path="/images/thumbnail" render={() => <WonderThumbnail wonders={wonders}/>}/>
-            <Route exact path="/images/gallery" render={() => <WonderGallery wonders={wonders}/>}/>
-            <Redirect to="/images"/>
+            <Route exact path={`${this.props.match.url}/list`} render={() => <WonderThumbnail wonders={wonders}/>}/>
+            <Route exact path={`${this.props.match.url}/:gallery?`}  render={() => <WonderGallery wonders={wonders}/>}/>
           </Switch>
         </div>
         <AddImage handleOnSubmit={this.handleOnSubmitCreateWonder}/>
