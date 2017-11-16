@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import Table from '../Table/Table';
+import Deck from '../Deck/Deck';
+import Gallery from '../Gallery/Gallery';
 
-class Selector extends Component {
+export default class Selector extends Component {
   constructor() {
     super();
     this.state = {
@@ -8,23 +11,32 @@ class Selector extends Component {
     };
   }
 
+  handleSubmit(event) {
+    
+  } 
+
+
+
+
   render() {
     const {} = this.state;
     return (
-      <form className="Buttons">
+      <form className="viewOptions" onSubmit={this.handleSubmit}>
         <p>Select your viewing method</p>
         <div>
-          <input type="radio" name="viewFormat" id="viewChoice1" value={}/>
+          <input type="radio" name="viewFormat" id="viewChoice1" value={Table}/>
           <label for="viewChoice1">Table</label>
          
-          <input type="radio" name="viewFormat" id="viewChoice2" value={}/>
+          <input type="radio" name="viewFormat" id="viewChoice2" value={Deck}/>
           <label for="viewChoice2">Cards</label>
           
-          <input type="radio" name="viewFormat" id="viewChoice3" value={}/>
+          <input type="radio" name="viewFormat" id="viewChoice3" value={Gallery}/>
           <label for="viewChoice3">Gallery</label>
         </div>
         <div>
-          <button type="submit">Submit</button>
+          <button type="submit" for="viewOptions">
+            Submit
+          </button>
         </div>
       </form>
     );

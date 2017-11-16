@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Item from './Item';
 
-class Table extends Component {
+export default class Table extends Component {
   render() {
     const { images } = this.props;
     return (
