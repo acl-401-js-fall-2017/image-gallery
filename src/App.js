@@ -3,7 +3,7 @@ import bunny from './image/bunny.jpg';
 import './App.css';
 import View from './View';
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <div className="App">
@@ -17,4 +17,3 @@ class App extends Component {
   }
 }
 
-export default App;
