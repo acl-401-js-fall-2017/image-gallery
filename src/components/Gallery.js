@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
+import Bunnies from '../images/bunnies';
+
 export default class Gallery extends PureComponent {
 
     static propTypes = {
@@ -10,6 +12,7 @@ export default class Gallery extends PureComponent {
     constructor(){
       super();
       this.state = {
+        bunnies: Bunnies,
         picIndex: 0
       };
     }
@@ -42,7 +45,7 @@ export default class Gallery extends PureComponent {
             </button>
           )}
 
-          {this.state.picIndex !== 2 && (
+          {this.state.picIndex !== this.state.bunnies.length - 1  && (
             <button type="button" value="Next" id="nextButton" onClick={this.nextImage}>
           Next
             </button>
