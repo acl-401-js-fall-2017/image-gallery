@@ -6,7 +6,7 @@ import WonderList from './views/list';
 import WonderThumbnail from './views/thumbnail';
 import WonderGallery from './views/gallery';
 import AddImage from './AddImage';
-import { createWonder} from './actions';
+import { createWonder } from './actions';
 
 const views = {
   list: WonderList,
@@ -66,7 +66,6 @@ class App extends Component {
     }
     this.handleViewChange = this.handleViewChange.bind(this);
     this.handleOnSubmitCreateWonder = this.handleOnSubmitCreateWonder.bind(this);
-    console.log(this.state.wonders)
   }
 
   handleViewChange(event) {
@@ -93,9 +92,9 @@ class App extends Component {
           Wonders of The World!!!
         </p>
         <div>
-         <button value='list' onClick={this.handleViewChange}>list</button>
-         <button value='thumbnail' onClick={this.handleViewChange}>thumbnail</button>
-         <button value='gallery' onClick={this.handleViewChange}>gallery</button>
+          <button value='list' onClick={this.handleViewChange}>list</button>
+          <button value='thumbnail' onClick={this.handleViewChange}>thumbnail</button>
+          <button value='gallery' onClick={this.handleViewChange}>gallery</button>
         </div>
         <CurrentView wonders={wonders}/>  
         <AddImage handleOnSubmit={this.handleOnSubmitCreateWonder}/>

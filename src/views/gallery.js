@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 export default class WonderGallery extends Component {
-    constructor(props) {
-        super(props);
-        this.state = ({
-             slideIndex: 0,
-             wonders: this.props.wonders
-            })
-    }
+  constructor(props) {
+    super(props);
+    this.state = ({
+      slideIndex: 0,
+      wonders: this.props.wonders
+    })
+  }
   
   slideImg() {
 
@@ -28,18 +28,18 @@ export default class WonderGallery extends Component {
   render() {
     const { wonders } = this.props;
     const imageArray =  wonders.map((wonder) => (
-        <div key={wonder._id} >
-          <img style={{ height:'600px'}} src={wonder.url} alt={wonder.title} />
-        </div>
-      ));
+      <div key={wonder._id} >
+        <img style={{ height:'600px'}} src={wonder.url} alt={wonder.title} />
+      </div>
+    ));
       
       
     return (
       <div className="thumbnail-view">
         {imageArray[this.state.slideIndex]}
-      <div>
-        <button onClick={() => this.slideImg(-1)}>backward</button>
-        <button onClick={() => this.slideImg(1)}>forward</button>
+        <div>
+          <button onClick={() => this.slideImg(-1)}>backward</button>
+          <button onClick={() => this.slideImg(1)}>forward</button>
         </div>
       </div>
 
