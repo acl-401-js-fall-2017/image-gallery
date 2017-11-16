@@ -30,38 +30,26 @@ class App extends Component {
   render() {
     const { images } = this.state;
     return (
-      <div className="App">
-        <Router>
+      <Router>
+        <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Panda Gallery</h1>
-            {this.state.view !== 'list' && (
-              <button id="list"> <Link to="/link"> List </Link> </button>
-            )}
-            {this.state.view !== 'thumb' && (
-              <button id="thumb" onClick={this.changeView} >Thummbnail </button>
-            )}
-            {this.state.view !== 'gallery' && (
-              <button id="gallery" onClick={this.changeView} >Gallery </button>
-            )}
+            <button id="list"> <Link to="/"> List </Link> </button>
+            <button id="thumb"> <Link to="/thumb"> Thumbnail </Link> </button>
+            <button id="gallery"> <Link to="/gallery"> Gallery </Link> </button>
           </header>
 
           <div className="App-intro">
           Here are some pandas for you to look at:
             <Switch>
-              {this.state.view === 'list' && (
-                <List images={images}/>
-              )}
-              {this.state.view === 'thumb' && (
-                <Thumb images={images}/>
-              )}
-              {this.state.view === 'gallery' && (
-                <Gallery images={images}/>
-              )}
+              <Route exact path="/" render={() => <List images={images}/>}/>
+              <Route path="/thumb" render={() => <Thumb images={images}/>}/>
+              <Route path="/gallery" render={() => <Gallery images={images}/>}/>
             </Switch>
           </div>
-        </Router>
-      </div>
+        </div>
+      </Router>
     );
   }
 }
