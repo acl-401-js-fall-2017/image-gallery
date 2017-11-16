@@ -4,12 +4,11 @@ export default class ListView extends PureComponent {
   render() {
     const { bunnies } = this.props;
     const images = bunnies.map((bunny, i) => {
-      const listItem = 
-			<tr key={i}>
-			  <a href={bunny.url}>{bunny.title}:</a>
-			  <td>{bunny.description}</td>
-			</tr>;
-      return listItem ;
+      return (
+        <tr key={i}>
+          <td> <a href={bunny.url}>{bunny.title}:</a> {bunny.description}</td>
+        </tr>
+      );
     });
 		
     return (
