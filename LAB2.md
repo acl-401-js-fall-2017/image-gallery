@@ -14,6 +14,7 @@ Cute Bunny Routing
     * It has links for `Home`, `About`, and `Images`.
     * If on an `/images` route, show three links in another area for switching between `Thumbnail`, `List`, and `Gallery` view
 * Change the View Selector component to use `<Route>` components to conditional show the view.
+  * Routes would be `/images/thumbnail`, `/images/gallery`, and `images/list`
   * Use a `<Switch>` and include a `<Redirect>` to give a default view if missing or not a valid view.
 
 ## Rubric *10pts*
