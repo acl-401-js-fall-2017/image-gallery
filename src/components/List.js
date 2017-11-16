@@ -9,6 +9,7 @@ export default class List extends PureComponent {
 
 
     render() {
+      const { addImage, removeImage, bunnies } = this.props;
       return (
         
         <table className='list'>
@@ -18,6 +19,7 @@ export default class List extends PureComponent {
                 <tr key={index}>
                   <td><a href={bunny.url}>{bunny.title}</a></td>
                   <td>{bunny.description}</td>
+                  <td> <input type="button" data-value={bunny._id} value="remove" onClick={({ target }) => removeImage(target.dataset.value)}/></td>
                 </tr>
               );
             })}
