@@ -21,4 +21,13 @@
   font-size: large;
 }
 
+.table-center {
+  text-align: center;
+  margin: auto;
+  padding: 70px;
+}
+
+.Link {
+  padding-top: 20px;
+}
 
