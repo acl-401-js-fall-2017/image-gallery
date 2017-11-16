@@ -38,6 +38,7 @@ export default class Gallery extends PureComponent {
         <div className="gallery">
           <img src={bunny.url} alt={bunny.title} height="100px"/>
           <h4>{bunny.title}</h4>
+          <h6>{bunny.description}</h6>
 
           {this.state.picIndex !== 0 && (
             <button type="button" value="Previous" id="prevButton" onClick={this.nextImage}>
