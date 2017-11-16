@@ -21,7 +21,7 @@ export default class List extends PureComponent {
                   <tr key={index}>
                     <td><a href={bunny.url}>{bunny.title}</a></td>
                     <td>{bunny.description}</td>
-                    <td> <input type="button" data-value={bunny.id} value="remove" onClick={({ target }) => removeImage(target.dataset.value)}/></td>
+                    <td> <input type="button" data-value={bunny._id} value="remove" onClick={({ target }) => removeImage(target.dataset.value)}/></td>
                   </tr>
                 );
               })}
