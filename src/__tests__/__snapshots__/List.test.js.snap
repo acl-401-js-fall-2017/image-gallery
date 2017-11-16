@@ -22,7 +22,7 @@ exports[`List lists of bunnies 1`] = `
         <td>
            
           <input
-            data-value="H1SzQtjyf"
+            data-value={1}
             onClick={[Function]}
             type="button"
             value="remove"
@@ -45,7 +45,7 @@ exports[`List lists of bunnies 1`] = `
         <td>
            
           <input
-            data-value="SyeSz7KskG"
+            data-value={1}
             onClick={[Function]}
             type="button"
             value="remove"
@@ -68,7 +68,7 @@ exports[`List lists of bunnies 1`] = `
         <td>
            
           <input
-            data-value="BkbrGXKskf"
+            data-value={1}
             onClick={[Function]}
             type="button"
             value="remove"
