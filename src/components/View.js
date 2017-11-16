@@ -4,7 +4,10 @@ import Bunnies from '../images/bunnies';
 import List from './List';
 import Thumbnail from './Thumbnail';
 import Gallery from './Gallery';
+
 import { addImage, removeImage } from '../data/actions';
+
+
 
 export default class View extends PureComponent {
 
@@ -27,12 +30,21 @@ export default class View extends PureComponent {
     this.setState(newState);
   }
 
+  handleAdd = image => {
+    const newState = addImage(this.state, image);
+    this.setState(newState);
+  }
+
+
   render() {
 
     const { viewSelection } = this.state;
     let displayView;
 
-    (viewSelection === 'list') && (displayView = <List bunnies={this.state.bunnies} removeImage={imageId => this.handleRemove(imageId)}/>);
+    (viewSelection === 'list') && (displayView = <List bunnies={this.state.bunnies} 
+      removeImage={imageId => this.handleRemove(imageId)}
+      addImage={image => this.handleAdd(image)}
+    />);
     (viewSelection === 'thumbnail') && (displayView = <Thumbnail bunnies={this.state.bunnies}/>);
     (viewSelection === 'gallery') && (displayView = <Gallery bunnies={this.state.bunnies}/>);
       
