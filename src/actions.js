@@ -24,12 +24,12 @@ export function loadBunnies(state) {
   };
 }
 
-export function addBunny(state, title) {
+export function addBunny(state, { title, description, url }) {
   return {
     ...state,
     bunnies: [
       ...state.bunnies,
-      createBunny(title)
+      createBunny({ title, description, url })
     ]
   };
 }
