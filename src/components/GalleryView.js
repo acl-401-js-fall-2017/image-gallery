@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 export default class Gallery extends Component {
 
-  propTypes = {
-    imageUrls: PropTypes.arrayOf(PropTypes.string).isRequired,
+  static propTypes = {
+    images: PropTypes.arrayOf(PropTypes.object).isRequired,
   }
 
   constructor() {
