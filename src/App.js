@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch, Route, Link, Redirect
 } from 'react-router-dom';
-import bunny from './image/bunny.jpg';
+import flops from './image/flops.png';
 import './App.css';
 import View from './View';
 // import about from './about';
@@ -14,7 +14,7 @@ export default class App extends Component {
       <Router>
         <div className="App">
           <header className="App-header">
-            <img src={bunny} className="App-logo" alt="" />
+            <img src={flops} className="App-logo" alt="" />
             <Switch>
               <Route exact path="/" component={Home}/>
               {/* <Route path="/about" component={about}/> */}
