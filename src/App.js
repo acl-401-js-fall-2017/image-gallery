@@ -35,7 +35,7 @@ class App extends Component {
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Panda Gallery</h1>
-            <button id="list"> <Link to="/"> List </Link> </button>
+            <button id="list"> <Link to="/list"> List </Link> </button>
             <button id="thumb"> <Link to="/thumb"> Thumbnail </Link> </button>
             <button id="gallery"> <Link to="/gallery"> Gallery </Link> </button>
           </header>
@@ -43,9 +43,11 @@ class App extends Component {
           <div className="App-intro">
           Here are some pandas for you to look at:
             <Switch>
-              <Route exact path="/" render={() => <List images={images}/>}/>
+              <Route exact path="/" component={Home}/>
+              <Route exact path="/list" render={() => <List images={images}/>}/>
               <Route exact path="/thumb" render={() => <Thumb images={images}/>}/>
               <Route exact path="/gallery" render={() => <Gallery images={images}/>}/>
+              <Redirect to="/"/>
             </Switch>
           </div>
         </div>
@@ -53,5 +55,14 @@ class App extends Component {
     );
   }
 }
+
+const Home = () => (
+  <div>
+    <h1>Welcome to PandaPics!</h1>
+    <Link to="/list"> List </Link>  
+    <Link to="/thumb"> Thumbnail </Link>
+    <Link to="/gallery"> Gallery </Link>
+  </div>
+);
 
 export default App;
