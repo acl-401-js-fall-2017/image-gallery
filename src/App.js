@@ -44,8 +44,8 @@ class App extends Component {
           Here are some pandas for you to look at:
             <Switch>
               <Route exact path="/" render={() => <List images={images}/>}/>
-              <Route path="/thumb" render={() => <Thumb images={images}/>}/>
-              <Route path="/gallery" render={() => <Gallery images={images}/>}/>
+              <Route exact path="/thumb" render={() => <Thumb images={images}/>}/>
+              <Route exact path="/gallery" render={() => <Gallery images={images}/>}/>
             </Switch>
           </div>
         </div>
