@@ -23,6 +23,7 @@ export default class Selector extends PureComponent {
 
     (viewSelection === 'table') && (view = <Table images={images} />);
     (viewSelection === 'thumbnail') && (view = <Thumbnail images={images} />);
+    (viewSelection === 'gallery') && (view = <Gallery images={images} />);
     
     
     return (
