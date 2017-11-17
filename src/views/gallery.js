@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 
-export default class WonderGallery extends Component {
+export default class ImageGallery extends Component {
   constructor(props) {
     super(props);
     this.state = ({
       slideIndex: 0,
-      wonders: this.props.wonders
+      images: this.props.images
     });
   }
   
  
   slideImg(n) {
-    const { wonders, slideIndex } = this.state;
-    const max = wonders.length - 1;
+    const { images, slideIndex } = this.state;
+    const max = images.length - 1;
     const currIndex = slideIndex;
     let newIndex = slideIndex + n;
 
@@ -23,10 +23,10 @@ export default class WonderGallery extends Component {
   }
   
   render() {
-    const { wonders } = this.props;
-    const imageArray =  wonders.map((wonder) => (
-      <div key={wonder._id} >
-        <img style={{ height:'600px' }} src={wonder.url} alt={wonder.title} />
+    const { images } = this.props;
+    const imageArray =  images.map((image) => (
+      <div key={image._id} >
+        <img style={{ height:'600px' }} src={image.url} alt={image.title} />
       </div>
     ));
       

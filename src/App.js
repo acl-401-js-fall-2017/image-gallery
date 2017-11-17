@@ -25,9 +25,15 @@ class App extends Component {
             <li><Link to="/about">About</Link></li>
             <li><Link to="/images">Images</Link>
               <ul>
-                <li><Link to ="/images/list">list</Link></li>
-                <li><Link to ="/images/thumbnail">thumbnail</Link></li>
-                <li><Link to ="/images/gallery">gallery</Link></li>
+                <li><Link to ="/images/addalbum">Add Album </Link></li>
+                <li><Link to ="/images/addimages">Add Images</Link></li>
+                <li>Views
+                  <ul>
+                    <li><Link to ="/images/list">list</Link></li>
+                    <li><Link to ="/images/thumbnail">thumbnail</Link></li>
+                    <li><Link to ="/images/gallery">gallery</Link></li>
+                  </ul>
+                </li>
               </ul>
             </li>
           </ul>

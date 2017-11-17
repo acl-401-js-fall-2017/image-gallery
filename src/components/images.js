@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import '../App.css';
 import shortid from 'shortid';
-import WonderList from '../views/list';
-import WonderThumbnail from '../views/thumbnail';
-import WonderGallery from '../views/gallery';
+import ImageList from '../views/list';
+import ImageThumbnail from '../views/thumbnail';
+import ImageGallery from '../views/gallery';
 import AddImage from '../AddImage';
-import { createWonder } from '../actions';
+import AddAlbum from '../AddAlbum';
+import { createImage, createAlbum } from '../actions';
 import {
   Route,
   Switch
@@ -16,8 +17,8 @@ class Images extends Component {
   constructor(){
     super();
     this.state = {
-      view: 'list',
-      wonders: [
+      albums: [],
+      images: [
         {
           _id: shortid.generate(),
           title: 'Great Pyramid of Giza',
@@ -62,18 +63,22 @@ class Images extends Component {
         }
       ]
     };
-    this.handleOnSubmitCreateWonder = this.handleOnSubmitCreateWonder.bind(this);
   }
 
  
-  handleOnSubmitCreateWonder = (title, description, url) => {
-    const newState = createWonder(this.state, title, description, url);
+  handleOnSubmitCreateImage = (title, description, url) => {
+    const newState = createImage(this.state, title, description, url);
     this.setState(newState);
+  }
+
+  handleOnSubmitCreateAlbum = (title) => {
+    const newState = createAlbum(this.state, title);
+    this.setState(newState, ()=> console.table(this.state.albums));
   }
   
 
   render() {
-    const { wonders } = this.state;
+    const { images, albums } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -81,12 +86,14 @@ class Images extends Component {
         </header>
         <div>
           <Switch>
-            <Route exact path={`${this.props.match.url}/list`} render={() => <WonderList wonders={wonders}/>}/>
-            <Route exact path={`${this.props.match.url}/list`} render={() => <WonderThumbnail wonders={wonders}/>}/>
-            <Route exact path={`${this.props.match.url}/:gallery?`}  render={() => <WonderGallery wonders={wonders}/>}/>
+            <Route exact path={`${this.props.match.url}/addalbum`} render={() => <AddAlbum albums={albums} handleOnSubmit={this.handleOnSubmitCreateAlbum}/>}/>  
+            <Route exact path={`${this.props.match.url}/addimages`} render={() => <AddImage handleOnSubmit={this.handleOnSubmitCreateImage}/>}/>
+            <Route exact path={`${this.props.match.url}/list`} render={() => <ImageList images={images}/>}/>
+            <Route exact path={`${this.props.match.url}/thumbnail`} render={() => <ImageThumbnail images={images}/>}/>
+            <Route exact path={`${this.props.match.url}/:gallery?`}  render={() => <ImageGallery images={images}/>}/>
           </Switch>
         </div>
-        <AddImage handleOnSubmit={this.handleOnSubmitCreateWonder}/>
+        
       </div>
     );
   }
