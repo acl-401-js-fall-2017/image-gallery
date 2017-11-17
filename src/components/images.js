@@ -86,7 +86,7 @@ class Images extends Component {
         </header>
         <div>
           <Switch>
-            <Route exact path={`${this.props.match.url}/addalbum`} render={() => <AddAlbum albums={albums} handleOnSubmit={this.handleOnSubmitCreateAlbum}/>}/>  
+            <Route exact path={`${this.props.match.url}/albums`} render={() => <AddAlbum albums={albums} handleOnSubmit={this.handleOnSubmitCreateAlbum}/>}/>  
             <Route exact path={`${this.props.match.url}/addimages`} render={() => <AddImage handleOnSubmit={this.handleOnSubmitCreateImage}/>}/>
             <Route exact path={`${this.props.match.url}/list`} render={() => <ImageList images={images}/>}/>
             <Route exact path={`${this.props.match.url}/thumbnail`} render={() => <ImageThumbnail images={images}/>}/>

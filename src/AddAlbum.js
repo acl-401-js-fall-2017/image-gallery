@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { Link } from 'react-router-dom';
 // import AddImage from './AddImage';
 
 export default class AddAlbum extends PureComponent {
@@ -6,9 +7,7 @@ export default class AddAlbum extends PureComponent {
     const { handleOnSubmit, albums } = this.props;
     const album = (<div className="album-list">
       {albums.map((album) => (
-        <div key={album._id} >
-          <h2>{album.title}</h2>
-        </div>
+        <Link to={`/albums/${album._id}`} key={album._id}>{album.title}</Link> 
       ))}
     </div>);
     
