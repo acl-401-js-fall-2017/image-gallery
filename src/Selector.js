@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import Table from './Table';
-import Deck from './Deck';
+import Thumbnail from './Thumbnail';
 import Gallery from './Gallery';
 
 export default class Selector extends PureComponent {
@@ -12,7 +12,7 @@ export default class Selector extends PureComponent {
 
   }
 
-  handleSubmit(event) {
+  handleChange = event => {
     this.setState({ viewSelection: event.target.value });
   } 
 
@@ -22,13 +22,14 @@ export default class Selector extends PureComponent {
     let view;
 
     (viewSelection === 'table') && (view = <Table images={images} />);
+    (viewSelection === 'thumbnail') && (view = <Thumbnail images={images} />);
     
     
     return (
       <div>
         <select className="Input" value={this.state.viewSelection} onChange={this.handleChange}>
           <option value="table">Table</option>
-          <option value="deck">Deck</option>
+          <option value="thumbnail">Thumbnail</option>
           <option value="gallery">Gallery</option>
         </select>
         { view }
