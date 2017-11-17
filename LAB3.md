@@ -62,9 +62,9 @@ prior step, call with images data, and set new state.
 * BONUS: Deploy to Heroku!
 
 ## Rubric *20pts*
-- Use service calls and backend server for all data *5pts*
+- Use service calls and backend server for all data *6pts*
 - Add Albums concept
     - New components and presentation *4pts*
-    - New actions that use services *3pts*
+    - New actions that use services *4pts*
     - Integrated with images via Router *3pts* 
-- Dev and Build setup *5pts*
+- Dev and Build setup *3pts*
