@@ -1,35 +1,38 @@
 import React, { PureComponent, Component } from 'react';
 
-class ImageAdd extends Component {
-    constructor(){
-        super();
-        this.state = {
-            title: false,
-            url: false,
-            description: false
-        }
-    }
-    addImage = event => this.props.handleAdd(event, this.state);
-
-    makeImageobj2 = event => {
-        const title = event.target.name;
-        const currentState = this.state;
-        currentState[title] = event.target.value;
-        console.log('currenttttttt state', currentState);
-    }
-    
-    render(){
-        const theNewImage = this.state;
-        return(
-            <form method="post" onSubmit={event => this.addImage(event, theNewImage)}>
-                <input name="title" type="text" onChange={event => this.makeImageobj2(event)}/>
-                <input name="url" type="text" onChange={event => this.makeImageobj2(event)}/>
-                <input name="description" type="text" onChange={event => this.makeImageobj2(event)}/>
-                <input type="submit"/>
-            </form> 
-        );
-    }
+class AddImage extends PureComponent {
+    render() {
+      const { handleAdd } = this.props;
+      return (
+        <form onSubmit={event => {
+          event.preventDefault();
+          const { elements } = event.target;
+          const imageData = {
+              title: elements.title.value,
+              url: elements.url.value,
+              description: elements.description.value
+          };
+          handleAdd(imageData);
+          elements.title.value = '';
+          elements.title.url = '';
+          elements.title.description = '';
+        }}>
+          <label>Title: </label>
+          <input name="title" type="text" />
+          <br/>
+          <label>URL: </label>
+          <input name="url" type="text" />
+          <br/>
+          <label>Description: </label>
+          <input name="description" type="text"/>
+          <br/>
+          <button type="submit">Add</button>
+        </form>
+      ); 
+  }
 }
+
+
 
 class List extends PureComponent {
     render(){
@@ -51,7 +54,7 @@ class List extends PureComponent {
                     {list}
                 </tbody>
             </table>
-            <ImageAdd handleAdd={handleAdd}/>
+            <AddImage handleAdd={handleAdd} />
           </div>
         );
     }

@@ -32,12 +32,12 @@ class View extends PureComponent {
         }
     }
 
-    handleViewChange(value){
-        this.setState({viewSelection: value});
+    handleViewChange(viewSelection){
+        this.setState({ viewSelection });
     }
 
-    handleDelete(value){
-        const position = this.state.images.findIndex( img => img._id == value);
+    handleDelete(imageId){
+        const position = this.state.images.findIndex( img => img._id == imageId);
         this.state.images.splice(position, 1);
         const images = this.state.images;
         const newState = {
@@ -47,35 +47,30 @@ class View extends PureComponent {
         this.setState(newState);
     }
 
-    addImage = (event, newImg) => {
-        event.preventDefault();
-        const imgArry = this.state.images;
-        imgArry.push(newImg);
-        const images = imgArry;
+    handleAdd = (imageData) => {
+        const images = this.state.images.slice();
+        images.push(imageData);
         const newState = {
             ...this.state,
             images
         }
-
-        console.log('I am th eformzzzzzzz data ', newState);
-        console.log('I am th oldstatedata ', this.state);
         this.setState(newState);
     }
 
     render(){
         const { images, viewSelection } = this.state;
-        let displayMode;
-        (viewSelection === 'list') && (displayMode = <List images={ images } 
+        let view;
+        (viewSelection === 'list') && (view = <List images={ images } 
         handleDelete={ imageId => this.handleDelete(imageId)}
-        handleAdd={ (event, img) => this.addImage(event, img)}/>);
-        (viewSelection === 'thumbnail') && (displayMode = <Thumbnail images={ images }/>);
-        (viewSelection === 'gallery') && (displayMode = <Gallery images={ images }/>);
+        handleAdd={ image => this.handleAdd(image)}/>);
+        (viewSelection === 'thumbnail') && (view = <Thumbnail images={ images }/>);
+        (viewSelection === 'gallery') && (view = <Gallery images={ images }/>);
         return(
           <div>
             <input type="button" value="list" onClick={({ target }) => this.handleViewChange(target.value) }/>
             <input type="button" value="thumbnail" onClick={({ target }) => this.handleViewChange(target.value) }/>
             <input type="button" value="gallery" onClick={({ target }) => this.handleViewChange(target.value) }/>
-            { displayMode }
+            { view }
           </div>
         );
     }
