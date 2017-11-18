@@ -1,8 +1,7 @@
 export function onDelete(imageId, state){
-    console.log('ghghghgh');
     const position = state.images.findIndex( img => img._id == imageId);
     state.images.splice(position, 1);
-    const images = state.images;
+    const images = state.images.slice();
     return {
         ...state,
         images

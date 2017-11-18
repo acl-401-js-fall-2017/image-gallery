@@ -37,18 +37,11 @@ export default class View extends PureComponent {
     }
 
     handleDelete(imageId){
-        const newState = onDelete(imageId, this.state)
-        this.setState(newState);
+        this.setState(onDelete(imageId, this.state));
     }
 
     handleAdd = (imageData) => {
-        const images = this.state.images.slice();
-        images.push(imageData);
-        const newState = {
-            ...this.state,
-            images
-        }
-        this.setState(newState);
+        this.setState(onAdd(imageData, this.state));
     }
 
     render(){

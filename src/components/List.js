@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import AddImage from './AddImage'
 
 
-export default class List extends Component {
+export default class List extends PureComponent {
     render(){
+        console.log('re rendering')
         const { images, handleDelete, handleAdd } =this.props;
         const list = !images ? null : images.map((image, i) => {
             const listItem = 
