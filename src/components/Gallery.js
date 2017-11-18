@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
-class Gallery extends PureComponent {
+export default class Gallery extends PureComponent {
     constructor(){
         super();
         this.state = {
@@ -30,5 +31,7 @@ class Gallery extends PureComponent {
         );
     }
 }
+Gallery.propTypes = {
+    images: PropTypes.array
+}
 
-export default Gallery;

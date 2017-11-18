@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
-//import PropTypes from 'prop-types';
 import List from './List';
 import Thumbnail from './Thumbnail';
 import Gallery from './Gallery';
+import { onDelete, onAdd } from './actions'
 
-class View extends PureComponent {
+export default class View extends PureComponent {
     constructor(){
         super();
         this.state = {
@@ -37,13 +37,7 @@ class View extends PureComponent {
     }
 
     handleDelete(imageId){
-        const position = this.state.images.findIndex( img => img._id == imageId);
-        this.state.images.splice(position, 1);
-        const images = this.state.images;
-        const newState = {
-            ...this.state,
-            images
-        }
+        const newState = onDelete(imageId, this.state)
         this.setState(newState);
     }
 
@@ -75,5 +69,3 @@ class View extends PureComponent {
         );
     }
 }
-
-export default View;

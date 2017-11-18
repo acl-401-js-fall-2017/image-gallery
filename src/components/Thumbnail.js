@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
-class Thumbnail extends PureComponent {
+export default class Thumbnail extends PureComponent {
     render(){
         const { images } =this.props;
         const list = images.map((image, index)=> {
@@ -19,4 +20,6 @@ class Thumbnail extends PureComponent {
     }
 }
 
-export default Thumbnail;
+Thumbnail.propTypes = {
+    images: PropTypes.array
+}

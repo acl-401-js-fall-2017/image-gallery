@@ -1,6 +1,7 @@
-import React, { PureComponent, Component } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
-class AddImage extends PureComponent {
+export default class AddImage extends PureComponent {
     render() {
       const { handleAdd } = this.props;
       return (
@@ -31,33 +32,7 @@ class AddImage extends PureComponent {
       ); 
   }
 }
-
-
-
-class List extends PureComponent {
-    render(){
-        const { images, handleDelete, handleAdd } =this.props;
-        const list = images.map((image, i) => {
-            const listItem = 
-            <tr key={i}>
-              <a href={image.url}>{image.title}:</a>
-              <td>Description: {image.description}</td>
-              <td><input data-value={image._id} type="button" value="remove" onClick ={({ target }) => handleDelete(target.dataset.value)}/></td>
-            </tr>
-		    return listItem;
-        })
-        
-        return(
-          <div>
-            <table>
-                <tbody>
-                    {list}
-                </tbody>
-            </table>
-            <AddImage handleAdd={handleAdd} />
-          </div>
-        );
-    }
+AddImage.propTypes = {
+    handleAdd: PropTypes.func
 }
 
-export default List;
