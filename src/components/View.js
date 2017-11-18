@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { Route, Switch, Redirect, Link } from 'react-router-dom';
 
 import Bunnies from '../images/bunnies';
@@ -9,7 +9,7 @@ import Gallery from './Gallery';
 import { addImage, removeImage } from '../data/actions';
 
 
-export default class View extends PureComponent {
+export default class View extends Component {
 
   constructor() {
     super();
