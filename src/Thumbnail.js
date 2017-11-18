@@ -3,12 +3,17 @@ import styled from 'styled-components';
 
 export default class Thumbnail extends PureComponent {
   render() {
-    const {gallery, shouldDisplay } =this.props
+    const {gallery, shouldDisplay, deleteImage } =this.props
     return( 
       <StyledDiv shouldDisplay={shouldDisplay}>
-        <ul>
+        <ul style ={{ display: 'flex' }}>
           {this.props.gallery.map((img, i) => (
-            <img className ='galleryImg' key={img._id} src={img.img} alt='image'/>
+            <div>
+              <div className ="thumbnailDiv">
+                <div className="deleteDiv" onClick ={ () => deleteImage(img._id) }>x</div>
+                <img className ='galleryImg' key={img._id} src={img.img} alt='image'/>
+              </div>
+            </div>
           ))}
         </ul>
       </StyledDiv>
