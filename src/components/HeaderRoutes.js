@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 import logo from '../logo.svg';
 
@@ -15,13 +15,16 @@ export default function Header() {
       <h1 className="App-title">Welcome to React</h1>
       <nav>
         <li>
-          <HeaderRoutes exact to='/list'>List</HeaderRoutes>
+          <HeaderRoutes to='/'>Home</HeaderRoutes>
         </li>
         <li>
-          <HeaderRoutes exact to='/thumbnail'>Thumbnail</HeaderRoutes>
+          <HeaderRoutes to="/list">List</HeaderRoutes>
         </li>
         <li>
-          <HeaderRoutes exact to='/gallery'>Gallery</HeaderRoutes>
+          <HeaderRoutes to="/thumbnail">Thumbnail</HeaderRoutes>
+        </li>
+        <li>
+          <HeaderRoutes to="/gallery">Gallery</HeaderRoutes>
         </li>
       </nav>
     </header>
