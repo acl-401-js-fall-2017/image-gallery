@@ -6,7 +6,7 @@ import {
 import flops from './image/flops.png';
 import './App.css';
 import View from './View';
-// import about from './about';
+import About from './Components/About';
 
 export default class App extends Component {
   render() {
@@ -17,24 +17,26 @@ export default class App extends Component {
             <img src={flops} className="App-logo" alt="" />
             <Switch>
               <Route exact path="/" component={Home}/>
-              {/* <Route path="/about" component={about}/> */}
-              {/* <Route path="/View" component={View}/> */}
+              <Route path="/about" component={About}/>
+              <Route exact path="/view" component={View}/>
               <Redirect to="/"/>
             </Switch>
           </header>
-          <View/>
         </div>
       </Router>
     );
   }
 }
 
-const Home = () => (
-  <div className="Link">
-    <h1 className="App-title">Welcome to a World of Bunnies</h1>
-    <Link to="/bunnies">Link Placeholder</Link>
-  </div>
-);
+function Home() {
+  return (
+    <div className="Link">
+      <h1 className="App-title">Welcome to a World of Bunnies</h1>
+      <Link to="/about">About</Link>
+      <Link to="/view">Images</Link>
+    </div>
+  );
+}
 
 
 

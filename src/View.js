@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import ListView from './Components/ListView';
 import GalleryView from './Components/GalleryView';
 import ThumbView from './Components/ThumbView';
+import { Link } from 'react-router-dom';
 // import { addBunny } from './actions';
 
 class View extends PureComponent {
@@ -44,9 +45,12 @@ class View extends PureComponent {
     return (
       <div>
         { currentView }
-        <input type="button" value="Bunny List" onClick={(event) => this.handleViewChange('list')}/>
-        <input type="button" value="Bunny Gallery" onClick={(event) => this.handleViewChange('gallery')}/>
-        <input type="button" value="Bunny Thumbnail" onClick={(event) => this.handleViewChange('thumbnail')}/>
+        <input className="button" type="button" value="Bunny List" onClick={(event) => this.handleViewChange('list')}/>
+        <input className="button" type="button" value="Bunny Gallery" onClick={(event) => this.handleViewChange('gallery')}/>
+        <input className="button" type="button" value="Bunny Thumbnail" onClick={(event) => this.handleViewChange('thumbnail')}/>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+
       </div>
     );
   }
