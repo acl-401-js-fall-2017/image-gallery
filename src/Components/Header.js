@@ -3,9 +3,7 @@ import { NavLink } from 'react-router-dom';
 import flops from '../image/flops.png';
 
 const HeaderRoutes = props => <NavLink {...props} 
-  className="nav-link"
-  activeClassName="active"
-/>;
+  className="nav-link"  activeClassName="active"/>;
 
 export default function Header() {
   return (

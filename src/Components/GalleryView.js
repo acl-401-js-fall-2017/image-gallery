@@ -12,8 +12,8 @@ export default class GalleryView extends PureComponent {
     this.setState((prevState) => {
       const forwardRound = prevState.i === bunnies.length -1;
       let i = value === 'Next' ? prevState.i+1 : prevState.i-1;
-      const state = forwardRound ? { i: 0 } : { i };
-
+      // let k = value === 'Previous' ? prevState.k-1 : prevState.k+1;
+      const state = forwardRound ? { i: 0 } : { i }; 
       return state;
     });
   }
