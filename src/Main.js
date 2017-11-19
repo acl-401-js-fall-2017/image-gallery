@@ -24,16 +24,16 @@ export default class Main extends PureComponent {
     }
     super.setState(state);
   }
-  // kind of functioning but not really
-  undo = () => {
-    console.log('undo');
-    if(!this.history.length) return;
-    console.log('this state is:', this.state)
-    this.history.pop();
-    const last = this.history.pop();
-    console.log('last state is:', last)
-    this.setState(last, true);
-  }
+  // // kind of functioning but not really
+  // undo = () => {
+  //   console.log('undo');
+  //   if(!this.history.length) return;
+  //   console.log('this state is:', this.state)
+  //   this.history.pop();
+  //   const last = this.history.pop();
+  //   console.log('last state is:', last)
+  //   this.setState(last, true);
+  // }
   
   addImage = img => {
     const newState = addImg(this.state, img)
