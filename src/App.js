@@ -59,8 +59,8 @@ class App extends Component {
 const Home = () => (
   <div>
     <h1>Welcome to PandaPics!</h1>
-    <Link to="/list"> List </Link>  
-    <Link to="/thumb"> Thumbnail </Link>
+    <Link to="/list"> List </Link>   
+    <Link to="/thumb"> Thumbnail </Link>  
     <Link to="/gallery"> Gallery </Link>
   </div>
 );

@@ -38,7 +38,7 @@ export default class Gallery extends Component {
         {this.state.imageIndex !== (images.length -1) && (
           <button id="nextButton" onClick={this.changePic} >Next Picture </button>
         )}
-        <img src={images[this.state.imageIndex].url} alt="panda" />
+        <img className="gallery" src={images[this.state.imageIndex].url} alt="panda" />
      
       </section>
     );

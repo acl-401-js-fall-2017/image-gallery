@@ -32,3 +32,13 @@
   max-height: 100px;
   max-width: 100px;
 }
+
+.gallery {
+  max-height: 450px;
+  max-width: 720px;
+}
+
+a {
+  display: block;
+  margin: 10px, 10px;
+}
