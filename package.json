@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "jest": "^21.2.1",
-    "moment": "^2.19.2",
+    "jest-cli": "^21.2.1",
     "prop-types": "^15.6.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
