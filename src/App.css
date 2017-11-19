@@ -77,3 +77,9 @@ nav > li {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.list-view {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+}
