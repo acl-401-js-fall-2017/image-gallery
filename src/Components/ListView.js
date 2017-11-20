@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import AddBunny from './AddBunny';
+import PropTypes from 'prop-types';
 
 export default class ListView extends PureComponent {
   render() {
@@ -28,3 +29,9 @@ export default class ListView extends PureComponent {
     );
   }
 }
+
+ListView.propTypes = {
+  handleSubmit: PropTypes.func,
+  handleDelete: PropTypes.func,
+  bunnies: PropTypes.array
+};

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 export default class AddBunny extends PureComponent {
   render() {
@@ -30,3 +31,7 @@ export default class AddBunny extends PureComponent {
     );
   }
 }
+
+AddBunny.propTypes = {
+  handleSubmit: PropTypes.func
+};
