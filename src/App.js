@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import images from './images';
-import Selector from './Selector';
+import Selector from './Components/Selector';
 import './App.css';
-import PropTypes from 'prop-types';
-
 
 class App extends Component {
   constructor() {
@@ -24,9 +22,5 @@ class App extends Component {
     );
   }
 }
-
-App.propTypes = {
-  images: PropTypes.array
-};
 
 export default App;
