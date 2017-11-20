@@ -37,23 +37,23 @@ class Albums extends Component {
   }
   
   render() {
-    const { albums, handleRemove } = this.state;
+    const { albums } = this.state;
 
     return (
-      <section>
-        <h3>My Albums</h3>
-        <ul className="albums">
+      <div className="albums">
+        <h4>List of Albums</h4>
+        <ul>
           {albums.map(album => (
             <li key={album._id}>
               <Link to={`/albums/${album._id}`}>{album.name}</Link>
-              <button onClick={() => this.handleRemove(album._id)}>X</button>
+              <button onClick={() => this.handleRemove(album._id)}>remove</button>
             </li>
           ))}
         </ul>
         <AddAlbum type="list" onAdd={this.handleAdd} albums={albums}>
           <input name="title"/>
         </AddAlbum>
-      </section>
+      </div>
     );
   }
 }

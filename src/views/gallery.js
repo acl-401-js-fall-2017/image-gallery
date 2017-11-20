@@ -23,24 +23,23 @@ export default class ImageGallery extends Component {
   }
   
   render() {
-    const { images } = this.props;
+    const { images, onDelete } = this.props;
     const imageArray =  images.map((image) => (
       <div key={image._id} >
         <img style={{ height:'600px' }} src={image.url} alt={image.title} />
+        <button onClick={() => onDelete(image)}>remove</button>
       </div>
     ));
       
       
     return (
-      <div className="thumbnail-view">
+      <div className="home" id="thumbnail-view">
         {imageArray[this.state.slideIndex]}
         <div>
           <button onClick={() => this.slideImg(-1)}>backward</button>
           <button onClick={() => this.slideImg(1)}>forward</button>
         </div>
       </div>
-
-
     );
   }
 }

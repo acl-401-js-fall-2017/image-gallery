@@ -59,21 +59,31 @@ import {
   Route, Switch, Redirect, 
   Link  } from 'react-router-dom';
 import './App.css';
-// import Home from '../components/home';
+import Home from '../components/home';
 import About from '../components/about';
 import Albums from '../albums/albums';
 import Images from '../images/images';
+
+
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
+        <div>
+          <div className="topNav">
+            <Link className="nav" to="/">Home</Link>
+            <span> </span>
+            <Link className="nav" to="/about">About</Link>
+            <span> </span>
+            <Link className="nav" to="/albums">View Albums</Link>
+          </div>
           <Switch>
             <Route exact path="/" component={Home}/>
             <Route exact path="/about" component={About}/>
-            <Route path="/albums" component={Albums}/>
-            <Route path="/albums/:id" component={Images}/>
+            <Route exact path="/albums" component={Albums}/>
+            <Route exact path="/images" render={(props)=><Images {...props}  isAlbum={false}/>}/>
+            <Route  path="/albums/:id" render={(props)=><Images {...props}  isAlbum={true}/>}/>
             <Redirect to="/"/>
           </Switch>
         </div>
@@ -82,11 +92,5 @@ class App extends Component {
   }
 }
 
-const Home = () => (
-  <div>
-    <h1>Welcome to the Task Lists!</h1>
-    <Link to="/albums">View the List of Images</Link>
-  </div>
-);
 
 export default App;
