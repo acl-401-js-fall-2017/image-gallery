@@ -5,6 +5,7 @@ import Bunnies from '../images/bunnies';
 import List from './List';
 import Thumbnail from './Thumbnail';
 import Gallery from './Gallery';
+import Home  from './Home';
 
 import { addImage, removeImage } from '../data/actions';
 
@@ -40,7 +41,7 @@ export default class View extends Component {
 
     const displayView = {
 
-      // home:<Home/>,
+      home: <Home/>,
 
       list: <List bunnies={this.state.bunnies}
         removeImage={imageId => this.handleRemove(imageId)}
@@ -68,7 +69,7 @@ export default class View extends Component {
       <div>
         <div>
           <Switch>
-            <Route exact path='/' component={Home}/>
+            <Route exact path='/' render={() => displayView.home}/>
             <Route exact path='/list' render={() => displayView.list}/>
             {/* <Route exact path='/list' component={List}/> */}
             <Route exact path='/thumbnail' render={() => displayView.thumbnail}/>
@@ -88,10 +89,3 @@ export default class View extends Component {
     );
   }
 }
-
-const Home = () => (
-  <div>
-    <h1>Welcome to the Image Gallery Home page!</h1>
-    <Link to="/images">View Images</Link>
-  </div>
-);
