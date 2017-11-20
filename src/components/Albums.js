@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 import albumApi from '../service/album.api';
 import { loadAlbums, addImage, removeImage } from '../data/actions';
-import AddImage from '../components/AddImage';
+import AddAlbum from '../components/AddAlbum';
 
 export default class Albums extends PureComponent {
     state = {
@@ -37,10 +37,11 @@ export default class Albums extends PureComponent {
             {albums.map(album => (
               <li key={album._id}>
                 <Link to={`/albums/${album._id}`}>{album.name}</Link>
-                {/* <button onClick={() => this.handleRemove(album._id)}>X</button> */}
+                <button onClick={() => this.handleRemove(album._id)}>X</button>
               </li>
             ))}
           </ul>
+          <AddAlbum onAdd={this.handleAdd}/>
         </section>
       );
     }
