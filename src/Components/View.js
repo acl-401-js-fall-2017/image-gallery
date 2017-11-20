@@ -67,13 +67,13 @@ class View extends Component {
     return (
       <div>
         <div>
-          <li>
+          <li className="image-links">
             <HeaderRoutes exact to="/images/list">List</HeaderRoutes>
           </li>
-          <li>
+          <li className="image-links">
             <HeaderRoutes exact to="/images/thumbnail">Thumbnail</HeaderRoutes>
           </li>
-          <li>
+          <li className="image-links">
             <HeaderRoutes exact to="/images/gallery">Gallery</HeaderRoutes>
           </li>
           <Switch>
