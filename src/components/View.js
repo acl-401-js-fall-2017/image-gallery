@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, Redirect, Link } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Bunnies from '../images/bunnies';
 import List from './List';
@@ -16,7 +16,6 @@ export default class View extends Component {
     super();
     this.state = {
       bunnies: Bunnies,
-      // viewSelection: 'list'
     };
   }
 
@@ -54,38 +53,18 @@ export default class View extends Component {
 
     };
 
-    // const { viewSelection } = this.state;
-    // let displayView;
-
-    // (viewSelection === 'list') && (displayView = <List bunnies={this.state.bunnies} 
-    //   removeImage={imageId => this.handleRemove(imageId)}
-    //   addImage={image => this.handleAdd(image)}
-    // />);
-    // (viewSelection === 'thumbnail') && (displayView = <Thumbnail bunnies={this.state.bunnies}/>);
-    // (viewSelection === 'gallery') && (displayView = <Gallery bunnies={this.state.bunnies}/>);
-      
-
     return (
       <div>
         <div>
           <Switch>
             <Route exact path='/' render={() => displayView.home}/>
             <Route exact path='/list' render={() => displayView.list}/>
-            {/* <Route exact path='/list' component={List}/> */}
             <Route exact path='/thumbnail' render={() => displayView.thumbnail}/>
-            {/* <Route exact path='/thumbnail' component={Thumbnail}/> */}
             <Route exact path='/gallery' render={() => displayView.gallery}/>
-            {/* <Route exact path='/gallery' component={Gallery}/> */}
             <Redirect to="/"/>
           </Switch>
         </div>
-      </div>
-    //   <div>
-    //     <input type="button" value="list" onClick={({ target }) => this.handleViewChange(target.value)}/>
-    //     <input type="button" value="thumbnail" onClick={({ target }) => this.handleViewChange(target.value)}/>
-    //     <input type="button" value="gallery" onClick={({ target }) => this.handleViewChange(target.value)}/>
-    //     { displayView }
-    //   </div> 
+      </div> 
     );
   }
 }
