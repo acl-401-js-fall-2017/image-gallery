@@ -35,7 +35,7 @@ it('renders a View component snapshot', () => {
   expect(toJSON(wrapper)).toMatchSnapshot();
 });
 
-it('renders a list view snapshhot', () => {
+it('renders a list view snapshot', () => {
   const wrapper = shallow(<ListView bunnies={bunnies}/>);
   expect(toJSON(wrapper)).toMatchSnapshot();
 });
