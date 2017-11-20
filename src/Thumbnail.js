@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
+import propTypes from 'prop-types'
 
 export default class Thumbnail extends PureComponent {
   render() {
@@ -7,11 +8,11 @@ export default class Thumbnail extends PureComponent {
     return( 
       <StyledDiv shouldDisplay={shouldDisplay}>
         <ul style ={{ display: 'flex' }}>
-          {this.props.gallery.map((img, i) => (
-            <div>
+          {gallery.map((img, i) => (
+            <div key={img._id}>
               <div className ="thumbnailDiv">
                 <div className="deleteDiv" onClick ={ () => deleteImage(img._id) }>x</div>
-                <img className ='galleryImg' key={img._id} src={img.img} alt='image'/>
+                <img className ='galleryImg' src={img.img} alt=''/>
               </div>
             </div>
           ))}
@@ -24,3 +25,9 @@ export default class Thumbnail extends PureComponent {
 const StyledDiv = styled.div`
 display:${props => props.shouldDisplay ? 'flex' : 'none'};
 `;
+
+Thumbnail.propTypes = {
+  gallery: propTypes.array,
+  shouldDisplay: propTypes.bool,
+  deleteImage: propTypes.func
+}

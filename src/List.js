@@ -8,9 +8,9 @@ export default class List extends PureComponent {
       <StyledDiv shouldDisplay={shouldDisplay}>
         <ul>
           {gallery.map(img => (
-            <div style ={{display: 'flex', margin: '8px'}}>
+            <div key={img._id} style ={{display: 'flex', margin: '8px'}}>
               <DeleteDiv onClick ={ () => deleteImage(img._id) }>x</DeleteDiv>
-              <li type= "none" key={img._id}>{img.title}: {img.description}</li>
+              <li type= "none">{img.title}: {img.description}</li>
             </div>
           ))}
         </ul>

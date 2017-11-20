@@ -27,9 +27,9 @@ export default class Thumbnail extends PureComponent {
       <StyledDiv shouldDisplay={shouldDisplay}>
         <div>
           {this.props.gallery.map((img, i) => (
-            <ImgDiv shouldDisplay ={this.state.index === i}>
+            <ImgDiv key={img._id} shouldDisplay ={this.state.index === i}>
               <span> {img.title} </span>
-              <img style={{ width:'100%' }} key={img._id} src={img.img} alt='image'/>
+              <img style={{ width:'100%' }} src={img.img} alt=''/>
               <span> {img.description} </span>
               { i !== gallery.length -1 && <span onClick ={()=> this.handleClick(1)}> next </span>}
               {i !== 0 && <span onClick ={()=> this.handleClick(-1)}> previous</span>}

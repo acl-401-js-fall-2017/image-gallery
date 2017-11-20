@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
-import styled from 'styled-components';
+//import styled from 'styled-components';
 import { loadGallery, addImg, deleteImg } from './actions';
 import Thumbnail from './Thumbnail';
 import List from './List';
 import Gallery from './Gallery';
 import NewImg from './NewImg';
+import _ from 'lodash';
 
 export default class Main extends PureComponent {
   constructor() {
@@ -12,46 +13,35 @@ export default class Main extends PureComponent {
     this.state = {
       gallery: [],
       view :'',
-      showAdd: false
-    };
-    this.history = []; 
+      showAdd: false,
+      history: [],
+    }; 
   }
-
-  setState(state, ignore = false){
-    if(!ignore) {
-      this.history.push(state);
-      console.log('we are in not Ignore', this.history);
-    }
-    super.setState(state);
+  
+  // kind of functioning but not really
+  undo = () => {  
+    const last = _.cloneDeep(_.last(this.state.history))
+    //const last = _(this.state.history).last().cloneDeep().value()
+    this.setState( last )
   }
-  // // kind of functioning but not really
-  // undo = () => {
-  //   console.log('undo');
-  //   if(!this.history.length) return;
-  //   console.log('this state is:', this.state)
-  //   this.history.pop();
-  //   const last = this.history.pop();
-  //   console.log('last state is:', last)
-  //   this.setState(last, true);
-  // }
   
   addImage = img => {
+    const currentHistory = [...this.state.history, this.state]
     const newState = addImg(this.state, img)
-    this.setState(newState);
+    newState.history = currentHistory;
+    this.setState(newState)
   }
   
   deleteImage = id => {
+    const currentHistory = [...this.state.history, this.state]
     const newState = deleteImg(this.state, id)
+    newState.history = currentHistory;
     this.setState(newState)
   }
   
   changeView = ({ target }) => {
-    console.log('changeView is happening', target.value);
-    const newState = {
-      ... this.state,
-      view: target.value
-    }
-    this.setState(newState);
+    const currentHistory = [...this.state.history, this.state]
+    this.setState({ view: target.value, history: currentHistory });
   }
   
   componentDidMount() {
@@ -73,7 +63,7 @@ export default class Main extends PureComponent {
               <option value ={'gallery'}> gallery </option>
             </select>
             <button
-              disabled ={!this.history.length}
+              disabled ={!this.state.history.length}
               onClick = {this.undo}>
               Undo
             </button>
@@ -87,3 +77,4 @@ export default class Main extends PureComponent {
     );
   }
 }
+
