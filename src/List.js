@@ -1,14 +1,16 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
-import { loadGallery } from './actions'
+import { loadGallery } from './actions';
+import imgApi from './services/imgApi';
 
 export default class List extends PureComponent {
   state ={
     gallery: []
   }
 
-  componentDidMount() {
-    const newState = loadGallery(this.state);
+  async componentDidMount() {
+    const img = await imgApi.get();
+    const newState = loadGallery(this.state, img);
     this.setState(newState);
   }
 
@@ -23,12 +25,12 @@ export default class List extends PureComponent {
           ))}
         </ul>
       </StyledDiv>
-    )
-  };
+    );
+  }
 }
 
 const StyledDiv = styled.div`
 display:'flex';
 width: 90%;
 justify-content:space-between;
-`
+`;

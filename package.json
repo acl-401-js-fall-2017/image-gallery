@@ -2,6 +2,7 @@
   "name": "image-gallery",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "lodash": "^4.17.4",
     "prop-types": "^15.6.0",

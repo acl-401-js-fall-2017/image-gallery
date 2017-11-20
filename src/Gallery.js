@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import { loadGallery } from './actions';
+import imgApi from './services/imgApi';
+
 
 export default class Gallery extends PureComponent {
   state = { 
@@ -8,8 +10,9 @@ export default class Gallery extends PureComponent {
     gallery:[]
   }
 
-  componentDidMount() {
-    const newState = loadGallery(this.state);
+  async componentDidMount() {
+    const img = await imgApi.get();
+    const newState = loadGallery(this.state, img);
     this.setState(newState);
   }
 
@@ -18,7 +21,7 @@ export default class Gallery extends PureComponent {
     const newState = {
       ...this.state,
       index: this.state.index + value
-    }
+    };
     this.setState(newState);
   }
 
@@ -29,7 +32,7 @@ export default class Gallery extends PureComponent {
           {this.state.gallery.map((img, i) => (
             <ImgDiv key={img._id} shouldDisplay ={this.state.index === i}>
               <span> {img.title} </span>
-              <img style={{ width:'100%' }} src={img.img} alt=''/>
+              <img style={{ width:'100%' }} src={img.url} alt=''/>
               <span> {img.description} </span>
               { i !== this.state.gallery.length -1 && <span onClick ={()=> this.handleClick(1)}> next </span>}
               {i !== 0 && <span onClick ={()=> this.handleClick(-1)}> previous</span>}
@@ -37,8 +40,8 @@ export default class Gallery extends PureComponent {
           ))}
         </div>
       </StyledDiv>
-    )
-  };
+    );
+  }
 }
 
 const StyledDiv = styled.div`
