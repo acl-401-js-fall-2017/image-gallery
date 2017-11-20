@@ -16,23 +16,27 @@ module.exports = router
             .then(saved => res.send(saved))
             .catch(next);
     })
-    .patch('/add-photos/:id', (req, res, next) => {
-        Album.findByIdAndUpdate(
-            req.params.id, 
+    // TODO: change to allow addition to multiple albums
+    .patch('/add-photos/:ids', (req, res, next) => {
+        const albumIds = req.params.ids.split(',');
+        Album.update(
+            { _id: { $in: albumIds }}, 
             { $push: { photos: { $each: req.body.photoIds } } }, 
-            { new: true }
+            { multi: albumIds.length > 1 }
         )
-            .then(updated => res.send(updated))
-            .catch(next);
+        .then(updated => res.send(updated))
+        .catch(next);
     })
-    .patch('/rm-photos/:id', (req, res, next) => {
-        Album.findByIdAndUpdate(
-            req.params.id, 
+    // TODO: change to allow addition to multiple albums
+    .patch('/rm-photos/:ids', (req, res, next) => {
+        const albumIds = req.params.ids.split(',');        
+        Album.update(
+            { _id: { $in: albumIds }}, 
             { $pullAll: { photos: req.body.photoIds } }, 
-            { new: true }
+            { multi: albumIds.length > 1 }
         )
             .then(updated => res.send(updated))
-            .catch(next);
+            .catch(err => console.log(err));
     })
     .delete('/:id', (req, res, next) => {
         Album.findByIdAndRemove(req.params.id)
