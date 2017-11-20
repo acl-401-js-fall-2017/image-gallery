@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { PropTypes } from 'prop-types';
 
 export default class Thumbnail extends PureComponent {
   render () {
@@ -18,3 +19,6 @@ export default class Thumbnail extends PureComponent {
   } 
 }
 
+Thumbnail.propTypes = {
+  images: PropTypes.array
+};

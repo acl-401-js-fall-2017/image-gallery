@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import Table from './Table';
 import Thumbnail from './Thumbnail';
 import Gallery from './Gallery';
+import { PropTypes } from 'prop-types';
 
 export default class Selector extends PureComponent {
   constructor() {
@@ -37,4 +38,10 @@ export default class Selector extends PureComponent {
       </div>
     );
   }
+
+
 }
+
+Selector.propTypes = {
+  images: PropTypes.array
+};

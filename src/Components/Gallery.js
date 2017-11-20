@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import images from './images';
+import images from '../images';
 
 export default class Gallery extends PureComponent{
   constructor(){

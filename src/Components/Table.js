@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { PropTypes } from 'prop-types';
 
 export default class Table extends PureComponent {
   render() {
@@ -23,3 +24,7 @@ export default class Table extends PureComponent {
     );
   }
 }
+
+Table.propTypes = {
+  images: PropTypes.array
+};
