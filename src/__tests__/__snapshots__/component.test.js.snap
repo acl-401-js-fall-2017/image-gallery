@@ -195,45 +195,53 @@ exports[`components should render Thumbnail component 1`] = `
 `;
 
 exports[`components should render View component 1`] = `
-<div>
-  <input
-    onClick={[Function]}
-    type="button"
-    value="list"
-  />
-  <input
-    onClick={[Function]}
-    type="button"
-    value="thumbnail"
-  />
-  <input
-    onClick={[Function]}
-    type="button"
-    value="gallery"
-  />
-  <Thumbnail
-    images={
-      Array [
-        Object {
-          "_id": 1,
-          "description": "Isn't it fuzzy-wuzzy cutest thing you've ever seen?",
-          "title": "Cute Bunny",
-          "url": "http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg",
-        },
-        Object {
-          "_id": 2,
-          "description": "Isn't it fuzzy-wuzzy cutest thing you've ever seen?",
-          "title": "Cute Bunny2",
-          "url": "http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg",
-        },
-        Object {
-          "_id": 3,
-          "description": "Isn't it fuzzy-wuzzy cutest thing you've ever seen?",
-          "title": "Cute Bunny3",
-          "url": "http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg",
-        },
-      ]
-    }
-  />
-</div>
+<BrowserRouter>
+  <div>
+    <nav>
+      <li>
+        <HeaderLink
+          exact={true}
+          to="/images/gallery"
+        >
+          Gallery
+        </HeaderLink>
+      </li>
+      <li>
+        <HeaderLink
+          to="/images/list"
+        >
+          List
+        </HeaderLink>
+      </li>
+      <li>
+        <HeaderLink
+          to="/images/thumbnail"
+        >
+          Thumbnail
+        </HeaderLink>
+      </li>
+    </nav>
+    <Switch>
+      <Route
+        exact={true}
+        path="/images/gallery"
+        render={[Function]}
+      />
+      <Route
+        exact={true}
+        path="/images/thumbnail"
+        render={[Function]}
+      />
+      <Route
+        exact={true}
+        path="/images/list"
+        render={[Function]}
+      />
+      <Redirect
+        push={false}
+        to="/images/gallery"
+      />
+    </Switch>
+  </div>
+</BrowserRouter>
 `;
