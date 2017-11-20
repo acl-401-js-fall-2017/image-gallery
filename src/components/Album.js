@@ -41,9 +41,7 @@ export default class Album extends PureComponent {
               </li>
             ))}
           </ul>
-          <AddImage type="list" onAdd={this.handleAdd}>
-            <input name="title"/>
-          </AddImage>
+          <AddImage type="list" onAdd={this.handleAdd}/>
         </section>
       );
     }
