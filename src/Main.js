@@ -18,7 +18,6 @@ export default class Main extends PureComponent {
     }; 
   }
   
-  // kind of functioning but not really
   undo = () => {  
     const last = _.cloneDeep(_.last(this.state.history))
     //const last = _(this.state.history).last().cloneDeep().value()
