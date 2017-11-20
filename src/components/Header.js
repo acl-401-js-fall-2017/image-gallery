@@ -11,18 +11,6 @@ const HeaderLink = props => <NavLink {...props}
 
 
 export default function Header() {
-  const viewLinks = 
-  <nav>
-    <li>
-      <HeaderLink exact to="/">Gallery</HeaderLink>
-    </li>
-    <li>
-      <HeaderLink to="/images">List</HeaderLink>
-    </li>
-    <li>
-      <HeaderLink to="/about">Thumbnail</HeaderLink>
-    </li>
-  </nav>;
   return (
     <header className="App-header">
       <h1 className="App-title">Image gallery</h1>
