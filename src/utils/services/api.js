@@ -6,10 +6,12 @@ const wrap = promise => {
 
 export default {
   get(path) {
+    console.log('we are in api+++++',path);
     return wrap(
       fetch(`${url}${path}`)
     );
   },
+
   post(path, data) {
     return wrap(
       fetch(`${url}${path}`, {
@@ -22,6 +24,7 @@ export default {
       })
     );
   },
+  
   delete(path) {
     return wrap(
       fetch(`${url}${path}`, {

@@ -7,6 +7,7 @@ export default class Home extends PureComponent{
       <div>
         <p>Welcome Home!</p>
         <Link to="/images"><p>Click Here to go to the Image Gallery!</p></Link>
+        <Link to="/albums"><p>Click Here to go to albums!</p></Link>
       </div>
     );
   }

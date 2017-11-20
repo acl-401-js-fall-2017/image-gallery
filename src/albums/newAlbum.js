@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
-import addImage from './actions';
-import imgApi from './services/imgApi';
+import { addAlbum } from '../utils/actions';
+import albumsApi from '../utils/services/albumsApi';
 
 export default class NewImg extends PureComponent {
 
-  handleAdd = async (img) => {
-    const image = await imgApi.add(img);
-    console.log('we just fgot immage back',image);
-    // const newState = addImage(this.state, list);
+  handleAdd = async (album) => {
+    const newAlbum = await albumsApi.add(album);
+    console.log('we just got album back', newAlbum);
+    // const newState = addAlbum(this.state, list);
     // this.setState(newState);
   }
 
@@ -18,18 +18,16 @@ export default class NewImg extends PureComponent {
         onSubmit={event => {
           event.preventDefault();
           const { elements } = event.target;
-          const img ={
-            title: elements.title.value,
+          const album ={
+            name: elements.title.value,
             description: elements.description.value,
-            url: elements.url.value
           };
-          this.handleAdd(img);
+          this.handleAdd(album);
           //elements.title.value = '';
         }}>
         <span>Add New Image to the gallery</span>
         <input name="title" placeholder="title"/>
         <input name="description" placeholder="description"/>
-        <input name = "url" placeholder="url"/>
         <button type="submit">Add</button>
       </StyledForm>
     );

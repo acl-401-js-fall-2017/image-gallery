@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 import {  
   Route, Switch, Redirect, 
   NavLink  } from 'react-router-dom';
-import { loadGallery } from './actions';
+import { loadGallery } from '../utils/actions';
 import Thumbnail from './Thumbnail';
 import List from './List';
 import Gallery from './Gallery';
@@ -26,23 +26,26 @@ export default class Images extends PureComponent {
     this.setState(newState);
   }
 
-  render() {
+  getAlbumId() {
+    return this.props.match.params.id;
+  }
+  
+  render() { 
     return (
       <div style ={{ display: 'flex', flexDirection: 'column', }}>
         <nav>
           <ul style ={{ margin:' 0 35%', display: 'flex', justifyContent: 'space-between' }}>
-            <li type="none"><NavLink to="/images/thumbnail"> Thumbnail </NavLink></li>
-            <li type="none"><NavLink to="/images/gallery"> Gallery </NavLink></li>
-            <li type="none"><NavLink to="/images/list"> List </NavLink></li>
-            <li type="none"><NavLink to="/images/newimg"> Add New Image </NavLink></li>
+            <li type="none"><NavLink to={`/albums/${this.getAlbumId()}/thumbnail`}> Thumbnail </NavLink></li>
+            <li type="none"><NavLink to="/albums/:id/gallery"> Gallery </NavLink></li>
+            <li type="none"><NavLink to="/albums/:id/list"> List </NavLink></li>
+            <li type="none"><NavLink to="/albums/:id/newimg"> Add New Image </NavLink></li>
           </ul>
         </nav>
         <Switch>
-          <Route path="/images/newimg" component = {NewImg}/>
-          <Route path="/images/thumbnail" component = {Thumbnail}/>
-          <Route path="/images/gallery" component = {Gallery}/>
-          <Route path="/images/list" component = {List}/>
-          <Redirect to="/images"/>
+          <Route path="/albums/:id/newimg" component = {NewImg}/>
+          <Route path='/albums/:id/thumbnail' component = {Thumbnail}/>
+          <Route path="/albums/:id/gallery" component = {Gallery}/>
+          <Route path="/albums/:id/list" component = {List}/>
         </Switch>
       </div>
     );

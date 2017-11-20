@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
-import { loadGallery } from './actions';
-import imgApi from './services/imgApi';
+import { loadGallery, deleteImg } from '../utils/actions';
+import imgApi from '../utils/services/imgApi';
 
 
 export default class Gallery extends PureComponent {
@@ -15,6 +15,13 @@ export default class Gallery extends PureComponent {
     const newState = loadGallery(this.state, img);
     this.setState(newState);
   }
+
+  handleDelete = async id => {
+    await imgApi.remove(id);
+    const newState = deleteImg(this.state, id);
+    this.setState(newState);
+  }
+
 
   handleClick = (value) => {
     console.log('clicked');
@@ -32,6 +39,7 @@ export default class Gallery extends PureComponent {
           {this.state.gallery.map((img, i) => (
             <ImgDiv key={img._id} shouldDisplay ={this.state.index === i}>
               <span> {img.title} </span>
+              <DeleteDiv onClick={() => this.handleDelete(img._id)}>X</DeleteDiv>
               <img style={{ width:'100%' }} src={img.url} alt=''/>
               <span> {img.description} </span>
               { i !== this.state.gallery.length -1 && <span onClick ={()=> this.handleClick(1)}> next </span>}
@@ -52,4 +60,10 @@ const ImgDiv = styled.div`
 display:${props => props.shouldDisplay ? 'flex' : 'none'};
 flex-direction: column;
 margin: 0 10%;
+`;
+
+const DeleteDiv = styled.div`
+margin-left: 90%;
+text-align: center;
+border: 1px solid black;
 `;
