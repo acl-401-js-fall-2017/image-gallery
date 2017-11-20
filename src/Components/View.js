@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import ListView from './Components/ListView';
-import GalleryView from './Components/GalleryView';
-import ThumbView from './Components/ThumbView';
+import ListView from './ListView';
+import GalleryView from './GalleryView';
+import ThumbView from './ThumbView';
 import { Route, Switch, NavLink } from 'react-router-dom';
-import { removeBunny } from './actions';
+import { removeBunny } from '../actions';
 
 class View extends Component {
   constructor() {
@@ -67,13 +67,13 @@ class View extends Component {
     return (
       <div>
         <div>
-          <li>
+          <li className="image-links">
             <HeaderRoutes exact to="/images/list">List</HeaderRoutes>
           </li>
-          <li>
+          <li className="image-links">
             <HeaderRoutes exact to="/images/thumbnail">Thumbnail</HeaderRoutes>
           </li>
-          <li>
+          <li className="image-links">
             <HeaderRoutes exact to="/images/gallery">Gallery</HeaderRoutes>
           </li>
           <Switch>
