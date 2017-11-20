@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ListView from './Components/ListView';
 import GalleryView from './Components/GalleryView';
 import ThumbView from './Components/ThumbView';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, NavLink } from 'react-router-dom';
 import { removeBunny } from './actions';
 
 class View extends Component {
@@ -59,27 +59,29 @@ class View extends Component {
       
       thumbnail: <ThumbView bunnies={bunnies}/>
     };
-    // let currentView;
-    // (viewStyle === 'list') && (currentView = <ListView bunnies={bunnies} handleSubmit={this.handleAdd} handleDelete={this.handleRemove}/>);
-    // (viewStyle === 'gallery') && (currentView = <GalleryView bunnies={bunnies}/>);
-    // (viewStyle === 'thumbnail') && (currentView = <ThumbView bunnies={bunnies}/>);
+
+    const HeaderRoutes = props => <NavLink {...props} 
+      className="nav-link"  activeClassName="active"/>;
+    
 
     return (
       <div>
-        {/* { currentView }
-        <input className="button" type="button" value="Bunny List" onClick={(event) => this.handleViewChange('list')}/>
-        <input className="button" type="button" value="Bunny Gallery" onClick={(event) => this.handleViewChange('gallery')}/>
-        <input className="button" type="button" value="Bunny Thumbnail" onClick={(event) => this.handleViewChange('thumbnail')}/> */}
         <div>
+          <li>
+            <HeaderRoutes exact to="/images/list">List</HeaderRoutes>
+          </li>
+          <li>
+            <HeaderRoutes exact to="/images/thumbnail">Thumbnail</HeaderRoutes>
+          </li>
+          <li>
+            <HeaderRoutes exact to="/images/gallery">Gallery</HeaderRoutes>
+          </li>
           <Switch>
-            <Route path="/list" render={() => currentView.list}/>
-            <Route path="/gallery" render={() => currentView.gallery}/>
-            <Route path="/thumbnail" render={() => currentView.thumbnail}/>
+            <Route exact path="/images/list" render={() => currentView.list}/>
+            <Route exact path="/images/gallery" render={() => currentView.gallery}/>
+            <Route exact path="/images/thumbnail" render={() => currentView.thumbnail}/>
           </Switch>
         </div>
-        {/* <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/list">List</Link> */}
       </div>
     );
   }

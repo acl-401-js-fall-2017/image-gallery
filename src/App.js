@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import './App.css';
 import Header from './Components/Header';
 import View from './View';
-// import About from './Components/About';
+import About from './Components/About';
 
 export default class App extends Component {
   render() {
@@ -11,7 +11,12 @@ export default class App extends Component {
       <Router>
         <div className="App">
           <Header/>
-          <View/>
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/images" component={View}/>
+            <Route exact path="/about" component={About}/>
+            <Redirect to="/"/>
+          </Switch>
         </div>
       </Router>
     );
@@ -21,9 +26,7 @@ export default class App extends Component {
 function Home() {
   return (
     <div className="Link">
-      <h1 className="App-title">Welcome to a World of Bunnies</h1>
-      <Link to="/about">About</Link>
-      <Link to="/view">Images</Link>
+      {/* <h1 className="App-title">Welcome to a World of Bunnies</h1> */}
     </div>
   );
 }

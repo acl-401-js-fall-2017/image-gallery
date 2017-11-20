@@ -8,22 +8,19 @@ const HeaderRoutes = props => <NavLink {...props}
 export default function Header() {
   return (
     <header className="App-header">
-      <img src={flops} className="App-logo" alt="logo" />
-      <h1 className="App-title">Welcome to a World of Bunnies</h1>
       <nav>
         <li>
-          <HeaderRoutes to='/'>Home</HeaderRoutes>
+          <HeaderRoutes exact to='/'>Home</HeaderRoutes>
         </li>
         <li>
-          <HeaderRoutes to="/list">List</HeaderRoutes>
+          <HeaderRoutes exact to='/about'>About</HeaderRoutes> 
         </li>
         <li>
-          <HeaderRoutes to="/thumbnail">Thumbnail</HeaderRoutes>
-        </li>
-        <li>
-          <HeaderRoutes to="/gallery">Gallery</HeaderRoutes>
+          <HeaderRoutes exact to='/images'>Images</HeaderRoutes> 
         </li>
       </nav>
+      <img src={flops} className="App-logo" alt="logo" />
+      <h1 className="App-title">Welcome to a World of Bunnies</h1>
     </header>
   );
 }
