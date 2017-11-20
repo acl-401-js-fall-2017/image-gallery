@@ -31,16 +31,19 @@ export default class Gallery extends Component {
   render() {
     const { images } = this.props;
     return(
-      <section>
-        {this.state.imageIndex !== 0 && (
-          <button id="prevButton" onClick={this.changePic} >Previous Picture </button>
-        )}
-        {this.state.imageIndex !== (images.length -1) && (
-          <button id="nextButton" onClick={this.changePic} >Next Picture </button>
-        )}
-        <img className="gallery" src={images[this.state.imageIndex].url} alt="panda" />
-     
-      </section>
+      <div>
+        <section>
+          {this.state.imageIndex !== 0 && (
+            <button id="prevButton" onClick={this.changePic} >Previous Picture </button>
+          )}
+          {this.state.imageIndex !== (images.length -1) && (
+            <button id="nextButton" onClick={this.changePic} >Next Picture </button>
+          )}
+        </section>
+        <section>
+          <img className="gallery" src={images[this.state.imageIndex].url} alt="panda" />
+        </section>
+      </div>
     );
   }
 }
