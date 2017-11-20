@@ -41,14 +41,14 @@ your `<Albums/>` component. Don't worry about link to images yet. Small steps:
     showed in class.)
 1. Time to link to images, but first **assign an album id your development datbase to existing images**. Using Robo3T or mongo cli:
     * Get the id of an album
-    * Update all the images: `db.getColletion('images').update({}, { album: ObjectId(<albumid>) })`
+    * Update all the images: `db.getColletion('images').update({}, { $set: { album: ObjectId(<albumid>) } })`
     * Re-enable the model requirement that images have an album id
 1. Link from album to its images
     * Add `<Link>` components to the Albums list that use the `_id` of each album. 
     * Change `<Route>` for `/images` in `App.js` to `/albums/:id`.
 1. In the `<Images/>` component (same things as ViewSelector), call `imagesApi` get with 
 the album id from the `match` prop and log async result so you know you are fetch the images
-for a specific album.
+for a specific album. (Note: if you are using example server, use a query to `GET` on `/api/images?album=<id>`
 1. Add action "reducer" function to change state to contain loaded images. Replace log statement from
 prior step, call with images data, and set new state.
 1. Change header routes to use `/albums/:id/` in view selection
