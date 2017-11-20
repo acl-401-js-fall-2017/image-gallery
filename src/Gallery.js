@@ -1,37 +1,37 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
+import { loadGallery } from './actions';
 
-export default class Thumbnail extends PureComponent {
-  constructor() {
-    super();
-    this.state= { index: 0}
-    this.history =[];
+export default class Gallery extends PureComponent {
+  state = { 
+    index: 0, 
+    gallery:[]
   }
 
-  setState(state, ignore) {
-    if(!ignore) this.history.push(state);
-    super.setState(state);
+  componentDidMount() {
+    const newState = loadGallery(this.state);
+    this.setState(newState);
   }
 
-  handleClick = (value) =>{
+  handleClick = (value) => {
     console.log('clicked');
-    const newState ={
+    const newState = {
       ...this.state,
       index: this.state.index + value
     }
     this.setState(newState);
   }
+
   render() {
-    const {gallery, shouldDisplay } =this.props
     return( 
-      <StyledDiv shouldDisplay={shouldDisplay}>
+      <StyledDiv>
         <div>
-          {this.props.gallery.map((img, i) => (
+          {this.state.gallery.map((img, i) => (
             <ImgDiv key={img._id} shouldDisplay ={this.state.index === i}>
               <span> {img.title} </span>
               <img style={{ width:'100%' }} src={img.img} alt=''/>
               <span> {img.description} </span>
-              { i !== gallery.length -1 && <span onClick ={()=> this.handleClick(1)}> next </span>}
+              { i !== this.state.gallery.length -1 && <span onClick ={()=> this.handleClick(1)}> next </span>}
               {i !== 0 && <span onClick ={()=> this.handleClick(-1)}> previous</span>}
             </ImgDiv>
           ))}
@@ -42,7 +42,7 @@ export default class Thumbnail extends PureComponent {
 }
 
 const StyledDiv = styled.div`
-display:${props => props.shouldDisplay ? 'flex' : 'none'};
+display: 'flex';
 `;
 
 const ImgDiv = styled.div`
@@ -50,4 +50,3 @@ display:${props => props.shouldDisplay ? 'flex' : 'none'};
 flex-direction: column;
 margin: 0 10%;
 `;
-

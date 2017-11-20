@@ -1,15 +1,23 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
+import { loadGallery } from './actions'
 
 export default class List extends PureComponent {
+  state ={
+    gallery: []
+  }
+
+  componentDidMount() {
+    const newState = loadGallery(this.state);
+    this.setState(newState);
+  }
+
   render() {
-    const {gallery, shouldDisplay, deleteImage } =this.props
     return( 
-      <StyledDiv shouldDisplay={shouldDisplay}>
+      <StyledDiv>
         <ul>
-          {gallery.map(img => (
+          {this.state.gallery.map(img => (
             <div key={img._id} style ={{display: 'flex', margin: '8px'}}>
-              <DeleteDiv onClick ={ () => deleteImage(img._id) }>x</DeleteDiv>
               <li type= "none">{img.title}: {img.description}</li>
             </div>
           ))}
@@ -20,13 +28,7 @@ export default class List extends PureComponent {
 }
 
 const StyledDiv = styled.div`
-display:${props => props.shouldDisplay ? 'flex' : 'none'};
+display:'flex';
 width: 90%;
 justify-content:space-between;
-`
-
-const DeleteDiv = styled.div`
-margin-right: 15px;
-border: 1px solid black;
-padding: 0 3px;
 `
