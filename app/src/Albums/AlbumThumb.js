@@ -17,14 +17,16 @@ export default class AlbumThumb extends PureComponent {
           className="albumThumbSlide"
           style={{ height: window.innerWidth / 4 }}
         >
-          <img 
-            src={album.photos[randomImgIndex].url} 
-            alt={album.photos[randomImgIndex].description} 
-            style={{ 
-              minHeight: window.innerWidth / 4 ,
-              width: window.innerWidth / 4 
-            }}
-          />
+          {album.photos.length > 0 &&
+            <img 
+              src={album.photos[randomImgIndex].url} 
+              alt={album.photos[randomImgIndex].description} 
+              style={{ 
+                minHeight: window.innerWidth / 4 ,
+                width: window.innerWidth / 4 
+              }}
+            />
+          }
         </div>
       </article>
     );

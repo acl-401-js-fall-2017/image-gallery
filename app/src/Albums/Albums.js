@@ -27,6 +27,11 @@ class Albums extends PureComponent {
     this.props.history.push(`${this.props.match.url}/${albumName}`);
   }
 
+  handleNewAlbum = e => {
+    e.preventDefault();
+    albumsApi.add(e.target.title.value);
+  }
+
   render() {
     const { albums } = this.state;
     const { match } = this.props;
@@ -34,6 +39,12 @@ class Albums extends PureComponent {
       <section className="Albums">
         <header className="albumHeader">
           <h1>Albums</h1>
+          <form
+            onSubmit={this.handleNewAlbum}
+          >
+            <input type="test" name="title" placeholder="New Album Name"/>
+            <input type="submit" name="newAlbum"/>
+          </form>
         </header>
         <Switch>
           <Route exact path={match.url} render={() => (

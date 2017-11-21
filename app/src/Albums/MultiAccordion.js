@@ -3,10 +3,11 @@ import React, { PureComponent } from 'react';
 export default class MultiAccordion extends PureComponent {
   constructor(props) {
     super();
-    this.state = props.children.reduce((acc, child) => {
-      acc[child.props.header + 'IsOpen'] = true;
+    this.state = (Array.isArray(props.children) ? props.children : [props.children]).reduce((acc, child) => {
+      acc[child.props.header + 'IsOpen'] = false;
       return acc;
     }, { isDroppedDown: true });
+    console.log(this.state)
   }
 
   handleToggle = (headerName) => () => {
@@ -16,7 +17,7 @@ export default class MultiAccordion extends PureComponent {
 
   render() {
     const { children, className, menuName } = this.props;
-    console.log(children);
+    const childrenArr = Array.isArray(children) ? children : [children];
     return (
       <div 
         className={className || 'MultiAccordion'}
@@ -52,7 +53,7 @@ export default class MultiAccordion extends PureComponent {
               borderBottom: '4px solid white',
             }}
           >
-            {children.map((child, i) => (
+            {childrenArr.map((child, i) => (
               <div key={i}>
                 <h4
                   onClick={this.handleToggle(child.props.header + 'IsOpen')}
