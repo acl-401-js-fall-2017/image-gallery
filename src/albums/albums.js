@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import albumApi from '../services/album-api';
 import { loadAlbums, addAlbum, removeAlbum } from './album.actions';
 import AddAlbum from '../forms/AddAlbum';
@@ -42,14 +42,18 @@ class Albums extends Component {
     return (
       <div className="albums">
         <h4>List of Albums</h4>
-        <ul>
-          {albums.map(album => (
-            <li key={album._id}>
-              <Link to={`/albums/${album._id}`}>{album.name}</Link>
-              <button onClick={() => this.handleRemove(album._id)}>remove</button>
-            </li>
-          ))}
-        </ul>
+        <div>
+          <ul className="items">
+            {albums.map(album => (
+              <li key={album._id}>
+                <button onClick={() => this.handleRemove(album._id)}>x</button>
+                <NavLink to={`/albums/${album._id}`}>{album.name}</NavLink>
+                <span> </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div></div>
         <AddAlbum type="list" onAdd={this.handleAdd} albums={albums}>
           <input name="title"/>
         </AddAlbum>

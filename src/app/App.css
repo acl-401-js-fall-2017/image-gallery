@@ -1,32 +1,6 @@
-.App {
-  text-align: center;
+body {
+  margin:10%;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .topnav {
   background-color: #333;
   overflow: hidden;
@@ -55,24 +29,58 @@
   display: inline-block;
   color: #7A7979;
   text-align: left;
-  margin:10%;
+  margin:8%;
   font-size: 22px;
 }
 
 .albums {
-  display: inline-block;
+  display: inline;
   color: #7A7979;
   text-align: left;
-  margin:10%;
+  padding-left: 20%;
+  margin:8%;
   font-size: 22px;
+}
+.albums h4 {
+  margin-top:10%;
+  margin-left:8%;
+  font-size: 24px;
+}
+
+.albums ul {
+  border: .5px dotted #ADA8A8;
+  background-color: #EEEEEE;
+  margin-left:8%;
+  margin-right:8%;
+  border-radius: 8px;
 }
 .albums li {
   display: block;
+  width: 80%;
   color: #979494;
-  text-align: center;
-  margin:1%;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  text-decoration: none;
+  text-align: left;
+  line-height: 1px;
+  padding: 0.8%;
+  font-size: 20px;
 }
+
+ 
+/* .needSpace{
+  width:800px;
+} */
+
+.add-album {
+  margin-left:8%;
+}
+
+#thumbnail-view{
+  margin-right:200px;
+  padding-top:200px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.flexy{
+  justify-content: space-around;
+}
+

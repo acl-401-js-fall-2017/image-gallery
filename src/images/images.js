@@ -55,27 +55,23 @@ class Images extends PureComponent {
   render() {
     const { images } = this.state;
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Wonders of The World!!!</h1>
-        </header>
-        <div>
-          <Switch>
-            <Route exact path={`${this.props.match.url}/list`} render={() => <ImageList images={images} onDelete={this.handleRemove}/>}/>
-            <Route exact path={`${this.props.match.url}/thumbnail`} render={() => <ImageThumbnail images={images} onDelete={this.handleRemove}/>}/>
-            <Route exact path={`${this.props.match.url}/gallery`}  render={() => <ImageGallery images={images} onDelete={this.handleRemove}/>}/>
-          </Switch>
-          <div className="viewList">
-            <ul>
-              <li><Link to ={`${this.props.match.url}/list`}>list</Link></li>
-              <li><Link to ={`${this.props.match.url}/thumbnail`}>thumbnail</Link></li>
-              <li><Link to ={`${this.props.match.url}/gallery`}>gallery</Link></li>
-            </ul>
-          </div>
-          <AddImage  handleOnSubmit={this.handleAdd}/>
+      
+      <div>
+        <Switch>
+          <Route exact path={`${this.props.match.url}/list`} render={() => <ImageList images={images} onDelete={this.handleRemove}/>}/>
+          <Route exact path={`${this.props.match.url}/thumbnail`} render={() => <ImageThumbnail images={images} onDelete={this.handleRemove}/>}/>
+          <Route exact path={`${this.props.match.url}/gallery`}  render={() => <ImageGallery images={images} onDelete={this.handleRemove}/>}/>
+        </Switch>
+        <div className="viewList">
+          <ul>
+            <li><Link to ={`${this.props.match.url}/list`}>list</Link></li>
+            <li><Link to ={`${this.props.match.url}/thumbnail`}>thumbnail</Link></li>
+            <li><Link to ={`${this.props.match.url}/gallery`}>gallery</Link></li>
+          </ul>
         </div>
-        
+        <AddImage  handleOnSubmit={this.handleAdd}/>
       </div>
+      
     );
   }
 }

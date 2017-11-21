@@ -5,7 +5,7 @@ export default class AddAlbum extends PureComponent {
     const { onAdd } = this.props;
   
     return (
-      <div>
+      <div className="add-album">
         <h3>Add a new Album</h3>
         <form onSubmit={event => {
           event.preventDefault();
