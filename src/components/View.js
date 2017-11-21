@@ -3,7 +3,7 @@ import List from './List';
 import Thumbnail from './Thumbnail';
 import Gallery from './Gallery';
 import imageApi from '../services/imageAPI';
-import { onDelete, onAdd } from './actions';
+import { onDelete, onAdd, loadImages } from './actions';
 import { 
   BrowserRouter as Router, 
   Route, Switch, Redirect, 

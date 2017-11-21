@@ -5,6 +5,13 @@ export const createImage = image => ({
   _id: shortid.generate(),
 });
 
+export function loadImages(state, images) {
+  return {
+    ...state,
+    images
+  };
+}
+
 
 export function onDelete(imageId, state) {
   console.log('i am image id', imageId);
