@@ -42,6 +42,8 @@ export default class View extends Component {
 
     const displayView = {
 
+      album: (props) => <Album {...props} addImage={image => this.handleAdd(image)}/>,
+
       list: <List bunnies={this.state.bunnies}
         removeImage={imageId => this.handleRemove(imageId)}
         addImage={image => this.handleAdd(image)}
@@ -59,7 +61,7 @@ export default class View extends Component {
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route exact path='/albums' component={Albums}/>
-            <Route exact path='/albums/:id' component={Album}/>
+            <Route exact path='/albums/:id' render={displayView.album}/>
             <Route exact path='/list' render={() => displayView.list}/>
             <Route exact path='/thumbnail' render={() => displayView.thumbnail}/>
             <Route exact path='/gallery' render={() => displayView.gallery}/>
