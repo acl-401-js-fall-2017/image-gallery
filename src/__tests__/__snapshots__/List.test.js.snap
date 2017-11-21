@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List lists of bunnies 1`] = `
+<div
+  className="list-view"
+>
+  <table>
+    <tbody>
+      <tr
+        key="0"
+      >
+        <td>
+          <a
+            href="https://s3.amazonaws.com/f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg"
+          >
+            Best Bunny
+          </a>
+        </td>
+        <td>
+          Just the cutest color on a bunny ever
+        </td>
+        <td>
+           
+          <input
+            data-value="1"
+            onClick={[Function]}
+            type="button"
+            value="remove"
+          />
+        </td>
+      </tr>
+      <tr
+        key="1"
+      >
+        <td>
+          <a
+            href="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg"
+          >
+            Kind of cute Bunny
+          </a>
+        </td>
+        <td>
+          Too many carbs :(
+        </td>
+        <td>
+           
+          <input
+            data-value="2"
+            onClick={[Function]}
+            type="button"
+            value="remove"
+          />
+        </td>
+      </tr>
+      <tr
+        key="2"
+      >
+        <td>
+          <a
+            href="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg"
+          >
+            Tiny Bunny
+          </a>
+        </td>
+        <td>
+          Cant see me
+        </td>
+        <td>
+           
+          <input
+            data-value="3"
+            onClick={[Function]}
+            type="button"
+            value="remove"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td />
+        <td>
+          <AddImage
+            addImage={[Function]}
+          />
+        </td>
+        <td />
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
