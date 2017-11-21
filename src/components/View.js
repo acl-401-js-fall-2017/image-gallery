@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import List from './List';
 import Thumbnail from './Thumbnail';
 import Gallery from './Gallery';
+import imageApi from '../services/imageAPI';
 import { onDelete, onAdd } from './actions';
 import { 
   BrowserRouter as Router, 

@@ -1,11 +1,19 @@
 import shortid from 'shortid';
 
+export const createImage = image => ({ 
+  ...image,
+  _id: shortid.generate(),
+});
+
 
 export function onDelete(imageId, state) {
-  const position = state.images.findIndex(img => img._id === parseInt(imageId, 10));
+  console.log('i am image id', imageId);
+  const position = state.images.findIndex(img => img._id == imageId);
+  console.log('i am position of delete', position);
   if (position === -1) return state;
   const images = state.images.slice();
   images.splice(position, 1);
+  console.log('i am new image array', images);
   return {
     ...state,
     images
@@ -13,9 +21,9 @@ export function onDelete(imageId, state) {
 }
 
 export function onAdd(imageData, state) {
-  imageData._id = shortid.generate();
+  const newImage = createImage(imageData);
   const images = state.images.slice();
-  images.push(imageData);
+  images.push(newImage);
   return {
     ...state,
     images
