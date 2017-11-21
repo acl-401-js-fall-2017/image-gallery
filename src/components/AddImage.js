@@ -1,7 +1,7 @@
-import React, { PureComponent } from  'react';
+import React, { Component } from  'react';
 import shortid from 'shortid';
 
-export default class AddImage extends PureComponent {
+export default class AddImage extends Component {
 
   render() {
 

@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import AddImage from './AddImage';
 
-export default class List extends PureComponent {
+export default class List extends Component {
    
     static propTypes = {
       bunnies: PropTypes.arrayOf(PropTypes.object).isRequired
