@@ -9,6 +9,13 @@ module.exports = router
             .then(got => res.send(got))
             .catch(next);
     })
+    .get('/:id', (req, res, next) => {
+        Album.findById(req.params.id)
+            .lean()
+            .populate('photos')
+            .then(got => res.send(got))
+            .catch(next);
+    })
     .post('/', (req, res, next) => {
         console.log(req.body);
         new Album(req.body)
