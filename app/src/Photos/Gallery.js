@@ -26,15 +26,6 @@ class Gallery extends PureComponent {
     return (
       <Router>
         <div className="Gallery">
-          {/* { img &&
-            <div id={img.title} className="imgSlide">
-              <img src={img.url} alt={img.title}/>
-              <div className='slideInfo'>
-                <h3>{img.title}</h3>
-                <p>{img.description}</p>
-              </div>
-            </div>
-          } */}
           <Switch>
             {images.map((img, i) => (
               <Route path={`${match.url}/${i}`} render={() => (

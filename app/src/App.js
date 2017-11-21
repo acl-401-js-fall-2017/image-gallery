@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import Albums from './Albums/Albums';
 import Photos from './Photos/Photos';
 import Minigame from './Minigame/Minigame';
 import BottomBar from './BottomBar/BottomBar';
@@ -30,17 +31,22 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Route exact path="/" render={() => (
-            <h1 style={{ marginTop: '30%' }}>HOME</h1>
-          )}/>
-          <Route path="/photos" render={({ match }) => (
-            <Photos
-              display={display}
-              match={match}
-              handleDisplayChange={value => this.handleDisplayChange(value)}
-            />  
-          )}/>
-          <Route path="/minigame" component={Minigame}/>
+          <Switch>
+            <Route path="/albums" render={({match}) => (
+              <Albums
+                match={match}
+              />
+            )}/>
+            <Route path="/photos" render={({ match }) => (
+              <Photos
+                display={display}
+                match={match}
+                handleDisplayChange={value => this.handleDisplayChange(value)}
+              />  
+            )}/>
+            <Route path="/minigame" component={Minigame}/>
+            <Redirect to="/albums"/>
+          </Switch>
           <BottomBar/>
         </div>
       </Router>

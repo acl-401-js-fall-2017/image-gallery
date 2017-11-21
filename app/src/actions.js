@@ -6,6 +6,14 @@ export function changeDisplay(state, newDisplay) {
   };
 }
 
+// in Albums.js
+export function loadAlbums(state, albumData) {
+  return {
+    ...state,
+    albums: albumData
+  };
+}
+
 // in Photos.js
 export function loadImages(state, imageData) {
   return {

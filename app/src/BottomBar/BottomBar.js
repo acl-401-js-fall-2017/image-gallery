@@ -7,7 +7,7 @@ export default class BottomBar extends PureComponent {
     return (
       <footer className="BottomBar">
         <div className="linkWrap">
-          <Link to="/">Home</Link>
+          <Link to="/albums">Albums</Link>
         </div>
         <div className="linkWrap">
           <Link to="/photos">Photos</Link>
