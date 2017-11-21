@@ -4,7 +4,7 @@ import {
   Switch,
   Link
 } from 'react-router-dom';
-import AddImage from '../forms/AddImage'; ///
+import AddImage from '../forms/AddImage';
 import imageApi from '../services/image-api';
 import { addImage, removeImage } from './image.actions';
 import ImageList from '../views/list';
