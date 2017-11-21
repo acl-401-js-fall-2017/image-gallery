@@ -1,7 +1,9 @@
-import shortid from 'shortid';
+import uuid from 'uuid/v1';
+
+
 
 const createImage = (title, description, url) => ({
-  _id: shortid.generate(),
+  _id: uuid(),
   title,
   description,
   url
@@ -30,7 +32,7 @@ export function loadImages(state) {
   };
 }
 
-export function addImage(state, title, description, url ) {
+export function addImage(state, title, description, url) {
   return {
     ...state,
     images: [
