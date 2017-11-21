@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 import albumApi from '../service/album.api';
+import imagesApi from '../service/images.api';
 import { loadAlbums, addImage, removeImage } from '../data/actions';
 import AddImage from '../components/AddImage';
 
@@ -10,9 +11,8 @@ export default class Album extends PureComponent {
     }
 
     async componentDidMount() {
-      const albums = await albumApi.getById(this.props.match.params.id);
-      const newState = loadAlbums(this.state, albums);
-      this.setState(newState);
+      const album = await albumApi.getById(this.props.match.params.id);
+      this.setState(album);
     }
 
     handleAdd = async ({ title }) => {
@@ -29,6 +29,7 @@ export default class Album extends PureComponent {
 
     render() {
       const { images } = this.state;
+      const { addImage } = this.props;
 
       return(
         <section>
@@ -37,11 +38,11 @@ export default class Album extends PureComponent {
             {images.map(image => (
               <li key={image._id}>
                 <Link to={`/albums/${image._id}`}>{image.title}</Link>
-                <button onClick={() => this.handleRemove(image._id)}>X</button>
+                <button onClick={() => this.handleRemove(image._id)}>x</button>
               </li>
             ))}
           </ul>
-          <AddImage type="list" onAdd={this.handleAdd}/>
+          <AddImage type="list" addImage={newImage => addImage(newImage)}/>
         </section>
       );
     }
