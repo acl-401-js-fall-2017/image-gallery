@@ -2,12 +2,13 @@ import api from './api';
 
 export default {
   get() {
-    return api.get('/api/images');
+    console.log('getting....');
+    return api.get('/images');
   },
   add(image) {
-    return api.post('/api/images', image);
+    return api.post('/images', image);
   },
   remove(id) {
-    return api.fetch(`/api/images/${id}`);
+    return api.fetch(`/images/${id}`);
   }
 };

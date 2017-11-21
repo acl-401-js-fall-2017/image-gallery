@@ -6,6 +6,7 @@ const wrap = promise => {
 
 export default {
   get(path) {
+    
     return wrap(
       fetch(`${url}${path}`)
     );

@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import List from './List';
 import Thumbnail from './Thumbnail';
 import Gallery from './Gallery';
-import imageApi from '../services/imageAPI';
+import imageAPI from '../services/imageAPI';
 import { onDelete, onAdd, loadImages } from './actions';
 import { 
   BrowserRouter as Router, 
@@ -18,27 +18,14 @@ export default class View extends PureComponent {
   constructor(){
     super();
     this.state = {
-      images: [
-        { 
-          _id: 1,
-          title: 'Cute Bunny',
-          description: 'Isn\'t it fuzzy-wuzzy cutest thing you\'ve ever seen?',
-          url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg'
-        },
-        { 
-          _id: 2,
-          title: 'Cute Bunny2',
-          description: 'Isn\'t it fuzzy-wuzzy cutest thing you\'ve ever seen?',
-          url: 'http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg'
-        },
-        { 
-          _id: 3,
-          title: 'Cute Bunny3',
-          description: 'Isn\'t it fuzzy-wuzzy cutest thing you\'ve ever seen?',
-          url: 'http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg'
-        }
-      ],
+      images: []
     };
+  }
+  async componentDidMount() {
+    const images = await imageAPI.get();
+    console.log('Received from get', images);
+    const newState = loadImages(this.state, images);
+    this.setState(newState);
   }
   handleDelete(imageId){
     this.setState(onDelete(imageId, this.state));
