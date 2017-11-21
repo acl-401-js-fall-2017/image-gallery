@@ -22,6 +22,18 @@ export default {
       })
     );
   },
+  patch(path, data) {
+    return wrap(
+      fetch(`${url}${path}`, {
+        method: 'PATCH',
+        body: JSON.stringify(data),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+    );
+  },
   delete(path) {
     return wrap(
       fetch(`${url}${path}`, {

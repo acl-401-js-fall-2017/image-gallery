@@ -3,6 +3,7 @@ import MultiAccordion from './MultiAccordion';
 import Thumbnails from '../Photos/Thumbnails';
 import { AddPhotosForm, RemovePhotosForm } from './AlbumForms';
 
+import albumsApi from '../services/album-api';
 import './AlbumPage.css';
 
 export default class AlbumPage extends PureComponent {
@@ -13,9 +14,14 @@ export default class AlbumPage extends PureComponent {
     };
   }
 
-  handleAddPhotos = target => {
+  handleAddPhotos = async target => {
+    const { album } = this.props;
     const photosToAdd = Array.from(target.addPhotosSelector.children).filter(opt => opt.selected).map(opt => opt.value);
-
+    const newAlbum = await albumsApi.patch(album._id, 'add', photosToAdd);
+    if(newAlbum && newAlbum.ok === 1) {
+      const updatedAlbum = await albumsApi.get(album._id);
+      this.setState({ photos: updatedAlbum.photos });
+    }
   }
 
   render() {

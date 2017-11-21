@@ -26,6 +26,8 @@ module.exports = router
     // TODO: change to allow addition to multiple albums
     .patch('/add-photos/:ids', (req, res, next) => {
         const albumIds = req.params.ids.split(',');
+        console.log(albumIds);
+        console.log(req.body.photoIds);
         Album.update(
             { _id: { $in: albumIds }}, 
             { $push: { photos: { $each: req.body.photoIds } } }, 
