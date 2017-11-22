@@ -27,40 +27,49 @@ export default class View extends PureComponent {
     const newState = loadImages(this.state, images);
     this.setState(newState);
   }
-  handleDelete(imageId){
-    this.setState(onDelete(imageId, this.state));
+ 
+  handleDelete = async id => {
+    await imageAPI.remove(id);
+    const newState = onDelete(this.state, id);
+    this.setState(newState);
   }
 
-    handleAdd = (imageData) => {
-      this.setState(onAdd(imageData, this.state));
-    }
+  
+  handleAdd = async (imageData) => {
+    console.log('iam imagedata', imageData);
+    const image = await imageAPI.add(imageData);
+    console.log('iam image', image);
+    const newState = onAdd(image, this.state);
+    console.log('iam newState', newState);
+    this.setState(newState);
+  }
 
-    render(){
-      const { images } = this.state;
-      return(
-        <Router>
-          <div>
-            <nav>
-              <li>
-                <HeaderLink exact to="/images/gallery">Gallery</HeaderLink>
-              </li>
-              <li>
-                <HeaderLink to="/images/list">List</HeaderLink>
-              </li>
-              <li>
-                <HeaderLink to="/images/thumbnail">Thumbnail</HeaderLink>
-              </li>
-            </nav>
-            <Switch>
-              <Route exact path="/images/gallery" render={() => <Gallery images={images} {...this.props} />}/>
-              <Route exact path="/images/thumbnail" render={() => <Thumbnail images={images} {...this.props} />}/>
-              <Route exact path="/images/list" render={() => <List images={images} 
-                handleDelete={imageId => this.handleDelete(imageId)}
-                handleAdd={image => this.handleAdd(image)} {...this.props} />}/>
-              <Redirect to="/images/gallery"/>
-            </Switch>
-          </div>
-        </Router>
-      );
-    }
+  render(){
+    const { images } = this.state;
+    return(
+      <Router>
+        <div>
+          <nav>
+            <li>
+              <HeaderLink exact to="/images/gallery">Gallery</HeaderLink>
+            </li>
+            <li>
+              <HeaderLink to="/images/list">List</HeaderLink>
+            </li>
+            <li>
+              <HeaderLink to="/images/thumbnail">Thumbnail</HeaderLink>
+            </li>
+          </nav>
+          <Switch>
+            <Route exact path="/images/gallery" render={() => <Gallery images={images} {...this.props} />}/>
+            <Route exact path="/images/thumbnail" render={() => <Thumbnail images={images} {...this.props} />}/>
+            <Route exact path="/images/list" render={() => <List images={images} 
+              handleDelete={imageId => this.handleDelete(imageId)}
+              handleAdd={image => this.handleAdd(image)} {...this.props} />}/>
+            <Redirect to="/images/gallery"/>
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 }

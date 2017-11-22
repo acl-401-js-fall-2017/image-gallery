@@ -15,14 +15,8 @@ export default class Gallery extends PureComponent {
   render(){
     const { images } = this.props;
     const limit = this.state.index === images.length - 1; 
-    const currentImage = images.length ? images[this.state.index] : 
-      { 
-        title: 'Loading images',
-        url:'https://www.jqueryscript.net/images/Easy-To-Customize-jQuery-Loading-Indicator-Plugin-babypaunch-spinner-js.jpg',
-        description: '', 
-        _id: '' 
-      };
-    const display = <img src={currentImage.url} alt={currentImage.description} height="40%" width="40%"/>;
+    const currentImage = images.length ? images[this.state.index] : null;
+    const display = currentImage ? <img src={currentImage.url} alt={currentImage.description} height="40%" width="40%"/> : null;
     const next = limit ? <input type="button" value="No more images"/> : 
       <input type="button" value="next" onClick={({ target }) => this.handleImageSelection(target.value)}/>;
     const back = this.state.index === 0 ? <input type="button" value="No back"/> : 
