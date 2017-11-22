@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { Route, Redirect } from 'react-router-dom';
 import PhotoDisplaySelector from './PhotoDisplaySelector';
 import ImageManager from './ImageManager';
 import List from './List';
@@ -36,7 +37,7 @@ export default class Photos extends PureComponent {
   }
   
   render() {
-    const { display, handleDisplayChange } = this.props;
+    const { display, match, handleDisplayChange } = this.props;
     const { images } = this.state;
     return (
       <section className="Photos">
@@ -45,6 +46,7 @@ export default class Photos extends PureComponent {
           <div className="PhotoUtils">
             <PhotoDisplaySelector
               onDisplayChange={handleDisplayChange}
+              match={match}
             />
             <ImageManager
               images={images}
@@ -53,9 +55,16 @@ export default class Photos extends PureComponent {
             />
           </div>
         </header>
-        {display === 'list'       &&  <List images={images}/>}
-        {display === 'thumbnails' &&  <Thumbnails images={images}/>}
-        {display === 'gallery'    &&  <Gallery images={images}/>}
+        <Route path={`${match.url}/thumbnails`} render={() => (
+          <Thumbnails images={images}/>
+        )}/>
+        <Route path={`${match.url}/gallery`} render={({ match }) => (
+          <Gallery images={images} match={match}/>
+        )}/>
+        <Route path={`${match.url}/list`} render={() => (
+          <List images={images}/>
+        )}/>
+        <Redirect to={`${match.url}/list`}/>
       </section>
     );
   }

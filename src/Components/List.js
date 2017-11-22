@@ -8,15 +8,17 @@ export default class List extends PureComponent {
     
     return (
       <table className="List">
-        {images.map((image, i) => {
-          return (
-            <tr key={i}>
-              <th>{image.title}</th>
-              <td><a href={image.url}>{image.url}</a></td>
-              <td>{image.description}</td>
-            </tr>
-          );
-        })}
+        <tbody>
+          {images.map((image, i) => {
+            return (
+              <tr key={i}>
+                <th>{image.title}</th>
+                <td><a href={image.url}>{image.url}</a></td>
+                <td>{image.description}</td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     );
   }

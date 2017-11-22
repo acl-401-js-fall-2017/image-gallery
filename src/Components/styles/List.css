@@ -4,6 +4,7 @@ tr:nth-of-type(2n) {
 
 table {
     border-bottom: 3px solid black;
+    width: 100%;
 }
 
 th, td {

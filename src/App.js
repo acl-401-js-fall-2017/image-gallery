@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Photos from './Components/Photos';
+import Minigame from './Components/Minigame';
+import BottomBar from './Components/BottomBar';
 
 import {
   changeDisplay
@@ -25,12 +28,22 @@ class App extends Component {
     } = this.state;
     
     return (
-      <div className="App">
-        <Photos
-          display={display}
-          handleDisplayChange={value => this.handleDisplayChange(value)}
-        />
-      </div>
+      <Router>
+        <div className="App">
+          <Route exact path="/" render={() => (
+            <h1 style={{ marginTop: '30%' }}>HOME</h1>
+          )}/>
+          <Route path="/photos" render={({ match }) => (
+            <Photos
+              display={display}
+              match={match}
+              handleDisplayChange={value => this.handleDisplayChange(value)}
+            />  
+          )}/>
+          <Route path="/minigame" component={Minigame}/>
+          <BottomBar/>
+        </div>
+      </Router>
     );
   }
 }
