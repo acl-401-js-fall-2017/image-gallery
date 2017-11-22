@@ -24,6 +24,7 @@ export default {
     );
   },
   delete(path) {
+    console.log('removing in api by path', path);
     return wrap(
       fetch(`${url}${path}`, {
         method: 'delete'

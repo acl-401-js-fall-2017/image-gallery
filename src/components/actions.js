@@ -13,7 +13,7 @@ export function loadImages(state, images) {
 }
 
 
-export function onDelete(imageId, state) {
+export function onDelete(state, imageId) {
   const position = state.images.findIndex(img => img._id == imageId);
   if (position === -1) return state;
   const images = state.images.slice();
