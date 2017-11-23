@@ -4,6 +4,8 @@ import Thumbnail from './Thumbnail';
 import Gallery from './Gallery';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
+import 'bulma/css/bulma.css';
+import { Route } from 'react-router-dom';
 
 import { addImage, removeImage } from './actions';
 
@@ -32,7 +34,7 @@ export default class Display extends Component {
         url: 'http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg'
       }],
 
-      imageView: 'list',
+      // imageView: 'list',
       imageIndex: 0
     };
   }
@@ -54,7 +56,7 @@ export default class Display extends Component {
   }
 
   render() {
-    const { imageData, imageView, imageIndex } = this.state;
+    const { imageData, imageIndex } = this.state;
 
     const display = {
       list: <List imageData={imageData} 
@@ -66,18 +68,23 @@ export default class Display extends Component {
       gallery: <Gallery 
         imageData={imageData}
         imageIndex={imageIndex}
-        changeImage={(change) => this.changeImage(change)}/>,
-
+        changeImage={(change) => this.changeImage(change)}/>
     };
-    
+
     return (
-      <div>
-        <select defaultValue={imageView} onChange={({ target }) => this.setState({ imageView: target.value })}>
+      <div className="section">
+        <div>
+          <Route exact path="/" render={() => display.list}/>
+          <Route path="/thumbnail" render={() => display.thumbnail}/>
+          <Route path="/gallery" render={() => display.gallery}/>
+        </div>
+        
+        {/* <select defaultValue={imageView} onChange={({ target }) => this.setState({ imageView: target.value })}>
           <option value="list">List</option>
           <option value="thumbnail">Thumbnails</option>
           <option value="gallery">Gallery</option>
-        </select>
-        {display[imageView]}
+        </select> */}
+
       </div>
     );
     
