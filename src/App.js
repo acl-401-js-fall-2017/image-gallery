@@ -17,7 +17,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home}/>
             <Route exact path="/albums" component={Albums}/>
-            <Route exact path="/images" component={View}/>
+            <Route exact path="/albums/:id" component={View}/>
             <Route path="/about" component={About}/>
             <Redirect to="/"/>
           </Switch>

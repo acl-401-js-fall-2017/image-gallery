@@ -35,7 +35,9 @@ export default class View extends PureComponent {
     this.setState(newState);
   }
 
-  
+  getAlbumId() {
+    return this.props.match.params.id;
+  }
   handleAdd = async (imageData) => {
     const image = await imageAPI.add(imageData);
     const newState = onAdd(image, this.state);
@@ -49,22 +51,22 @@ export default class View extends PureComponent {
         <div>
           <nav>
             <li>
-              <HeaderLink exact to="/images/gallery">Gallery</HeaderLink>
+              <HeaderLink exact to="/albums/:id/gallery">Gallery</HeaderLink>
             </li>
             <li>
-              <HeaderLink to="/images/list">List</HeaderLink>
+              <HeaderLink to="/albums/:id/list">List</HeaderLink>
             </li>
             <li>
-              <HeaderLink to="/images/thumbnail">Thumbnail</HeaderLink>
+              <HeaderLink to="/albums/:id/thumbnail">Thumbnail</HeaderLink>
             </li>
           </nav>
           <Switch>
-            <Route exact path="/images/gallery" render={() => <Gallery images={images} {...this.props} />}/>
-            <Route exact path="/images/thumbnail" render={() => <Thumbnail images={images} {...this.props} />}/>
-            <Route exact path="/images/list" render={() => <List images={images} 
+            <Route exact path="/albums/:id/gallery" render={() => <Gallery images={images} {...this.props} />}/>
+            <Route exact path={`/albums/${this.getAlbumId()}/thumbnail`} render={() => <Thumbnail images={images} {...this.props} />}/>
+            <Route exact path="/albums/:id/list" render={() => <List images={images} 
               handleDelete={imageId => this.handleDelete(imageId)}
               handleAdd={image => this.handleAdd(image)} {...this.props} />}/>
-            <Redirect to="/images/gallery"/>
+            <Redirect to="/albums/:id/gallery"/>
           </Switch>
         </div>
       </Router>
