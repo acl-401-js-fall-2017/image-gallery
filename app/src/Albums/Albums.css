@@ -1,0 +1,15 @@
+.Albums {
+    width: 100%;
+}
+
+.albumHeader {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.albumThumbs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 100%;
+}
