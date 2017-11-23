@@ -19,6 +19,9 @@ export default function Header() {
           <HeaderLink exact to="/">Home</HeaderLink>
         </li>
         <li>
+          <HeaderLink to="/albums">albums</HeaderLink>
+        </li>
+        <li>
           <HeaderLink to="/images">images</HeaderLink>
         </li>
         <li>

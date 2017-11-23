@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import Albums from './Albums';
 import List from './List';
 import Thumbnail from './Thumbnail';
 import Gallery from './Gallery';
@@ -36,11 +37,8 @@ export default class View extends PureComponent {
 
   
   handleAdd = async (imageData) => {
-    console.log('iam imagedata', imageData);
     const image = await imageAPI.add(imageData);
-    console.log('iam image', image);
     const newState = onAdd(image, this.state);
-    console.log('iam newState', newState);
     this.setState(newState);
   }
 

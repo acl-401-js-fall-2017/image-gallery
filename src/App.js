@@ -4,6 +4,7 @@ import {
   BrowserRouter as Router, 
   Route, Switch, Redirect, 
   Link } from 'react-router-dom';
+import Albums from './components/Albums';
 import View from './components/View';
 import Header from './components/Header';
 
@@ -15,6 +16,7 @@ class App extends Component {
           <Header/>
           <Switch>
             <Route exact path="/" component={Home}/>
+            <Route exact path="/albums" component={Albums}/>
             <Route exact path="/images" component={View}/>
             <Route path="/about" component={About}/>
             <Redirect to="/"/>
