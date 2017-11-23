@@ -6,23 +6,11 @@ import { PropTypes } from 'prop-types';
 class AddImages extends PureComponent {
   render() {
     
-    const { images, onAdd } = this.props;
+    const { images, handleAdd } = this.props;
     
     return (
       <div>
-        <form onSubmit={e => {
-          e.preventDefault();
-          const { elements } = e.target;
-          const newImage = {
-            _id: shortid.generate(),
-            title: elements.title.value,
-            description: elements.description.value,
-            url: elements.url.value
-          };
-          e.target.reset();
-          const newImages = addImage(images, newImage);
-          onAdd(newImages);
-        }}>
+        <form onSubmit={handleAdd}>
           <input name="title" placeholder="Title" />
           <input name="description" placeholder="Description" />
           <input name="url" placeholder="Url" /> 
