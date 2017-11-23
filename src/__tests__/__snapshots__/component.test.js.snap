@@ -1,0 +1,239 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components should render AddImage component 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <label>
+    Title: 
+  </label>
+  <input
+    name="title"
+    type="text"
+  />
+  <br />
+  <label>
+    URL: 
+  </label>
+  <input
+    name="url"
+    type="text"
+  />
+  <br />
+  <label>
+    Description: 
+  </label>
+  <input
+    name="description"
+    type="text"
+  />
+  <br />
+  <button
+    type="submit"
+  >
+    Add
+  </button>
+</form>
+`;
+
+exports[`components should render Gallery component 1`] = `
+<div>
+  <input
+    onClick={[Function]}
+    type="button"
+    value="next"
+  />
+  <input
+    type="button"
+    value="No back"
+  />
+  <img
+    alt="Isn't it fuzzy-wuzzy cutest thing you've ever seen?"
+    height="40%"
+    src="http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg"
+    width="40%"
+  />
+</div>
+`;
+
+exports[`components should render List component 1`] = `
+<div>
+  <table>
+    <tbody>
+      <tr
+        key="0"
+      >
+        <a
+          href="http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg"
+        >
+          Cute Bunny
+          :
+        </a>
+        <td>
+          Description: 
+          Isn't it fuzzy-wuzzy cutest thing you've ever seen?
+        </td>
+        <td>
+          <input
+            data-value={1}
+            onClick={[Function]}
+            type="button"
+            value="remove"
+          />
+        </td>
+      </tr>
+      <tr
+        key="1"
+      >
+        <a
+          href="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg"
+        >
+          Cute Bunny2
+          :
+        </a>
+        <td>
+          Description: 
+          Isn't it fuzzy-wuzzy cutest thing you've ever seen?
+        </td>
+        <td>
+          <input
+            data-value={2}
+            onClick={[Function]}
+            type="button"
+            value="remove"
+          />
+        </td>
+      </tr>
+      <tr
+        key="2"
+      >
+        <a
+          href="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg"
+        >
+          Cute Bunny3
+          :
+        </a>
+        <td>
+          Description: 
+          Isn't it fuzzy-wuzzy cutest thing you've ever seen?
+        </td>
+        <td>
+          <input
+            data-value={3}
+            onClick={[Function]}
+            type="button"
+            value="remove"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <AddImage />
+</div>
+`;
+
+exports[`components should render Thumbnail component 1`] = `
+<ul>
+  <li
+    float="left"
+    key="0"
+  >
+    <figcaption>
+      <a
+        href="http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg"
+      >
+        Cute Bunny
+        :
+      </a>
+    </figcaption>
+    <img
+      alt="http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg"
+      height="100"
+      src="http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg"
+      width="100"
+    />
+  </li>
+  <li
+    float="left"
+    key="1"
+  >
+    <figcaption>
+      <a
+        href="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg"
+      >
+        Cute Bunny2
+        :
+      </a>
+    </figcaption>
+    <img
+      alt="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg"
+      height="100"
+      src="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg"
+      width="100"
+    />
+  </li>
+  <li
+    float="left"
+    key="2"
+  >
+    <figcaption>
+      <a
+        href="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg"
+      >
+        Cute Bunny3
+        :
+      </a>
+    </figcaption>
+    <img
+      alt="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg"
+      height="100"
+      src="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg"
+      width="100"
+    />
+  </li>
+</ul>
+`;
+
+exports[`components should render View component 1`] = `
+<div>
+  <input
+    onClick={[Function]}
+    type="button"
+    value="list"
+  />
+  <input
+    onClick={[Function]}
+    type="button"
+    value="thumbnail"
+  />
+  <input
+    onClick={[Function]}
+    type="button"
+    value="gallery"
+  />
+  <Thumbnail
+    images={
+      Array [
+        Object {
+          "_id": 1,
+          "description": "Isn't it fuzzy-wuzzy cutest thing you've ever seen?",
+          "title": "Cute Bunny",
+          "url": "http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg",
+        },
+        Object {
+          "_id": 2,
+          "description": "Isn't it fuzzy-wuzzy cutest thing you've ever seen?",
+          "title": "Cute Bunny2",
+          "url": "http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg",
+        },
+        Object {
+          "_id": 3,
+          "description": "Isn't it fuzzy-wuzzy cutest thing you've ever seen?",
+          "title": "Cute Bunny3",
+          "url": "http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg",
+        },
+      ]
+    }
+  />
+</div>
+`;
