@@ -4,17 +4,19 @@
 
 .App-logo {
   height: 70%;
+  /* padding-top: 30px; */
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+  background-color: rgb(85, 81, 81);
+  height: 120px;
+  padding: 50px; 
   color: white;
 }
 
 .App-title {
   font-size: 1.5em;
+  padding-bottom: 200px;
 }
 
 .App-intro {
@@ -28,6 +30,17 @@
 }
 
 .Link {
-  padding-top: 20px;
+  padding-top: 50px;
 }
+
+form {
+  padding: 50px;
+}
+
+.button {
+  color: white;
+  background-color: rgb(141, 134, 134);
+}
+
+
 
