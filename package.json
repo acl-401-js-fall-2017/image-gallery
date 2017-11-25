@@ -2,6 +2,7 @@
   "name": "image-gallery",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "enzyme-adapter-react-16": "^1.1.0",
     "react": "^16.1.1",
