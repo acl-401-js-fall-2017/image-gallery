@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import albumApi from '../services/album.api';
+import { loadAlbums, addAlbum, removeAlbum } from '../data/albumActions';
+import AddAlbum from './AddAlbum';
 
 class Albums extends Component {
   constructor(props){
@@ -25,7 +28,6 @@ class Albums extends Component {
 
   
   handleRemove = async (id) => {
-    console.log(id);
     await albumApi.remove(id);
     const newState = removeAlbum(this.state, id);
     this.setState(newState);
