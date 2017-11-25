@@ -45,18 +45,18 @@ export default class View extends PureComponent {
         <div>
           <nav>
             <li>
-              <Link exact to="/albums/:id/gallery">Gallery</Link>
+              <Link exact to={`/albums/${this.getAlbumId()}/gallery`}>Gallery</Link>
             </li>
             <li>
-              <Link to="/albums/:id/list">List</Link>
+              <Link to={`/albums/${this.getAlbumId()}/list`}>List</Link>
             </li>
             <li>
-              <Link to="/albums/:id/thumbnail">Thumbnail</Link>
+              <Link to={`/albums/${this.getAlbumId()}/Thumbnail`}>Thumbnail</Link>
             </li>
           </nav>
           <Switch>
-            <Route exact path={`/albums/${this.getAlbumId()}/gallery`} render={() => <Gallery images={images} {...this.props} />}/>
-            <Route exact path={`/albums/${this.getAlbumId()}/thumbnail`} render={() => <Thumbnail images={images} {...this.props} />}/>
+            <Route exact path="/albums/:id/gallery" render={() => <Gallery images={images} {...this.props} />}/>
+            <Route exact path="/albums/:id/thumbnail" render={() => <Thumbnail images={images} {...this.props} />}/>
             <Route exact path="/albums/:id/list" render={() => <List images={images} 
               handleDelete={imageId => this.handleDelete(imageId)}
               handleAdd={image => this.handleAdd(image)} {...this.props} 
