@@ -3,7 +3,7 @@ import ListView from './ListView';
 import GalleryView from './GalleryView';
 import ThumbView from './ThumbView';
 import { Route, Switch, NavLink } from 'react-router-dom';
-import { removeBunny } from '../actions';
+import { removeBunny } from '../data/actions';
 
 class View extends Component {
   constructor() {
