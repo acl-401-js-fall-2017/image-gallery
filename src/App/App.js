@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import './App.css';
-import Header from './Components/Header';
-import View from './Components/View';
-import About from './Components/About';
+import Header from '../Components/Header';
+import View from '../Components/View';
+import About from '../Components/About';
 
 export default class App extends Component {
   render() {
