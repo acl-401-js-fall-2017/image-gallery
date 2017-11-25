@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 import { 
   BrowserRouter as Router, 
-  Route, Switch, Redirect, 
-  Link } from 'react-router-dom';
-import Albums from './components/Albums';
-import View from './components/View';
-import Header from './components/Header';
+  Route, Switch, Redirect } from 'react-router-dom';
+import Albums from './components/albums';
+import View from './components/view';
+import Header from './components/header';
 
 class App extends Component {
   render() {
@@ -30,7 +29,6 @@ class App extends Component {
 const Home = () => (
   <div>
     <h1>Welcome to my Image Gallery!</h1>
-    <Link to="/images">View images</Link>
   </div>
 );
 

@@ -1,28 +1,22 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import AddImage from './AddImage';
+import AddImage from './add-image';
 
 
 export default class List extends PureComponent {
   render(){
     const { images, handleDelete, handleAdd, albumId } =this.props;
-    console.log('current album id', albumId);
-    console.log('album items', images);
     const list = !images ? null : images.map((image, i) => {
-      console.log('full image obj', image);
-      console.log('image d ', image.description);
       const listItem = 
             <tr key={i}>
               <td><a href={image.url}>{image.title}</a></td>
-              <td>{image.description}</td>
               <td>
-                <input data-value={image._id} type="button" value="remove"
+                <input data-value={image._id} type="button" value="X"
                   onClick ={({ target }) => handleDelete(target.dataset.value)}/>
               </td>
             </tr>;
       return listItem;
-    });
-        
+    });    
     return(
       <div>
         <table>

@@ -1,13 +1,10 @@
 import React, { PureComponent } from 'react';
 import albumsAPI from '../services/albumsAPI';
 import { onDeleteAlbum, onAddAlbum, loadAlbums } from './actions';
-import AddAlbum from './AddAlbum';
-import { 
-  BrowserRouter as Router, 
-  Route, Switch, Redirect, 
-  NavLink } from 'react-router-dom';
+import AddAlbum from './add-album';
+import { NavLink } from 'react-router-dom';
 	
-const HeaderLink = props => <NavLink {...props} 
+const Link = props => <NavLink {...props} 
   className="nav-link" 
   activeClassName="active"
 />;
@@ -20,16 +17,13 @@ export default class Albums extends PureComponent {
     };
   }
 	
-
-	
   async componentDidMount() {
     const albums = await albumsAPI.get(this.getAlbumId());
-    console.log('Received from get', albums);
     const newState = loadAlbums(this.state, albums);
     this.setState(newState);
-	}
+  }
 	
-	getAlbumId() {
+  getAlbumId() {
     return this.props.match.params.id;
   }
 	
@@ -46,9 +40,9 @@ export default class Albums extends PureComponent {
 	}
 	
 	render(){
-	  const albumList = this.state.albums.map(album => {
+	  const albumList = this.state.albums.map((album, index) => {
 	    const listItem = album.name? 
-	      <li><HeaderLink exact to={`/albums/${album._id}`}>{album.name}</HeaderLink></li> : null;
+	      <li key={index}><Link exact to={`/albums/${album._id}`}>{album.name}</Link></li> : null;
 	    return listItem;
 	  });
 	  return(

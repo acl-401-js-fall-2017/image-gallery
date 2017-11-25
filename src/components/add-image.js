@@ -14,7 +14,6 @@ export default class AddImage extends PureComponent {
           description: elements.description.value,
           album: albumId
         };
-        console.log('new Image data', imageData);
         handleAdd(imageData);
         elements.title.value = '';
         elements.url.value = '';
