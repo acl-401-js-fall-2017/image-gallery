@@ -1,9 +1,9 @@
 import api from './api';
 
 export default {
-  get() {
-    console.log('getting....');
-    return api.get('/images');
+  get(id) {
+    console.log(`gettiing on path /images?album=${id}`);
+    if (id) return api.get(`/images?album=${id}`);
   },
   add(image) {
     return api.post('/images', image);

@@ -23,10 +23,14 @@ export default class Albums extends PureComponent {
 
 	
   async componentDidMount() {
-    const albums = await albumsAPI.get();
+    const albums = await albumsAPI.get(this.getAlbumId());
     console.log('Received from get', albums);
     const newState = loadAlbums(this.state, albums);
     this.setState(newState);
+	}
+	
+	getAlbumId() {
+    return this.props.match.params.id;
   }
 	
 	handleDelete = async id => {

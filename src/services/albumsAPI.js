@@ -2,6 +2,7 @@ import api from './api';
 
 export default {
   get(id) {
+    console.log('getting on path ==============');
     console.log(`/albums/${id}`);
     if (id) return api.get(`/albums/${id}`);
     else return api.get('/albums');

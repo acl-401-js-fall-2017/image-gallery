@@ -23,7 +23,8 @@ export default class View extends PureComponent {
     };
   }
   async componentDidMount() {
-    const images = await imageAPI.get();
+    console.log(`performing get after mount on id ${this.getAlbumId()}`);
+    const images = await imageAPI.get(this.getAlbumId());
     console.log('Received from get', images);
     const newState = loadImages(this.state, images);
     this.setState(newState);
@@ -61,12 +62,13 @@ export default class View extends PureComponent {
             </li>
           </nav>
           <Switch>
-            <Route exact path="/albums/:id/gallery" render={() => <Gallery images={images} {...this.props} />}/>
+            <Route exact path={`/albums/${this.getAlbumId()}/gallery`} render={() => <Gallery images={images} {...this.props} />}/>
             <Route exact path={`/albums/${this.getAlbumId()}/thumbnail`} render={() => <Thumbnail images={images} {...this.props} />}/>
             <Route exact path="/albums/:id/list" render={() => <List images={images} 
               handleDelete={imageId => this.handleDelete(imageId)}
-              handleAdd={image => this.handleAdd(image)} {...this.props} />}/>
-            <Redirect to="/albums/:id/gallery"/>
+              handleAdd={image => this.handleAdd(image)} {...this.props} 
+              albumId={this.getAlbumId()} />}/>
+            <Redirect to={`/albums/${this.getAlbumId()}/gallery`}/>
           </Switch>
         </div>
       </Router>
