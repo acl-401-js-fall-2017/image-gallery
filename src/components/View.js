@@ -72,7 +72,7 @@ export default class View extends Component {
           </div>
           <Switch>
 
-            <Route exact path='/albums' component={Albums}/>
+            {/* <Route exact path='/albums' component={Albums}/> */}
             <Route exact path='/albums/:id' render={displayView.album}/>
 
             <Route exact path='/images/list' render={() => displayView.list}/>
