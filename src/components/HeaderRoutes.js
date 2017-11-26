@@ -18,17 +18,23 @@ export default function Header() {
           <HeaderRoutes to='/'>Home</HeaderRoutes>
         </li>
         <li>
+          <HeaderRoutes to='/about'>About</HeaderRoutes>
+        </li>
+        <li>
+          <HeaderRoutes to='/images'>Images</HeaderRoutes>
+        </li>
+        <li>
           <HeaderRoutes to='/albums'>Albums</HeaderRoutes>
         </li>
-        <li>
-          <HeaderRoutes to="/list">List</HeaderRoutes>
+        {/* <li>
+          <HeaderRoutes to="/images/list">List</HeaderRoutes>
         </li>
         <li>
-          <HeaderRoutes to="/thumbnail">Thumbnail</HeaderRoutes>
+          <HeaderRoutes to="/images/thumbnail">Thumbnail</HeaderRoutes>
         </li>
         <li>
-          <HeaderRoutes to="/gallery">Gallery</HeaderRoutes>
-        </li>
+          <HeaderRoutes to="/images/gallery">Gallery</HeaderRoutes>
+        </li> */}
       </nav>
     </header>
   );
