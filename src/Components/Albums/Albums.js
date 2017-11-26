@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import albumApi from '../services/album.api';
-import { loadAlbums, addAlbum, removeAlbum } from '../data/albumActions';
+import albumApi from '../../services/album.api';
+import { loadAlbums, addAlbum, removeAlbum } from '../../data/albumActions';
 import AddAlbum from './AddAlbum';
 
 class Albums extends Component {
