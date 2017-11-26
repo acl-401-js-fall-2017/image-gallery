@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import { Route, Switch, Redirect, NavLink } from 'react-router-dom';
+import { Route, Switch, NavLink } from 'react-router-dom';
 
 import Bunnies from '../images/bunnies';
 import List from './List';
 import Thumbnail from './Thumbnail';
 import Gallery from './Gallery';
-import Home  from './Home';
 import Album from './Album';
 import Albums from './Albums';
-import About from './About';
 
 import { addImage, removeImage } from '../data/actions';
 
@@ -56,24 +54,23 @@ export default class View extends Component {
 
     };
 
-    const HeaderRoutes = props => <NavLink {...props} 
-      className="nav-link"  activeClassName="active"/>;
+    const HeaderRoutes = props => <NavLink {...props}/>;
 
     return (
       <div>
         <div>
-          <li>
-            <HeaderRoutes exact to="/images/list">List</HeaderRoutes>
-          </li>
-          <li>
-            <HeaderRoutes exact to="/images/thumbnail">Thumbnail</HeaderRoutes>
-          </li>
-          <li>
-            <HeaderRoutes exact to="/images/gallery">Gallery</HeaderRoutes>
-          </li>
+          <div className="image-links">
+            <li>
+              <HeaderRoutes exact to="/images/list">List</HeaderRoutes>
+            </li>
+            <li>
+              <HeaderRoutes exact to="/images/thumbnail">Thumbnail</HeaderRoutes>
+            </li>
+            <li>
+              <HeaderRoutes exact to="/images/gallery">Gallery</HeaderRoutes>
+            </li>
+          </div>
           <Switch>
-            <Route exact path='/' component={Home}/>
-            <Route exact path='/about' component={About}/>
 
             <Route exact path='/albums' component={Albums}/>
             <Route exact path='/albums/:id' render={displayView.album}/>
@@ -81,7 +78,6 @@ export default class View extends Component {
             <Route exact path='/images/list' render={() => displayView.list}/>
             <Route exact path='/images/thumbnail' render={() => displayView.thumbnail}/>
             <Route exact path='/images/gallery' render={() => displayView.gallery}/>
-            <Redirect to="/"/>
           </Switch>
         </div>
       </div> 
