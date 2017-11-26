@@ -1,24 +1,23 @@
 import React, { PureComponent } from 'react';
 
 export default class AddAlbum extends PureComponent {
+  
   render() {
-    const { onAdd, type, children } = this.props;
+
+    const { onAdd } = this.props;
+
     return (
-      <form onSubmit={event => {
-        event.preventDefault();
-        const form = event.target;
-        const { elements } = form;
-        const obj = Object.entries(elements).reduce((obj, [key, input]) => {
-          obj[key] = input.type === 'checkbox' ? input.checked : input.value;
-          return obj;
-        }, {});
-        onAdd(obj);
-        form.reset();
-      }}>
-        {children}
-        <input name="title" placeholder="Album Name" />
-        <button type="submit">Add Album {type}</button>
-      </form>
-    ); 
+      <div>
+        <h3>You Can Add Your Own Album</h3>
+        <form onSubmit={event => {
+          event.preventDefault();
+          const { elements } = event.target;
+          onAdd(elements.title.value);
+        }}>
+          <input type="text" name="title" placeholder="album title" required />
+          <button type="submit">Add</button>
+        </form>
+      </div>
+    );
   }
 }
