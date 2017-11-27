@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table table of images 1`] = `
+<div>
+  <table>
+    <tbody>
+      <tr>
+        <th>
+          Title
+        </th>
+        <th>
+          Description
+        </th>
+      </tr>
+      <tr
+        className="table-row"
+        key="0"
+      >
+        <td>
+          <a
+            href="http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg"
+          >
+            Cute Bunny
+          </a>
+        </td>
+        <td>
+          Isn't it fuzzy-wuzzy cutest thing you've ever seen?
+        </td>
+        <td>
+          <button
+            onClick={[Function]}
+          >
+             Remove 
+          </button>
+        </td>
+      </tr>
+      <tr
+        className="table-row"
+        key="1"
+      >
+        <td>
+          <a
+            href="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg"
+          >
+            Cute Bunn
+          </a>
+        </td>
+        <td>
+          Isn't it fuzzy-wuzzy cutest thing you've ever seen?
+        </td>
+        <td>
+          <button
+            onClick={[Function]}
+          >
+             Remove 
+          </button>
+        </td>
+      </tr>
+      <tr
+        className="table-row"
+        key="2"
+      >
+        <td>
+          <a
+            href="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg"
+          >
+            Cute Bun
+          </a>
+        </td>
+        <td>
+          Isn't it fuzzy-wuzzy cutest thing you've ever seen?
+        </td>
+        <td>
+          <button
+            onClick={[Function]}
+          >
+             Remove 
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <AddImages />
+</div>
+`;

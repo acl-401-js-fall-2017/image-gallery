@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List shows gallery 1`] = `
+<div
+  className="gallery"
+>
+  <img
+    alt="Cute Bunny"
+    height="300px"
+    src="http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg"
+  />
+  <h3>
+    Cute Bunny
+  </h3>
+  <h6>
+    Isn't it fuzzy-wuzzy cutest thing you've ever seen?
+  </h6>
+  <button
+    id="prevButton"
+    onClick={[Function]}
+    type="button"
+    value="Previous"
+  >
+    Previous
+  </button>
+  <button
+    id="nextButton"
+    onClick={[Function]}
+    type="button"
+    value="Next"
+  >
+    Next
+  </button>
+</div>
+`;
