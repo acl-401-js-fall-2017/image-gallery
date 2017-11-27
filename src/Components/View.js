@@ -14,11 +14,14 @@ export default class View extends Component {
   constructor() {
     super();
     this.state = {
-      images,
-      viewSelection: null
+      images
     };
   }
 
+  async componentDidMount() {
+    const images = await imageApi.get(this.getImageId());
+    this.setState({ images });
+  }
   getImageId() {
     return this.props.match.params.id;
   }

@@ -8,6 +8,6 @@ export default {
     return api.post('/images', image);
   },
   remove(id) {
-    return api.fetch(`/images/${id}`);
+    return api.delete(`/images/${id}`);
   }
 };
