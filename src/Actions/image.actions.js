@@ -14,7 +14,8 @@ export function removeImage(state, targetImage) {
   images.splice(index, 1);
 
   return {
-    ...state
+    ...state,
+    images
   };
 
 }

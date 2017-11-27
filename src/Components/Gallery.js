@@ -3,6 +3,11 @@ import images from '../images';
 import PropTypes from 'prop-types';
 
 export default class Gallery extends PureComponent{
+  
+  static propTypes = {
+    images: PropTypes.arrayOf(PropTypes.object).isRequired
+  }
+
   constructor(){
     super();
     this.state = {

@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { removeImage } from '../Actions/image.actions';
 
-export default class Table extends PureComponent {
+export default class Table extends Component {
   render() {
     const { images } = this.props;
     return (
@@ -19,9 +19,8 @@ export default class Table extends PureComponent {
                 <td><a href={image.url}>{image.title}</a></td>
                 <td>{image.description}</td>
                 <td>
-                  <button onClick={() => removeImage(image._id)}> Remove </button>
+                  <button onClick={({ target }) => removeImage(target.dataset.value)}> Remove </button>
                 </td>
-                
               </tr>
             );
           })}

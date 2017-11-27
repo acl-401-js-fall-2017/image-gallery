@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List lists of thumbnails 1`] = `
+<div
+  className="thumbnail"
+>
+  <div
+    key="0"
+  >
+    <h3>
+      Cute Bunny
+    </h3>
+    <img
+      alt="Cute Bunny"
+      height="100px"
+      src="http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg"
+    />
+  </div>
+  <div
+    key="1"
+  >
+    <h3>
+      Cute Bunn
+    </h3>
+    <img
+      alt="Cute Bunn"
+      height="100px"
+      src="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg"
+    />
+  </div>
+  <div
+    key="2"
+  >
+    <h3>
+      Cute Bun
+    </h3>
+    <img
+      alt="Cute Bun"
+      height="100px"
+      src="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg"
+    />
+  </div>
+</div>
+`;

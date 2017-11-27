@@ -1,16 +1,25 @@
 import React, { PureComponent } from 'react';
 import shortid from 'shortid';
-import { addImage } from '../Actions/image.actions';
-import { PropTypes } from 'prop-types';
 
 class AddImages extends PureComponent {
   render() {
     
-    const { images, handleAdd } = this.props;
+    const { addImage } = this.props;
     
     return (
       <div>
-        <form onSubmit={handleAdd}>
+        <form onSubmit={e => {
+          e.preventDefault();
+          const { elements } = e.target;
+          const newImage = {
+            _id: shortid.generate(),
+            title: elements.title.value,
+            description: elements.description.value,
+            url: elements.url.value
+          };
+          e.target.reset();
+          return addImage(newImage);
+        }}>
           <input name="title" placeholder="Title" />
           <input name="description" placeholder="Description" />
           <input name="url" placeholder="Url" /> 
@@ -20,9 +29,5 @@ class AddImages extends PureComponent {
     );
   }
 }
-
-AddImages.propTypes = {
-  addImage: PropTypes.func
-};
 
 export default AddImages;
