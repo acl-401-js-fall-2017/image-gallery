@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
+import { 
+  Route, Switch,
+  Redirect } from 'react-router-dom';
 import images from '../images';
 import Table from './Table';
 import Thumbnail from './Thumbnail';
 import Gallery from './Gallery';
-import { 
-  BrowserRouter as Route, Switch,
-  Redirect } from 'react-router-dom';
-import { PropTypes } from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import { addImage, removeImage } from '../Actions/image.actions';
 
 export default class View extends Component {
   constructor() {
@@ -17,18 +17,26 @@ export default class View extends Component {
     };
   }
 
-  handleAdd = e => {
-    this.setState({ images: e.target.value });
+  handleViewChange(value) {
+    this.setState({
+      viewSelection: value
+    });
   }
-  handleRemove = e => {
-    this.setState({ images: e.target.value });
+
+  handleAdd = image => {
+    const newState = addImage(this.state.images, image);
+    this.setState(newState);
   }
-  
+
+  handleRemove = id => {
+    const newState = removeImage(this.state.images, id);
+    this.setState(newState);
+  }
+
   render() {
     const displayView = {
       table: <Table images={this.state.images}
         removeImage={imageId => this.handleRemove(imageId)}
-        addImage={image => this.handleAdd(image)}
       />,
       thumbnail: <Thumbnail images={this.state.images}/>,
       gallery: <Gallery images={this.state.images}/>
@@ -54,7 +62,3 @@ export default class View extends Component {
     );
   }
 }
-
-View.propTypes = {
-  images: PropTypes.array
-};

@@ -1,11 +1,12 @@
 export function addImage(state, newImage) {
-  const newState = [
+  return {
     ...state,
-    newImage
-  ];
-  return newState;
+    images: [
+      ...state.images,
+      newImage
+    ]
+  };
 }
-
 export function removeImage(state, targetImage) {
   const index = state.images.findIndex(image => image._id === targetImage);
   if (index === -1) return;
@@ -17,5 +18,4 @@ export function removeImage(state, targetImage) {
     ...state,
     images
   };
-
 }

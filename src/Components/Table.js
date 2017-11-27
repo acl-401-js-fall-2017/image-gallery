@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
-import { removeImage } from '../Actions/image.actions';
 
 export default class Table extends Component {
   render() {
-    const { images } = this.props;
+    const { images, removeImage } = this.props;
     return (
       <table>
         <tbody>
