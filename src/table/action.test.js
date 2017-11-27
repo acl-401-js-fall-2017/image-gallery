@@ -1,4 +1,4 @@
-import { addImage, removeImage } from '../Actions/image.actions';
+import { addImage, removeImage } from './table.actions';
 
 it('adds a new image', () => {
   const image = {

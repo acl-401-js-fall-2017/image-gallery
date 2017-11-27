@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 
 import images from '../images';
-import Table from '../components/Table';
+import Table from './Table';
 
 describe('Table', () => {
   it('table of images', () => {

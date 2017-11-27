@@ -3,32 +3,39 @@ import {
   Route, Switch,
   Redirect } from 'react-router-dom';
 import images from '../images';
-import Table from './Table';
-import Thumbnail from './Thumbnail';
-import Gallery from './Gallery';
+import Table from '../table/Table';
+import Thumbnail from '../thumbnail/Thumbnail';
+import Gallery from '../gallery/Gallery';
 import { NavLink } from 'react-router-dom';
-import { addImage, removeImage } from '../Actions/image.actions';
+import imageApi from '../services/image-api';
+import { addImage, removeImage } from '../table/table.actions';
 
 export default class View extends Component {
   constructor() {
     super();
     this.state = {
-      images
+      images,
+      viewSelection: null
     };
   }
 
+  getImageId() {
+    return this.props.match.params.id;
+  }
   handleViewChange(value) {
     this.setState({
       viewSelection: value
     });
   }
 
-  handleAdd = image => {
+  handleAdd = async ({ title, description, url }) => {
+    const image = await imageApi.add({ title, description, url });
     const newState = addImage(this.state, image);
     this.setState(newState);
   }
 
-  handleRemove = id => {
+  handleRemove = async id => {
+    await imageApi.remove(id);
     const newState = removeImage(this.state, id);
     this.setState(newState);
   }

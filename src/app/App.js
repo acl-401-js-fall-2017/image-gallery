@@ -4,8 +4,8 @@ import {
   Route, Switch, Redirect, 
   Link  } from 'react-router-dom';
 import './App.css';
-import Header from './Components/Header';
-import View from './Components/View';
+import Header from './Header';
+import View from '../Components/View';
 
 class App extends Component {
   render() {
