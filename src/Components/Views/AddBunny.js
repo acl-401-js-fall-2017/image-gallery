@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 export default class AddBunny extends PureComponent {
   render() {
@@ -25,8 +26,12 @@ export default class AddBunny extends PureComponent {
           URL:
           <input name="url"/>
         </label>
-        <button className="button" type="submit" >Add Bunny</button>
+        <button type="submit">Add Bunny</button>
       </form>
     );
   }
 }
+
+AddBunny.propTypes = {
+  handleSubmit: PropTypes.func
+};
