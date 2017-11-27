@@ -1,11 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
 
-export default function About() {
-  return (
-    <div>About
-      <Link to="/">Home</Link> 
-      <Link to="/view">Images</Link>
-    </div>
-  );
+export default class About extends Component {
+  render() {
+    return (
+      <div>
+        <p>Bunnies are great therapy for the blues.  
+          How can you look at a bunny and not find a smile upon your face?</p>
+      </div>
+    );
+  }
 }

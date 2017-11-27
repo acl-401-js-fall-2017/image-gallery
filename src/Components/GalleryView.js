@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 export default class GalleryView extends PureComponent {
   constructor() {
@@ -10,10 +11,16 @@ export default class GalleryView extends PureComponent {
 
   handleIndexChange(value, bunnies) {
     this.setState((prevState) => {
-      const forwardRound = prevState.i === bunnies.length -1;
-      let i = value === 'Next' ? prevState.i+1 : prevState.i-1;
-      const state = forwardRound ? { i: 0 } : { i };
-
+      const isFinalIndex = prevState.i === bunnies.length -1;
+      const isFirstIndex = prevState.i === 0;
+      let i = value === 'Next' ? 
+        (
+          isFinalIndex ? 0 : prevState.i+1
+        ) : (
+          
+          isFirstIndex ? bunnies.length-1 : prevState.i-1
+        );
+      const state = { i }; 
       return state;
     });
   }
@@ -36,3 +43,8 @@ export default class GalleryView extends PureComponent {
     );
   }
 }
+
+GalleryView.propTypes = {
+  bunnies: PropTypes.array,
+  i: PropTypes.number
+};

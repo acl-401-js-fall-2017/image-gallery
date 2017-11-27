@@ -1,22 +1,28 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import ListView from './Components/ListView';
 import GalleryView from './Components/GalleryView';
 import ThumbView from './Components/ThumbView';
-import { Link, BrowserRouter as Router, Route } from 'react-router-dom';
-// import { addBunny } from './actions';
+import { Route, Switch, NavLink } from 'react-router-dom';
+import { removeBunny } from './actions';
 
-class View extends PureComponent {
+class View extends Component {
   constructor() {
     super();
     this.state = {
       bunnies: [
-        { title: 'Halloween Bunny',
+        { 
+          _id: '1',
+          title: 'Halloween Bunny',
           description: 'Trick or treat?',
           url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg' },
-        { title: 'Belly Bunny',
+        { 
+          _id: '2',
+          title: 'Belly Bunny',
           description: 'I\'m a rub-my-belly bunny',
           url: 'http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg' },
-        { title: 'Side-Eye Bunny',
+        { 
+          _id: '3',
+          title: 'Side-Eye Bunny',
           description: 'Were you taking to me?',
           url: 'http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg' }
       ],
@@ -34,30 +40,48 @@ class View extends PureComponent {
     this.setState({ bunnies: copyView });
   }
 
+  handleRemove = (id) => {
+    const newState = removeBunny(this.state, id);
+    this.setState(newState);
+  }
+
   
   render() {
-    const { bunnies, viewStyle } = this.state;
-    let currentView;
-    (viewStyle === 'list') && (currentView = <ListView bunnies={bunnies} handleSubmit={this.handleAdd}/>);
-    (viewStyle === 'gallery') && (currentView = <GalleryView bunnies={bunnies}/>);
-    (viewStyle === 'thumbnail') && (currentView = <ThumbView bunnies={bunnies}/>);
+
+    const { bunnies } = this.state;
+    const currentView = {
+      
+      list: <ListView bunnies={bunnies} 
+        handleSubmit={this.handleAdd} 
+        handleDelete={this.handleRemove}/>,
+
+      gallery: <GalleryView bunnies={bunnies}/>,
+      
+      thumbnail: <ThumbView bunnies={bunnies}/>
+    };
+
+    const HeaderRoutes = props => <NavLink {...props} 
+      className="nav-link"  activeClassName="active"/>;
+    
 
     return (
       <div>
-        { currentView }
-        <input className="button" type="button" value="Bunny List" onClick={(event) => this.handleViewChange('list')}/>
-        <input className="button" type="button" value="Bunny Gallery" onClick={(event) => this.handleViewChange('gallery')}/>
-        <input className="button" type="button" value="Bunny Thumbnail" onClick={(event) => this.handleViewChange('thumbnail')}/>
-        {/* <Router>
-          <div>
-            <Route path="/list" component={ListView}/>
-            <Route path="/gallery" component={GalleryView}/>
-            <Route path="/thumbnail" component={ThumbView}/>
-          </div>
-        </Router> */}
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-
+        <div>
+          <li>
+            <HeaderRoutes exact to="/images/list">List</HeaderRoutes>
+          </li>
+          <li>
+            <HeaderRoutes exact to="/images/thumbnail">Thumbnail</HeaderRoutes>
+          </li>
+          <li>
+            <HeaderRoutes exact to="/images/gallery">Gallery</HeaderRoutes>
+          </li>
+          <Switch>
+            <Route exact path="/images/list" render={() => currentView.list}/>
+            <Route exact path="/images/gallery" render={() => currentView.gallery}/>
+            <Route exact path="/images/thumbnail" render={() => currentView.thumbnail}/>
+          </Switch>
+        </div>
       </div>
     );
   }
