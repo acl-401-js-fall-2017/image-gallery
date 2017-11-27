@@ -24,12 +24,12 @@ export default class View extends Component {
   }
 
   handleAdd = image => {
-    const newState = addImage(this.state.images, image);
+    const newState = addImage(this.state, image);
     this.setState(newState);
   }
 
   handleRemove = id => {
-    const newState = removeImage(this.state.images, id);
+    const newState = removeImage(this.state, id);
     this.setState(newState);
   }
 
@@ -37,6 +37,7 @@ export default class View extends Component {
     const displayView = {
       table: <Table images={this.state.images}
         removeImage={imageId => this.handleRemove(imageId)}
+        addImage={image => this.handleAdd(image)}
       />,
       thumbnail: <Thumbnail images={this.state.images}/>,
       gallery: <Gallery images={this.state.images}/>
