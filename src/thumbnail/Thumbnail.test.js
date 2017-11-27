@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 
 import images from '../images';
-import Thumbnail from '../components/Thumbnail';
+import Thumbnail from './Thumbnail';
 
 describe('List', () => {
   it('lists of thumbnails', () => {
