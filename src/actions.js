@@ -1,14 +1,23 @@
 import shortid from 'shortid';
 
-export function createWonder(state, title, description, url) {
-  const newWonder = { _id: shortid.generate(), title, description, url };
+export function createImage(state, title, description, url) {
+  const newImage = { _id: shortid.generate(), title, description, url };
   return {
     ...state,
-    wonders: [
-      ...state.wonders,
-      newWonder
+    images: [
+      ...state.images,
+      newImage
     ]
   };
 }
 
-  
+export function createAlbum(state, title) {
+  const newAlbum = { _id: shortid.generate(), title };
+  return {
+    ...state,
+    albums: [
+      ...state.albums,
+      newAlbum
+    ]
+  };
+} 
