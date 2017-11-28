@@ -18,6 +18,9 @@ export default function Header() {
           <HeaderRoutes to='/'>Home</HeaderRoutes>
         </li>
         <li>
+          <HeaderRoutes to='/albums'>Albums</HeaderRoutes>
+        </li>
+        <li>
           <HeaderRoutes to="/list">List</HeaderRoutes>
         </li>
         <li>

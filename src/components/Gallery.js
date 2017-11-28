@@ -53,7 +53,6 @@ export default class Gallery extends PureComponent {
           Next
             </button>
           )}
-          {/* Might want to add remove button here */}
         </div>
       );
     }

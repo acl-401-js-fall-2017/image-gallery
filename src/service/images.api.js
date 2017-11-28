@@ -1,8 +1,8 @@
 import api from './api';
 
 export default {
-  get() {
-    return api.get('/images');
+  get(id) {
+    return api.get(`/images?albums=${id}`);
   },
   add(images) {
     return api.post('/images', images);
