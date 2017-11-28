@@ -8,9 +8,10 @@ const HeaderLink = props => <NavLink {...props}
 />;
 
 export default function Header() {
+  console.log(this.props.match.params.id);
   return (
     <div>
-      <HeaderLink exact to="/">List </HeaderLink>
+      <HeaderLink exact to="/albums/:id/">List </HeaderLink>
       <HeaderLink to="/thumbnail">Thumbnail</HeaderLink>
       <HeaderLink to="/gallery">Gallery</HeaderLink>
     </div>
