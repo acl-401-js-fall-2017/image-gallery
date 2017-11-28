@@ -3,6 +3,15 @@ import List from './List';
 import Thumbnail from './Thumbnail';
 import Gallery from './Gallery';
 import { onDelete, onAdd } from './actions';
+import { 
+  BrowserRouter as Router, 
+  Route, Switch, Redirect, 
+  NavLink } from 'react-router-dom';
+
+const HeaderLink = props => <NavLink {...props} 
+  className="nav-link" 
+  activeClassName="active"
+/>;
 
 export default class View extends PureComponent {
   constructor(){
@@ -28,14 +37,8 @@ export default class View extends PureComponent {
           url: 'http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg'
         }
       ],
-      viewSelection:'thumbnail'
     };
   }
-
-  handleViewChange(viewSelection){
-    this.setState({ viewSelection });
-  }
-
   handleDelete(imageId){
     this.setState(onDelete(imageId, this.state));
   }
@@ -45,20 +48,31 @@ export default class View extends PureComponent {
     }
 
     render(){
-      const { images, viewSelection } = this.state;
-      let view;
-      (viewSelection === 'list') && (view = <List images={images} 
-        handleDelete={imageId => this.handleDelete(imageId)}
-        handleAdd={image => this.handleAdd(image)}/>);
-      (viewSelection === 'thumbnail') && (view = <Thumbnail images={images}/>);
-      (viewSelection === 'gallery') && (view = <Gallery images={images}/>);
+      const { images } = this.state;
       return(
-        <div>
-          <input type="button" value="list" onClick={({ target }) => this.handleViewChange(target.value)}/>
-          <input type="button" value="thumbnail" onClick={({ target }) => this.handleViewChange(target.value)}/>
-          <input type="button" value="gallery" onClick={({ target }) => this.handleViewChange(target.value)}/>
-          { view }
-        </div>
+        <Router>
+          <div>
+            <nav>
+              <li>
+                <HeaderLink exact to="/images/gallery">Gallery</HeaderLink>
+              </li>
+              <li>
+                <HeaderLink to="/images/list">List</HeaderLink>
+              </li>
+              <li>
+                <HeaderLink to="/images/thumbnail">Thumbnail</HeaderLink>
+              </li>
+            </nav>
+            <Switch>
+              <Route exact path="/images/gallery" render={() => <Gallery images={images} {...this.props} />}/>
+              <Route exact path="/images/thumbnail" render={() => <Thumbnail images={images} {...this.props} />}/>
+              <Route exact path="/images/list" render={() => <List images={images} 
+                handleDelete={imageId => this.handleDelete(imageId)}
+                handleAdd={image => this.handleAdd(image)} {...this.props} />}/>
+              <Redirect to="/images/gallery"/>
+            </Switch>
+          </div>
+        </Router>
       );
     }
 }
