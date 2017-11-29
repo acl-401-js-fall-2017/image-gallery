@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
-import List from './list';
-import Thumbnail from './thumbnail';
-import Gallery from './gallery';
+import List from './List';
+import Thumbnail from './Thumbnail';
+import Gallery from './Gallery';
 import imageAPI from '../services/imageAPI';
 import { onDelete, onAdd, loadImages } from './actions';
 import {   
