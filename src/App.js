@@ -3,9 +3,9 @@ import './App.css';
 import { 
   BrowserRouter as Router, 
   Route, Switch, Redirect } from 'react-router-dom';
-import Albums from './components/albums';
-import View from './components/view';
-import Header from './components/header';
+import Albums from './components/Albums';
+import View from './components/View';
+import Header from './components/Header';
 
 class App extends Component {
   render() {
