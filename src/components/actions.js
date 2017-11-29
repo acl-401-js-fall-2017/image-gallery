@@ -7,7 +7,7 @@ export const loadImages = (state, images) => ({ ...state, images });
 export const loadAlbums = (state, albums) => ({ ...state, albums });
 
 export const onDelete = (state, imageId) => {
-  const position = state.images.findIndex(img => img._id === `${imageId}`);
+  const position = state.images.findIndex(img => img._id == `${imageId}`);
   if (position === -1) return state;
   const images = state.images.slice();
   images.splice(position, 1);
