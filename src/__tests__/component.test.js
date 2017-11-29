@@ -3,13 +3,12 @@ import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import AddImage from '../components/add-image'; 
 import Gallery from '../components/Gallery'; 
-import View from '../components/View';
 import List from '../components/List';
 import Thumbnail from '../components/Thumbnail';
 
 
 const images =[
-  { 
+  {
     _id: 1,
     title: 'Cute Bunny',
     description: 'Isn\'t it fuzzy-wuzzy cutest thing you\'ve ever seen?',
