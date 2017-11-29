@@ -1,0 +1,159 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a snapshot 1`] = `
+<div
+  className="App"
+>
+  <header
+    className="App-header"
+  >
+    <h1
+      className="App-title"
+    >
+      Cute Bunnies!
+    </h1>
+  </header>
+  <div>
+    <p
+      className="App-intro"
+    >
+      Select which view of cute bunnies you would like.
+    </p>
+    <button
+      className="button"
+      onClick={[Function]}
+    >
+      List
+    </button>
+    <button
+      className="button"
+      onClick={[Function]}
+    >
+      Thumbnail
+    </button>
+    <button
+      className="button"
+      onClick={[Function]}
+    >
+      Gallery
+    </button>
+    <div>
+      <table
+        id="table"
+      >
+        <thead>
+          <tr>
+            <th>
+              Title
+            </th>
+            <th>
+              Description
+            </th>
+            <th />
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <a
+                href="http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg"
+              >
+                Harlequin Bunny
+              </a>
+            </td>
+            <td>
+              This harlequin bunny artfully poses for a picture.
+            </td>
+            <td>
+              <button
+                className="button remove"
+                onClick={[Function]}
+              >
+                Remove
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a
+                href="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg"
+              >
+                Resting Rabbit
+              </a>
+            </td>
+            <td>
+              Ready to cuddle?
+            </td>
+            <td>
+              <button
+                className="button remove"
+                onClick={[Function]}
+              >
+                Remove
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a
+                href="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg"
+              >
+                Snow Bunny
+              </a>
+            </td>
+            <td>
+              You would have trouble finding this bunny on a snowy day.
+            </td>
+            <td>
+              <button
+                className="button remove"
+                onClick={[Function]}
+              >
+                Remove
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <form
+        id="form"
+        onSubmit={[Function]}
+      >
+        <fieldset>
+          <legend>
+            Add an image
+          </legend>
+          <label>
+            Image Title: 
+          </label>
+          <input
+            id="form-input"
+            name="title"
+          />
+          <label>
+            Description: 
+          </label>
+          <input
+            id="form-input"
+            name="description"
+          />
+          <br />
+          <label>
+            Url: 
+          </label>
+          <input
+            id="form-input"
+            name="url"
+          />
+          <button
+            className="button add"
+            type="submit"
+          >
+            Add
+          </button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+`;
