@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import AddImage from '../components/add-Image'; 
+import AddImage from '../components/add-image'; 
 import Gallery from '../components/Gallery'; 
 import View from '../components/View';
 import List from '../components/List';
