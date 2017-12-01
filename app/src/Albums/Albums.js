@@ -67,13 +67,15 @@ class Albums extends PureComponent {
         <Switch>
           <Route exact path={match.url} render={() => (
             <div className="albumThumbs">
-              {albums.map(album => (
-                <AlbumThumb
-                  key={album._id}
-                  album={album}
-                  onClick={this.handleAlbumClick}
-                />
-              ))}
+              {albums.length > 0 &&
+                albums.map(album => (
+                  <AlbumThumb
+                    key={album._id}
+                    album={album}
+                    onClick={this.handleAlbumClick}
+                  />
+                ))
+              }
             </div>
           )}/>
           {albums &&
