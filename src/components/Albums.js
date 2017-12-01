@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
-import albumApi from '../service/album.api';
 import { loadAlbums, addAlbum, removeImage } from '../data/actions';
+import albumApi from '../service/album.api';
 import AddAlbum from '../components/AddAlbum';
 
 export default class Albums extends PureComponent {
@@ -33,7 +33,7 @@ export default class Albums extends PureComponent {
 
       return(
         <section>
-          <h1>Hello!</h1>
+          <h1>Your Albums</h1>
           <ul className="items">
             {albums.map(album => (
               <li key={album._id}>

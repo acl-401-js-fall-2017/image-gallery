@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-// import Bunnies from '../images/bunnies';
-
-
 
 export default class Gallery extends Component {
 
@@ -11,13 +8,9 @@ export default class Gallery extends Component {
       images: PropTypes.arrayOf(PropTypes.object).isRequired
     }
 
-    constructor(){
-      super();
-      this.state = {
-        picIndex: 0
-      };
-    }
-
+    state = {
+      picIndex: 0
+    };
 
     nextImage = ({ target }) => {
       this.setState(prevState => {

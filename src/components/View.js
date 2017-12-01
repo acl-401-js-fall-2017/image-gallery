@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
 import { Route, NavLink } from 'react-router-dom';
+import { addImage, removeImage } from '../data/actions';
 
-import Bunnies from '../images/bunnies';
 import Album from './Album';
 
-import { addImage, removeImage } from '../data/actions';
 
 
 export default class View extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      bunnies: Bunnies,
-    };
-  }
 
   handleViewChange(value) {
     this.setState({
