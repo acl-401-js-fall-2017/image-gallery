@@ -21,9 +21,9 @@ export default class AddImage extends Component {
           elements.title.value = elements.description.value = elements.url.value = '';
           return addImage(newImage);
         }}>
-          <input name="title" placeholder="Title" />
-          <input name="description" placeholder="Description" />
-          <input name="url" placeholder="Url" />
+          <input name="title" placeholder="Title" required />
+          <input name="description" placeholder="Description" required />
+          <input name="url" placeholder="Url" required />
           <button type="submit"> Add Image </button>
         </form>
       </div>

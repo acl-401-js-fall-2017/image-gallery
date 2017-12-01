@@ -1,4 +1,3 @@
-//import shortid from 'shortid';
 
 const Bunnies = [
   {

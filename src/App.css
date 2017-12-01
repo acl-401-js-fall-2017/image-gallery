@@ -23,12 +23,13 @@
 }
 
 .App-intro {
-  font-size: large;
+  font-size: 1.5em;
 }
 
 nav {
   margin: 10px 0;
 }
+
 nav > li {
   display: inline-block;
   margin: 0 10px;
@@ -40,11 +41,11 @@ nav > li {
 }
 
 .nav-link:visited {
-  color: white;
+  color: rgb(17, 16, 16);
 }
 
 .nav-link.active {
-  border: 1px solid white;
+  border: 1px solid rgb(85, 177, 219);
 }
 
 .items {
@@ -61,11 +62,11 @@ nav > li {
   margin-right: auto;
   margin-left: auto;
   text-align: left;
-  background: rgba(249, 171, 77, 0.5);
+  background: rgba(133, 132, 132, 0.5);
 }
 
 .items > li:hover {
-  background: rgba(249, 171, 77, .8);
+  background: rgba(201, 199, 197, 0.8);
   color: white;
 }
 
@@ -81,5 +82,25 @@ nav > li {
 .list-view {
   display: flex;
   justify-content: space-evenly;
+  padding: 20px;
+}
+
+.image-links > li {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  margin: 5px 0;
+  padding: 10px;
+  width: 250px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: left;
+  background: rgba(160, 159, 157, 0.5);
+}
+
+.thumbnail {
+  padding: 20px;
+}
+.gallery {
   padding: 20px;
 }
