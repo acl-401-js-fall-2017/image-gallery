@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, NavLink } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 
 import Bunnies from '../images/bunnies';
 import List from './List';
@@ -41,7 +41,10 @@ export default class View extends Component {
 
     const displayView = {
 
-      album: (props) => <Album {...props} addImage={image => this.handleAdd(image)}/>,
+      album: (props) => {
+        return (
+          <Album {...props} addImage={image => this.handleAdd(image)}
+          />);},
 
       list: <List bunnies={this.state.bunnies}
         removeImage={imageId => this.handleRemove(imageId)}
@@ -70,15 +73,14 @@ export default class View extends Component {
               <HeaderRoutes exact to="/images/gallery">Gallery</HeaderRoutes>
             </li>
           </div>
-          <Switch>
 
-            {/* <Route exact path='/albums' component={Albums}/> */}
-            <Route exact path='/albums/:id' render={displayView.album}/>
+          {/* <Route exact path='/albums/:id' component={Album}/> */}
+          <Route exact path='/albums/test' render={() => <h1>test</h1>}/>
 
-            <Route exact path='/images/list' render={() => displayView.list}/>
-            <Route exact path='/images/thumbnail' render={() => displayView.thumbnail}/>
-            <Route exact path='/images/gallery' render={() => displayView.gallery}/>
-          </Switch>
+          <Route exact path='/images/list' render={() => displayView.list}/>
+          <Route exact path='/images/thumbnail' render={() => displayView.thumbnail}/>
+          <Route exact path='/images/gallery' render={() => displayView.gallery}/>
+
         </div>
       </div> 
     );
