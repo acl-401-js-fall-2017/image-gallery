@@ -11,6 +11,6 @@ export default {
     return api.post('/albums', album);
   },
   remove(id) {
-    return api.fetch(`/albums/${id}`);
+    return api.delete(`/albums/${id}`);
   }
 };
