@@ -41,3 +41,17 @@ export function removeImage(state, deleteImage) {
     images: images
   };
 }
+
+export function removeAlbum(state, deleteAlbum) {
+  const index = state.albums.findIndex(album => album._id === deleteAlbum);
+
+  if(index === -1) return;
+
+  const albums = state.albums.slice();
+  albums.splice(index, 1);
+
+  return {
+    ...state,
+    albums: albums
+  };
+}
