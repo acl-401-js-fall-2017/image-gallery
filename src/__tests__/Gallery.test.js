@@ -8,7 +8,7 @@ import Gallery from '../components/Gallery';
 
 describe('List', () => {
   it('shows bunnies gallery format', () => {
-    const wrapper = shallow(<Gallery bunnies={Bunnies}/>);
+    const wrapper = shallow(<Gallery images={Bunnies}/>);
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
 });

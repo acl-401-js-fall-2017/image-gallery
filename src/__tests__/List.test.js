@@ -8,7 +8,7 @@ import List from '../components/List';
 
 describe('List', () => {
   it('lists of bunnies', () => {
-    const wrapper = shallow(<List bunnies={Bunnies}/>);
+    const wrapper = shallow(<List images={Bunnies}/>);
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
 });
