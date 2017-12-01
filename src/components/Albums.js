@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
-import { loadAlbums, addAlbum, removeImage } from '../data/actions';
+import { loadAlbums, addAlbum, removeAlbum } from '../data/actions';
 import albumApi from '../service/album.api';
 import AddAlbum from '../components/AddAlbum';
 
@@ -23,7 +23,7 @@ export default class Albums extends PureComponent {
 
     handleRemove = async id => {
       await albumApi.remove(id);
-      const newState = removeImage(this.state, id);
+      const newState = removeAlbum(this.state, id);
       this.setState(newState);
     }
 
