@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import { NavLink, Route } from 'react-router-dom';
+import { addImage, removeImage } from '../data/actions';
 import albumApi from '../service/album.api';
 import imagesApi from '../service/images.api';
-import { addImage, removeImage } from '../data/actions';
 import List from './List';
 import Thumbnail from './Thumbnail';
 import Gallery from './Gallery';
@@ -35,7 +35,6 @@ export default class Album extends PureComponent {
     }
 
     render() {
-      // const { handleRemove } = this.props;
 
       const displayView = {
         
@@ -54,9 +53,7 @@ export default class Album extends PureComponent {
       const HeaderRoutes = props => <NavLink {...props}/>;
       return(
         <section>
-          <Route exact path={`/albums/${this.getAlbumId()}/gallery`} component={displayView.gallery}/>
-          <Route exact path={`/albums/${this.getAlbumId()}/list`} component={displayView.list}/>
-          <Route exact path={`/albums/${this.getAlbumId()}/thumbnail`} component={displayView.thumbnail}/>
+          <h3>Display your pictures in different views!</h3>
           <div className="image-links">
             <li>
               <HeaderRoutes exact to={`/albums/${this.getAlbumId()}/list`}>List</HeaderRoutes>
@@ -68,8 +65,10 @@ export default class Album extends PureComponent {
               <HeaderRoutes exact to={`/albums/${this.getAlbumId()}/gallery`}>Gallery</HeaderRoutes>
             </li>
           </div>
+          <Route exact path={`/albums/${this.getAlbumId()}/gallery`} component={displayView.gallery}/>
+          <Route exact path={`/albums/${this.getAlbumId()}/list`} component={displayView.list}/>
+          <Route exact path={`/albums/${this.getAlbumId()}/thumbnail`} component={displayView.thumbnail}/>
 
-          <h3> ALLLLBUUUUMMMMMSSSSS!!!!!!!!</h3>
         </section>
       );
     }
