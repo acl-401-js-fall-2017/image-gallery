@@ -42,7 +42,7 @@ export default class Albums extends PureComponent {
               </li>
             ))}
           </ul>
-          <AddAlbum onAdd={this.handleAdd}/>
+          <AddAlbum addsAlbum={this.handleAdd}/>
         </section>
       );
     }

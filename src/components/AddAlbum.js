@@ -4,7 +4,7 @@ export default class AddAlbum extends PureComponent {
   
   render() {
 
-    const { onAdd } = this.props;
+    const { addsAlbum } = this.props;
 
     return (
       <div>
@@ -15,7 +15,8 @@ export default class AddAlbum extends PureComponent {
           const newAlbum = {
             name: elements.title.value
           };
-          onAdd(newAlbum);
+          elements.title.value = '';
+          addsAlbum(newAlbum);
         }}>
           <input type="text" name="title" placeholder="album title" required />
           <button type="submit">Add Album</button>
