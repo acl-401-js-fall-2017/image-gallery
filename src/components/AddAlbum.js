@@ -12,10 +12,13 @@ export default class AddAlbum extends PureComponent {
         <form onSubmit={event => {
           event.preventDefault();
           const { elements } = event.target;
-          onAdd(elements.title.value);
+          const newAlbum = {
+            name: elements.title.value
+          };
+          onAdd(newAlbum);
         }}>
           <input type="text" name="title" placeholder="album title" required />
-          <button type="submit">Add</button>
+          <button type="submit">Add Album</button>
         </form>
       </div>
     );
