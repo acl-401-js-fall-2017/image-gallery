@@ -17,17 +17,6 @@ export function addImage(state, newImage) {
   };
 }
 
-export function addAlbum(state, newAlbum) {
-  return {
-    ...state,
-    albums: [
-      ...state.albums,
-      newAlbum
-    ]
-  };
-}
-
-
 export function removeImage(state, deleteImage) {
   const index = state.images.findIndex(image => image._id === deleteImage);
 
@@ -39,6 +28,16 @@ export function removeImage(state, deleteImage) {
   return {
     ...state,
     images: images
+  };
+}
+
+export function addAlbum(state, newAlbum) {
+  return {
+    ...state,
+    albums: [
+      ...state.albums,
+      newAlbum
+    ]
   };
 }
 
