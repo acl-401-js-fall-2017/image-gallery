@@ -14,6 +14,8 @@ class Albums extends PureComponent {
     this.state = {
       albums: []
     };
+
+    this.handleNewAlbum = this.handleNewAlbum.bind(this);
   }
 
   async componentDidMount() {
@@ -23,13 +25,29 @@ class Albums extends PureComponent {
   }
 
   handleAlbumClick = (albumName) => {
-    console.log(`${this.props.match.url}/${albumName}`)
     this.props.history.push(`${this.props.match.url}/${albumName}`);
   }
 
-  handleNewAlbum = e => {
+  handleRemoveAlbum = async (id) => {
+    const removed = await albumsApi.remove(id);
+    if(removed) {
+      const updatedAlbums = [ ...this.state.albums];
+      console.log(updatedAlbums.filter(album => album._id !== id))
+      this.setState({
+        albums: updatedAlbums.filter(album => album._id !== id)
+      });
+    }
+  }
+
+  async handleNewAlbum(e) {
     e.preventDefault();
-    albumsApi.add(e.target.title.value);
+    const newAlbum = await albumsApi.add(e.target.title.value);
+    this.setState({
+      albums: [
+        ...this.state.albums,
+        newAlbum
+      ]
+    });
   }
 
   render() {
@@ -64,6 +82,7 @@ class Albums extends PureComponent {
                 <Route key={album._id} path={`${match.url}/${album.name}`} render={({ match }) => (
                   <AlbumPage
                     album={album}
+                    onRemoveAlbum={this.handleRemoveAlbum}
                   />
                 )} />
               )

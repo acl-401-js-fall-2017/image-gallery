@@ -6,8 +6,7 @@ export default class MultiAccordion extends PureComponent {
     this.state = (Array.isArray(props.children) ? props.children : [props.children]).reduce((acc, child) => {
       acc[child.props.header + 'IsOpen'] = false;
       return acc;
-    }, { isDroppedDown: true });
-    console.log(this.state)
+    }, { isDroppedDown: false });
   }
 
   handleToggle = (headerName) => () => {

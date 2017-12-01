@@ -27,7 +27,7 @@ class AlbumPage extends PureComponent {
 
   handleDeleteAlbum = e => {
     e.preventDefault();
-    albumsApi.remove(this.props.album._id);
+    this.props.onRemoveAlbum(this.props.album._id);
     this.props.history.push('/albums');
   }
 
