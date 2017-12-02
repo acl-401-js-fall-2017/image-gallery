@@ -26,7 +26,7 @@ export default class GalleryView extends PureComponent {
   }
 
   render() {
-    const { bunnies } = this.props;
+    const { bunnies, handleDelete } = this.props;
     const bunny = bunnies[this.state.i];
     const currentImage =  
         (<div>
@@ -39,6 +39,7 @@ export default class GalleryView extends PureComponent {
         {currentImage}
         <input type="button" value="Previous" onClick={(event) => this.handleIndexChange(event.target.value, bunnies)}/>
         <input type="button" value="Next" onClick={(event) => this.handleIndexChange(event.target.value, bunnies)}/>
+        <button className="remove" data-value={bunny._id} onClick={({ target }) => handleDelete(target.dataset.value)}>remove</button>
       </div>
     );
   }

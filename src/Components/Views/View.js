@@ -55,9 +55,11 @@ class View extends Component {
         handleSubmit={this.handleAdd} 
         handleDelete={this.handleRemove}/>,
 
-      gallery: <GalleryView bunnies={bunnies}/>,
+      gallery: <GalleryView bunnies={bunnies}
+        handleDelete={this.handleRemove}/>,
       
-      thumbnail: <ThumbView bunnies={bunnies}/>
+      thumbnail: <ThumbView bunnies={bunnies}
+        handleDelete={this.handleRemove}/>
     };
 
     const HeaderRoutes = props => <NavLink {...props} 
