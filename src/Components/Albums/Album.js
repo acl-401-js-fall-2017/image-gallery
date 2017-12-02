@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import { NavLink, Route } from 'react-router-dom';
 import { addBunny, removeBunny } from '../../data/viewActions';
-import imageApi from '../service/image.api';
-import albumApi from '../service/album.api';
+import imageApi from '../../services/image.api';
+import albumApi from '../../services/album.api';
 import GalleryView from '../Views/GalleryView';
 import ListView from '../Views/ListView';
 import ThumbView from '../Views/ThumbView';
