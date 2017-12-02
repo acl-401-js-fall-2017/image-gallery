@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import './App.css';
-import Header from './Components/Header';
-import View from './View';
-import About from './Components/About';
+import Header from '../Components/Header';
+import View from '../Components/Views/View';
+import About from '../Components/About';
+import Albums from '../Components/Albums/Albums';
 
 export default class App extends Component {
   render() {
@@ -13,7 +14,8 @@ export default class App extends Component {
           <Header/>
           <Switch>
             <Route exact path="/" component={Home}/>
-            <Route exact path="/images" component={View}/>
+            <Route path="/images" component={View}/>
+            <Route path="/albums" component={Albums}/>
             <Route exact path="/about" component={About}/>
             <Redirect to="/"/>
           </Switch>

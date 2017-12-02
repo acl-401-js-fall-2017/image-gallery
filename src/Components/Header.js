@@ -16,6 +16,9 @@ export default function Header() {
           <HeaderRoutes exact to='/about'>About</HeaderRoutes> 
         </li>
         <li>
+          <HeaderRoutes to='/albums'>Albums</HeaderRoutes>
+        </li>
+        <li>
           <HeaderRoutes exact to='/images'>Images</HeaderRoutes> 
         </li>
       </nav>

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import AddBunny from './AddBunny';
+import AddBunny from '../Views/AddBunny';
 import PropTypes from 'prop-types';
 
 export default class ListView extends PureComponent {

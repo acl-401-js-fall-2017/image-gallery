@@ -3,7 +3,9 @@
 exports[`renders a View component snapshot 1`] = `
 <div>
   <div>
-    <li>
+    <li
+      className="image-links"
+    >
       <HeaderRoutes
         exact={true}
         to="/images/list"
@@ -11,7 +13,9 @@ exports[`renders a View component snapshot 1`] = `
         List
       </HeaderRoutes>
     </li>
-    <li>
+    <li
+      className="image-links"
+    >
       <HeaderRoutes
         exact={true}
         to="/images/thumbnail"
@@ -19,7 +23,9 @@ exports[`renders a View component snapshot 1`] = `
         Thumbnail
       </HeaderRoutes>
     </li>
-    <li>
+    <li
+      className="image-links"
+    >
       <HeaderRoutes
         exact={true}
         to="/images/gallery"

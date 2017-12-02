@@ -1,4 +1,4 @@
-import { addBunny } from '../actions';
+import { addBunny } from '../data/viewActions';
 
 it('creates and adds a bunny detail to empty state of bunnies', () => {
   const newState = addBunny({ bunnies: [] }, { title: 'new bunny detail', 

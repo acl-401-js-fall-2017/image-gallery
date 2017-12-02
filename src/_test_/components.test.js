@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import AddBunny from '../Components/AddBunny';
-import View from '../View';
-import ListView from '../Components/ListView';
-import GalleryView from '../Components/GalleryView';
-import ThumbView from '../Components/ThumbView';
+import AddBunny from '../Components/Views/AddBunny';
+import View from '../Components/Views/View';
+import ListView from '../Components/Views/ListView';
+import GalleryView from '../Components/Views/GalleryView';
+import ThumbView from '../Components/Views/ThumbView';
 
 const bunnies = [
   { 
