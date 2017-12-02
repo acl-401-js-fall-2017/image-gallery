@@ -78,11 +78,13 @@ class View extends Component {
           <li className="image-links">
             <HeaderRoutes exact to="/images/gallery">Gallery</HeaderRoutes>
           </li>
-          <Switch>
-            <Route exact path="/images/list" render={() => currentView.list}/>
-            <Route exact path="/images/gallery" render={() => currentView.gallery}/>
-            <Route exact path="/images/thumbnail" render={() => currentView.thumbnail}/>
-          </Switch>
+          <div className="viewLink">
+            <Switch>
+              <Route exact path="/images/list" render={() => currentView.list}/>
+              <Route exact path="/images/gallery" render={() => currentView.gallery}/>
+              <Route exact path="/images/thumbnail" render={() => currentView.thumbnail}/>
+            </Switch>
+          </div>
         </div>
       </div>
     );

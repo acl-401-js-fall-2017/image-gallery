@@ -23,7 +23,7 @@ export default function Header() {
         </li>
       </nav>
       <img src={flops} className="App-logo" alt="logo" />
-      {/* <h1 className="App-title">Welcome to a World of Bunnies</h1> */}
+      <h1 className="App-title">Welcome to a World of Bunnies</h1>
     </header>
   );
 }
