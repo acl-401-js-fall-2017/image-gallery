@@ -1,9 +1,16 @@
 const url = '/api';
 
+const wrap = async promise => {
+  const response = await promise;
+  if(response.ok) return response.json();
 
-const wrap =  promise => {
-  return promise
-    .then(response => response.json());
+  const contentType = response.headers.get('content-type');
+  
+  const error = contentType && contentType.startsWith('application/json')
+    ? await response.json()
+    : await response.text();
+
+  throw error;
 };
 
 export default {
