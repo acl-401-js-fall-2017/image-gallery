@@ -5,6 +5,7 @@ import Header from '../Components/Header';
 import View from '../Components/Views/View';
 import About from '../Components/About';
 import Albums from '../Components/Albums/Albums';
+import Album from '../Components/Albums/Album';
 
 export default class App extends Component {
   render() {
@@ -16,6 +17,7 @@ export default class App extends Component {
             <Route exact path="/" component={Home}/>
             <Route path="/images" component={View}/>
             <Route path="/albums" component={Albums}/>
+            <Route exact path="/albums/:id/(list/gallery/thumbnail)?" component={Album}/>
             <Route exact path="/about" component={About}/>
             <Redirect to="/"/>
           </Switch>
@@ -28,7 +30,7 @@ export default class App extends Component {
 function Home() {
   return (
     <div className="Link">
-      {/* <h1 className="App-title">Welcome to a World of Bunnies</h1> */}
+      <h1 className="App-title">Welcome to a World of Bunnies</h1>
     </div>
   );
 }
