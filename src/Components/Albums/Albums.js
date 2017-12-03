@@ -16,7 +16,7 @@ class Albums extends PureComponent {
   }
 
   handleAdd = async (newAlbum) => {
-    const album = await albumApi.add({ newAlbum });
+    const album = await albumApi.add({ name: newAlbum });
     const newState = addAlbum(this.state, album);
     this.setState(newState);
   }
