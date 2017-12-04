@@ -55,9 +55,11 @@ class View extends Component {
         handleSubmit={this.handleAdd} 
         handleDelete={this.handleRemove}/>,
 
-      gallery: <GalleryView bunnies={bunnies}/>,
+      gallery: <GalleryView bunnies={bunnies}
+        handleDelete={this.handleRemove}/>,
       
-      thumbnail: <ThumbView bunnies={bunnies}/>
+      thumbnail: <ThumbView bunnies={bunnies}
+        handleDelete={this.handleRemove}/>
     };
 
     const HeaderRoutes = props => <NavLink {...props} 
@@ -76,11 +78,13 @@ class View extends Component {
           <li className="image-links">
             <HeaderRoutes exact to="/images/gallery">Gallery</HeaderRoutes>
           </li>
-          <Switch>
-            <Route exact path="/images/list" render={() => currentView.list}/>
-            <Route exact path="/images/gallery" render={() => currentView.gallery}/>
-            <Route exact path="/images/thumbnail" render={() => currentView.thumbnail}/>
-          </Switch>
+          <div className="viewLink">
+            <Switch>
+              <Route exact path="/images/list" render={() => currentView.list}/>
+              <Route exact path="/images/gallery" render={() => currentView.gallery}/>
+              <Route exact path="/images/thumbnail" render={() => currentView.thumbnail}/>
+            </Switch>
+          </div>
         </div>
       </div>
     );

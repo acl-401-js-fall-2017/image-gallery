@@ -14,19 +14,21 @@ export default class AddBunny extends PureComponent {
         elements.description.value = '';
         elements.url.value = '';
       }}>
-        <label style={{ padding: '20px' }}>
+        <div className="addField">
+          <label style={{ padding: '20px' }}>
           Title:
-          <input name="title"/>
-        </label>
-        <label style={{ padding: '20px' }}>
+            <input name="title"/>
+          </label>
+          <label style={{ padding: '20px' }}>
           Description:
-          <input name="description"/>
-        </label>
-        <label style={{ padding: '20px' }}>
+            <input name="description"/>
+          </label>
+          <label style={{ padding: '20px' }}>
           URL:
-          <input name="url"/>
-        </label>
-        <button type="submit">Add Bunny</button>
+            <input name="url"/>
+          </label>
+          <button className="addButton" type="submit">Add Bunny</button>
+        </div>
       </form>
     );
   }

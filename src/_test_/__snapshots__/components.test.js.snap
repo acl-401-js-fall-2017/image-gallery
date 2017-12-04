@@ -33,23 +33,27 @@ exports[`renders a View component snapshot 1`] = `
         Gallery
       </HeaderRoutes>
     </li>
-    <Switch>
-      <Route
-        exact={true}
-        path="/images/list"
-        render={[Function]}
-      />
-      <Route
-        exact={true}
-        path="/images/gallery"
-        render={[Function]}
-      />
-      <Route
-        exact={true}
-        path="/images/thumbnail"
-        render={[Function]}
-      />
-    </Switch>
+    <div
+      className="viewLink"
+    >
+      <Switch>
+        <Route
+          exact={true}
+          path="/images/list"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/images/gallery"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/images/thumbnail"
+          render={[Function]}
+        />
+      </Switch>
+    </div>
   </div>
 </div>
 `;
@@ -76,6 +80,13 @@ exports[`renders a gallery view snapshot 1`] = `
     type="button"
     value="Next"
   />
+  <button
+    className="remove"
+    data-value="1"
+    onClick={[Function]}
+  >
+    remove
+  </button>
 </div>
 `;
 
@@ -184,6 +195,13 @@ exports[`renders a thumbnail view snapshot 1`] = `
         src="http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg"
         width="25%"
       />
+      <button
+        className="remove"
+        data-value="1"
+        onClick={[Function]}
+      >
+        remove
+      </button>
     </li>
   </div>
   <div>
@@ -204,6 +222,13 @@ exports[`renders a thumbnail view snapshot 1`] = `
         src="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg"
         width="25%"
       />
+      <button
+        className="remove"
+        data-value="2"
+        onClick={[Function]}
+      >
+        remove
+      </button>
     </li>
   </div>
   <div>
@@ -224,6 +249,13 @@ exports[`renders a thumbnail view snapshot 1`] = `
         src="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg"
         width="25%"
       />
+      <button
+        className="remove"
+        data-value="3"
+        onClick={[Function]}
+      >
+        remove
+      </button>
     </li>
   </div>
 </div>
@@ -233,46 +265,51 @@ exports[`renders adding a new bunny snapshot 1`] = `
 <form
   onSubmit={[Function]}
 >
-  <label
-    style={
-      Object {
-        "padding": "20px",
+  <div
+    className="addField"
+  >
+    <label
+      style={
+        Object {
+          "padding": "20px",
+        }
       }
-    }
-  >
-    Title:
-    <input
-      name="title"
-    />
-  </label>
-  <label
-    style={
-      Object {
-        "padding": "20px",
+    >
+      Title:
+      <input
+        name="title"
+      />
+    </label>
+    <label
+      style={
+        Object {
+          "padding": "20px",
+        }
       }
-    }
-  >
-    Description:
-    <input
-      name="description"
-    />
-  </label>
-  <label
-    style={
-      Object {
-        "padding": "20px",
+    >
+      Description:
+      <input
+        name="description"
+      />
+    </label>
+    <label
+      style={
+        Object {
+          "padding": "20px",
+        }
       }
-    }
-  >
-    URL:
-    <input
-      name="url"
-    />
-  </label>
-  <button
-    type="submit"
-  >
-    Add Bunny
-  </button>
+    >
+      URL:
+      <input
+        name="url"
+      />
+    </label>
+    <button
+      className="addButton"
+      type="submit"
+    >
+      Add Bunny
+    </button>
+  </div>
 </form>
 `;

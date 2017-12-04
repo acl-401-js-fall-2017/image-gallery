@@ -67,9 +67,23 @@ button {
 
 .remove {
   color: white;
-  background-color: rgb(141, 134, 134);
+  background-color: rgb(141, 141, 134);
   margin-left: 20px;
 } 
 
+.listView {
+  margin-left: 200px;
+  padding: 2px;
+}
 
+.viewLink {
+  padding: 30px;
+}
 
+.addField {
+  padding: 25px;
+}
+
+.addButton {
+  margin: 20px;
+}
