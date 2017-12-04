@@ -13,12 +13,13 @@ const wrap = async promise => {
   throw error;
 };
 
-export default {
+const api = {
   get(path) {
     return wrap(
       fetch(`${url}${path}`)
     );
   },
+
   post(path, data) {
     return wrap(
       fetch(`${url}${path}`, {
@@ -31,6 +32,20 @@ export default {
       })
     );
   },
+
+  put(path, data) {
+    return wrap(
+      fetch(`${url}${path}`, {
+        method: 'put',
+        body: JSON.stringify(data),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }        
+      })
+    );
+  },
+
   delete(path) {
     return wrap(
       fetch(`${url}${path}`, {
@@ -39,3 +54,5 @@ export default {
     );
   }
 };
+
+export default api;
