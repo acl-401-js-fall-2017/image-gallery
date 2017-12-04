@@ -16,7 +16,8 @@
   "scripts": {
     "copy": "rm -rf ../server/public && cp -R build ../server/public",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "cra:build": "react-scripts build",
+    "build": "npm run cra:build && npm run copy",
     "eject": "react-scripts eject",
     "test": "react-scripts test --env=jsdom",
     "pretest": "npm run lint",

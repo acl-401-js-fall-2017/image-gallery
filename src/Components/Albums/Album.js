@@ -49,6 +49,7 @@ export default class Album extends PureComponent {
       thumbnail: () => <ThumbView images={this.state.images}/>
       
     };
+
     const Header = props => <NavLink {...props}/>;
     return(
       <section>
