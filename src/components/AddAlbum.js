@@ -4,18 +4,22 @@ export default class AddAlbum extends PureComponent {
   
   render() {
 
-    const { onAdd } = this.props;
+    const { addsAlbum } = this.props;
 
     return (
       <div>
-        <h3>You Can Add Your Own Album</h3>
+        <h3>Add an Album!</h3>
         <form onSubmit={event => {
           event.preventDefault();
           const { elements } = event.target;
-          onAdd(elements.title.value);
+          const newAlbum = {
+            name: elements.title.value
+          };
+          elements.title.value = '';
+          addsAlbum(newAlbum);
         }}>
           <input type="text" name="title" placeholder="album title" required />
-          <button type="submit">Add</button>
+          <button type="submit">Add Album</button>
         </form>
       </div>
     );

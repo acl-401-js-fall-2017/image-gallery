@@ -8,10 +8,10 @@ it('adds a new image', () => {
     url: 'cutebunny.com'
   };
 
-  const newImage = addImage({ bunnies: [] }, testImage);
+  const newImage = addImage({ images: [] }, testImage);
 
   expect(newImage).toEqual({
-    bunnies: [ { _id: expect.any(String), title: 'bunny', description: 'cute bunny', url: 'cutebunny.com' } ]
+    images: [ { _id: '12345', title: 'bunny', description: 'cute bunny', url: 'cutebunny.com' } ]
   });
 });
 
@@ -29,14 +29,14 @@ it('removes an image', () => {
     url: 'cutebunny.cute'
   };
 
-  let state = { bunnies: [] };
+  let state = { images: [] };
   state = addImage(state, testImageOne);
   state = addImage(state, testImageTwo);
 
-  const id = state.bunnies[0]._id;
+  const id = state.images[0]._id;
   const newState = removeImage(state, id);
 
   expect(newState).toEqual({
-    bunnies: [state.bunnies[1]]
+    images: [state.images[1]]
   });
 });

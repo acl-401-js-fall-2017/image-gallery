@@ -6,22 +6,22 @@ import AddImage from './AddImage';
 export default class List extends Component {
    
     static propTypes = {
-      bunnies: PropTypes.arrayOf(PropTypes.object).isRequired
+      images: PropTypes.arrayOf(PropTypes.object).isRequired
     }
 
 
     render() {
-      const { addImage, removeImage } = this.props;
+      const { addImage, handleRemove } = this.props;
       return (
         <div className="list-view">
           <table>
             <tbody>
-              {this.props.bunnies.map((bunny, index) => {
+              {this.props.images.map((image, index) => {
                 return (
                   <tr key={index}>
-                    <td><a href={bunny.url}>{bunny.title}</a></td>
-                    <td>{bunny.description}</td>
-                    <td> <input type="button" data-value={bunny._id} value="remove" onClick={({ target }) => removeImage(target.dataset.value)}/></td>
+                    <td><a href={image.url}>{image.title}</a></td>
+                    <td>{image.description}</td>
+                    <td> <input type="button" data-value={image._id} value="remove" onClick={() => handleRemove(image._id)}/></td>
                   </tr>
                 );
               })}

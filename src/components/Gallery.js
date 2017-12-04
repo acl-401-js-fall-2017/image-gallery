@@ -1,24 +1,16 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Bunnies from '../images/bunnies';
 
-
-
-export default class Gallery extends PureComponent {
+export default class Gallery extends Component {
 
     static propTypes = {
-      bunnies: PropTypes.arrayOf(PropTypes.object).isRequired
+      images: PropTypes.arrayOf(PropTypes.object).isRequired
     }
 
-    constructor(){
-      super();
-      this.state = {
-        bunnies: Bunnies,
-        picIndex: 0
-      };
-    }
-
+    state = {
+      picIndex: 0
+    };
 
     nextImage = ({ target }) => {
       this.setState(prevState => {
@@ -33,14 +25,16 @@ export default class Gallery extends PureComponent {
       });
     }
 
-    render() {
-      const bunny = this.props.bunnies[this.state.picIndex];
 
+    render() {
+      if(this.props.images.length < 1) return null;
+      
+      const image = this.props.images[this.state.picIndex];
       return (
         <div className="gallery">
-          <img src={bunny.url} alt={bunny.title} height="100px"/>
-          <h4>{bunny.title}</h4>
-          <h6>{bunny.description}</h6>
+          <img src={image.url} alt={image.title} height="100px"/>
+          <h4>{image.title}</h4>
+          <h6>{image.description}</h6>
 
           {this.state.picIndex !== 0 && (
             <button type="button" value="Previous" id="prevButton" onClick={this.nextImage}>
@@ -48,7 +42,7 @@ export default class Gallery extends PureComponent {
             </button>
           )}
 
-          {this.state.picIndex !== this.state.bunnies.length - 1  && (
+          {this.state.picIndex !== this.props.images.length - 1  && (
             <button type="button" value="Next" id="nextButton" onClick={this.nextImage}>
           Next
             </button>

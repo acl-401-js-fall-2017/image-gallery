@@ -8,7 +8,7 @@ import Thumbnail from '../components/Thumbnail';
 
 describe('List', () => {
   it('lists of bunnies in thumbnail format', () => {
-    const wrapper = shallow(<Thumbnail bunnies={Bunnies}/>);
+    const wrapper = shallow(<Thumbnail images={Bunnies}/>);
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
 });

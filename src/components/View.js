@@ -1,24 +1,13 @@
 import React, { Component } from 'react';
-import { Route, Switch, NavLink } from 'react-router-dom';
-
-import Bunnies from '../images/bunnies';
-import List from './List';
-import Thumbnail from './Thumbnail';
-import Gallery from './Gallery';
-import Album from './Album';
-import Albums from './Albums';
-
+import { Route, NavLink } from 'react-router-dom';
 import { addImage, removeImage } from '../data/actions';
+
+import Album from './Album';
+
 
 
 export default class View extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      bunnies: Bunnies,
-    };
-  }
 
   handleViewChange(value) {
     this.setState({
@@ -41,17 +30,10 @@ export default class View extends Component {
 
     const displayView = {
 
-      album: (props) => <Album {...props} addImage={image => this.handleAdd(image)}/>,
-
-      list: <List bunnies={this.state.bunnies}
-        removeImage={imageId => this.handleRemove(imageId)}
-        addImage={image => this.handleAdd(image)}
-      />,
-
-      thumbnail: <Thumbnail bunnies={this.state.bunnies}/>,
-
-      gallery: <Gallery bunnies={this.state.bunnies}/>
-
+      album: (props) => {
+        return (
+          <Album {...props} addImage={image => this.handleAdd(image)}
+          />);},
     };
 
     const HeaderRoutes = props => <NavLink {...props}/>;
@@ -61,24 +43,16 @@ export default class View extends Component {
         <div>
           <div className="image-links">
             <li>
-              <HeaderRoutes exact to="/images/list">List</HeaderRoutes>
+              <HeaderRoutes exact to="/albums/list">List</HeaderRoutes>
             </li>
             <li>
-              <HeaderRoutes exact to="/images/thumbnail">Thumbnail</HeaderRoutes>
+              <HeaderRoutes exact to="/albums/thumbnail">Thumbnail</HeaderRoutes>
             </li>
             <li>
-              <HeaderRoutes exact to="/images/gallery">Gallery</HeaderRoutes>
+              <HeaderRoutes exact to="/albums/gallery">Gallery</HeaderRoutes>
             </li>
           </div>
-          <Switch>
-
-            {/* <Route exact path='/albums' component={Albums}/> */}
-            <Route exact path='/albums/:id' render={displayView.album}/>
-
-            <Route exact path='/images/list' render={() => displayView.list}/>
-            <Route exact path='/images/thumbnail' render={() => displayView.thumbnail}/>
-            <Route exact path='/images/gallery' render={() => displayView.gallery}/>
-          </Switch>
+          <Route exact path='/albums/:id' render={displayView.album}/>
         </div>
       </div> 
     );
