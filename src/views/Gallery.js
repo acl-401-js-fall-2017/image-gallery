@@ -29,7 +29,6 @@ export default class Gallery extends Component {
     });
   }
 
-
   render() {
     const { bunnies } = this.props;
     return(

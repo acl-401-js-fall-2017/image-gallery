@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const HeaderLink = props => <NavLink {...props}
   className="navLink"
@@ -15,9 +16,18 @@ export default function Header() {
         </li>
         <li><HeaderLink exact to="/about">About</HeaderLink>
         </li>
-        <li><HeaderLink exact to="/images">Images</HeaderLink>
+        <li><HeaderLink exact to="/albums">Albums</HeaderLink>
         </li>
       </nav>
+      <Login>
+        <li><Link to="/auth/login">Log In</Link></li>
+        <li><Link to="/auth/signup">Sign Up</Link></li>
+      </Login>
     </header> 
   );
 }
+
+const Login = styled.div`
+  color: greenyellow;
+  float: right;
+`;

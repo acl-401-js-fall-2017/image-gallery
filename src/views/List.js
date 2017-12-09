@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 
-
-
-export default class List extends Component {
-  
-  
+export default class List extends Component {  
   render() {
-    const { bunnies, onRemove, onAddImg } = this.props;
+    const { bunnies, onRemove, onAddImg, album } = this.props;
     return(
       <div>
         <table id="table">
@@ -18,11 +14,10 @@ export default class List extends Component {
             </tr>
           </thead>
           <tbody>
-            {bunnies.map(bunny => <ListItem key={bunny._id} id={bunny._id} title={bunny.title} description={bunny.description} url={bunny.url} onRemove={onRemove}/>)}
+            {bunnies.map(bunny => <ListItem key={bunny._id} id={bunny._id} title={bunny.title} description={bunny.description} url={bunny.url} albumId={album} onRemove={onRemove}/>)}
           </tbody>
         </table>
-        <AddImg onAddImg={onAddImg}/>
-        
+        <AddImg onAddImg={onAddImg} albumId={album}/>   
       </div>
     );
   }
@@ -42,10 +37,9 @@ class ListItem extends Component {
   }
 }
 
-
 class AddImg extends Component {
   render() {
-    const { onAddImg } = this.props;
+    const { onAddImg, albumId } = this.props;
     return (
       <form id="form" onSubmit={event => {
         event.preventDefault();
@@ -53,7 +47,8 @@ class AddImg extends Component {
         const addedImage = {
           title: elements.title.value,
           description: elements.description.value,
-          url: elements.url.value
+          url: elements.url.value,
+          album: albumId
         };
         onAddImg(addedImage);
         elements.title.value='';
@@ -61,7 +56,7 @@ class AddImg extends Component {
         elements.url.value='';
       }}>
         <fieldset>
-          <legend>Add an image</legend>
+          <legend>Add an image to this album</legend>
           <label>Image Title: </label>
           <input className="form-input" name="title"/>
           <label>Description: </label>
@@ -75,6 +70,3 @@ class AddImg extends Component {
     ); 
   }
 }
-
-
-
