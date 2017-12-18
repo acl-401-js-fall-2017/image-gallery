@@ -2,12 +2,12 @@ import api from './api';
 
 export default {
   get(imageId) {
-    return api.get(`/albums/${imageId}/images`);
+    return api.get('/image');
   },
   add(image) {
-    return api.post(`/albums/${image.album}/image`, image);
+    return api.post('/image', image);
   },
-  remove(albumId, id) {
-    return api.delete(`/albums/${albumId}/images/${id}`);
+  remove(id) {
+    return api.delete(`/images/${id}`);
   }
 };
