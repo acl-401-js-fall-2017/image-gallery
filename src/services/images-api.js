@@ -1,13 +1,13 @@
-import api from './api';
+import api from '../utils/api';
 
 export default {
-  get(imageId) {
-    return api.get(`/albums/${imageId}/images`);
+  get(_id) {
+    return api.get(`/images?album=${_id}`);
   },
   add(image) {
-    return api.post(`/albums/${image.album}/image`, image);
+    return api.post('/images', image);
   },
-  remove(albumId, id) {
-    return api.delete(`/albums/${albumId}/images/${id}`);
+  remove(id) {
+    return api.delete(`/images/${id}`);
   }
 };

@@ -1,4 +1,4 @@
-import api from './api';
+import api from '../utils/api';
 
 export default {
   get() {
@@ -8,6 +8,6 @@ export default {
     return api.post('/albums', album);
   },
   remove(id) {
-    return api.fetch(`/albums/${id}`);
+    return api.delete(`/albums/${id}`);
   }
 };

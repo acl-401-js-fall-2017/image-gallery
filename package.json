@@ -10,10 +10,9 @@
     "react-scripts": "1.0.17"
   },
   "scripts": {
-    "copy":"rm -rf ../server/public && cp -R build ../server/public",
     "start": "react-scripts start",
-    "cra:build": "react-scripts build",
-    "build": "npm run cra:build && npm run copy",        
+    "build": "react-scripts build",
+    "postbuild": "rm -rf ../image-gallery-server/public && cp -R build ../image-gallery-server/public",        
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
