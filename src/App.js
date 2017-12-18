@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Albums from './components/Albums';
 import Album from './components/Album';
 import {
   BrowserRouter as Router,
@@ -33,7 +34,8 @@ class App extends Component {
           Here are some pandas for you to look at:
             <Switch>
               <Route exact path="/about" component={About}/>
-              <Route exact path="/albums/:id?" component={Album}/>
+              <Route exact path="/albums" component={Albums} />
+              <Route exact path="/albums/:id" component={Album}/>
               <Route exact path="/" component={Home}/>
               <Redirect to="/"/>
             </Switch>
