@@ -6,7 +6,7 @@ export function loadAlbums(state, albums) {
   };
 }
 
-export function addalbum(state, album) {
+export function addAlbum(state, album) {
   return {
     ...state,
     albums: [

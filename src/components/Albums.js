@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import albumApi from '../services/album-api';
-import { loadAlbums, removeAlbum } from '../data/albumActions';
+import { loadAlbums, removeAlbum, addAlbum } from '../data/albumActions';
 import { Link } from 'react-router-dom';
 
 
@@ -28,6 +28,15 @@ export default class Albums extends Component {
       });
   }
 
+  addAlbum = event => {
+    event.preventDefault();
+    albumApi.add({ name: event.target.albumName.value })
+      .then(album => {
+        this.setState(addAlbum(this.state, album));
+      });
+  }
+
+
   render() {
     const { albums } = this.state;
     return(
@@ -40,7 +49,11 @@ export default class Albums extends Component {
                 <button onClick={()  => this.deleteAlbum(album._id)} >X</button>
               </li>);
           })}
-        </ul>   
+        </ul>  
+        <form onSubmit={this.addAlbum} >
+          <input type="text" placeholder="add an album name" name="albumName"/>
+          <button type="submit">create</button>
+        </form> 
       </section>
     );
   }
