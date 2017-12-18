@@ -35,7 +35,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/about" component={About}/>
               <Route exact path="/albums" component={Albums} />
-              <Route exact path="/albums/:id" component={Album}/>
+              <Route exact path="/albums/:id/:view(list|gallery|thumb)?" component={Album}/>
               <Route exact path="/" component={Home}/>
               <Redirect to="/"/>
             </Switch>
@@ -49,7 +49,6 @@ class App extends Component {
 const Home = () => (
   <div>
     <h1>Welcome to PandaPics!</h1>
-    <Link to="/:id/list"> List </Link>   
   </div>
 );
 

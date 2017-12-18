@@ -30,6 +30,7 @@ export default class Gallery extends Component {
 
   render() {
     const { images } = this.props;
+    if(images.length < 1){ return null;}
     return(
       <div>
         <section>

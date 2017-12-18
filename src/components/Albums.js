@@ -8,8 +8,6 @@ export default class Albums extends Component {
   constructor() {
     super();
     this.state = {
-      view: 'list',
-      images: [],
       albums: []
     };
   }
