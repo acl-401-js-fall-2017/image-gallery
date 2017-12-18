@@ -29,7 +29,7 @@ export default class Gallery extends Component {
   
 
   render() {
-    const { images } = this.props;
+    const { images, onDelete } = this.props;
     if(images.length < 1){ return null;}
     return(
       <div>
@@ -47,7 +47,7 @@ export default class Gallery extends Component {
         </section>
         <section>
           <img className="gallery" src={images[this.state.imageIndex].url} alt="panda" />
-        </section>
+        </section><button onClick={() => onDelete(images[this.state.imageIndex]._id)}>X</button>
       </div>
     );
   }

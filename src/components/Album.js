@@ -22,13 +22,20 @@ export default class Album extends Component {
       });
   }
 
+  deleteImage = id => {
+    imageApi.remove(id)
+      .then(image => {
+        this.setState(removeImage(this.state, image._id));
+      });
+  }
+
   renderView = () => {
     const View = { 
       list:  List,
       gallery:  Gallery,
       thumb:  Thumb      
     }[this.props.match.params.view || 'list'];
-    return <View images={this.state.images}/>;
+    return <View onDelete={this.deleteImage} images={this.state.images}/>;
   }
 
 
