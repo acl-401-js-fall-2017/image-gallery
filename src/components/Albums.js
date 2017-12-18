@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import albumApi from '../services/album-api';
-import { loadAlbums } from '../data/albumActions';
+import { loadAlbums, removeAlbum } from '../data/albumActions';
+import { Link } from 'react-router-dom';
+
 
 export default class Albums extends Component {
   constructor() {
@@ -19,6 +21,12 @@ export default class Albums extends Component {
       });
   }
 
+  deleteAlbum = id => {
+    albumApi.remove(id)
+      .then(albums => {
+        this.setState(removeAlbum(this.state, id));
+      });
+  }
 
   render() {
     const { albums } = this.state;
@@ -28,8 +36,8 @@ export default class Albums extends Component {
           {albums.map((album) => {
             return (
               <li key={album._id}> 
-                < a href={album.url} >
-                  { album.name } </a>
+                <Link to={`/albums/${album._id}`}>{ album.name }</Link>
+                <button onClick={()  => this.deleteAlbum(album._id)} >X</button>
               </li>);
           })}
         </ul>   
