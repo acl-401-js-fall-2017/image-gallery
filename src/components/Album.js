@@ -29,6 +29,18 @@ export default class Album extends Component {
       });
   }
 
+  plusImage = event => {
+    event.preventDefault();
+    imageApi.add({
+      title: event.target.title.value,
+      url: event.target.url.value,
+      album: this.props.match.params.id
+    })
+      .then(image => {
+        this.setState(addImage(this.state, image));
+      });
+  }
+
   renderView = () => {
     const View = { 
       list:  List,
@@ -51,6 +63,11 @@ export default class Album extends Component {
           </li>
         </ul>
         {this.renderView()}
+        <form onSubmit={this.plusImage}>
+          <input type="text" required name="title" placeholder="image title" />
+          <input type="url" required name="url" placeholder="image url"/>
+          <button type="submit">submit</button>
+        </form>  
       </section>
     );
   }

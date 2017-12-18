@@ -6,7 +6,7 @@ createImage(
   createImage(
     'Hello panda',
     'Panda waving at his fans',
-    'https://pbs.twimg.com/media/Cxjpjf6WQAEQoFZ.jpg'
+    'addImage'
   ),
   createImage(
     'Red Panda',
